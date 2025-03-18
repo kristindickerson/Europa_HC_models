@@ -1,0 +1,122 @@
+*----------5km_deep.lgi----------------------
+*
+* Lagrit input file for idealized three-dimensional
+* seamount grid with two sloped edifices.
+* Grid is composed of four separate building blocks,
+* which are copied, rotated, and combined to make
+* this final grid.
+*
+* Edited to add 1200 m aquifer - another 600 m depth
+*-------------------------------------------
+*
+* -----
+* INPUT
+* -----
+read / avs / tmp.inp / full_mesh
+
+* -----------
+* DEFINITIONS
+* -----------
+define / XL / 100000
+define / YL / 10000
+define / ZL / 50000
+
+define / XL_back / -50000
+define / YL_back / -50000
+
+define / XL_front / 50000
+define / YL_front / 50000
+
+define / NX / 101
+define / NY / 101
+define / NZ / 1
+
+# seafloor
+define / ZSURF0 / 25000
+
+# sediment base
+define / ZSURF1 / 20000
+
+# aquifer base
+define / ZSURF2 / 10000
+
+# basement base
+define / ZSURF3 / -25000
+*
+* --------
+* SURFACES
+* --------
+*
+# Create a surface mesh for each layer
+#
+cmo / create / mo_surf0 / / / triplane
+createpts / xyz / NX NY NZ / XL_back YL_back ZSURF0 / XL_front YL_front ZSURF0 / 1 1 1
+cmo / setatt / -def- / imt / 1 0 0 / 1
+connect
+dump / avs / tmp_surf0.inp / mo_surf0
+
+cmo / create / mo_surf1 / / / triplane
+createpts / xyz / NX NY NZ / XL_back YL_back ZSURF1 / XL_front YL_front ZSURF1 / 1 1 1
+cmo / setatt / -def- / imt / 1 0 0 / 1
+connect
+
+cmo / select / mo_surf1
+# Add some random noise to the vertical coordinate on this surface
+perturb / 1 0 0 / 0.0 0.0 100.0
+
+dump / avs / tmp_surf1.inp / mo_surf1
+
+cmo / create / mo_surf2 / / / triplane
+createpts / xyz / NX NY NZ / XL_back YL_back ZSURF2 / XL_front YL_front ZSURF2 / 1 1 1
+cmo / setatt / -def- / imt / 1 0 0 / 1
+connect
+
+cmo / select / mo_surf2
+# Add some random noise to the vertical coordinate on this surface
+perturb / 1 0 0 / 0.0 0.0 100.0
+
+dump / avs / tmp_surf2.inp / mo_surf2
+
+cmo / status / brief
+
+cmo / create / mo_surf3 / / / triplane3 / 1 1 1
+createpts / xyz / NX NY NZ / XL_back YL_back ZSURF3 / XL_front YL_front ZSURF3 / 1 1 1
+cmo / setatt / -def- / imt / 1 0 0 / 1
+connect
+dump / avs / tmp_surf3.inp / mo_surf3
+#
+
+cmo / status / brief
+
+surface/s0/reflect/sheet/ mo_surf0
+surface/s1/reflect/sheet/ mo_surf1
+surface/s2/reflect/sheet/ mo_surf2
+surface/s3/reflect/sheet/ mo_surf3
+
+* -------
+* REGIONS
+* -------
+*
+cmo / select / full_mesh
+region / r1_sed / le s0 and gt s1
+region / r2_aq / le s1 and gt s2
+region / r3_base / le s2 and gt s3
+
+pset / p1 / region r1_sed / 1 0 0
+pset / p2 / region r2_aq / 1 0 0
+pset / p3 / region r3_base / 1 0 0
+
+* ---------
+* M REGIONS
+* ---------
+* ----------
+* DUMP FEHM
+*-----------
+
+cmo / setatt / full_mesh / imt / pset get p1 / 1
+cmo / setatt / full_mesh / imt / pset get p2 / 2
+cmo / setatt / full_mesh / imt / pset get p3 / 3
+
+dump / avs / tmp_mesh.inp / full_mesh
+
+dump / fehm / mesh / full_mesh

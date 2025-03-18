@@ -1,0 +1,205 @@
+[2025-03-05 16:31:19] INFO: Starting DFNGen
+[2025-03-05 16:31:19] INFO: DFN Generator Input File: dfnGen_output/middle_layer_dfnGen_input_clean.dat
+
+[2025-03-05 16:31:19] INFO: 
+FRAM IS DISABLED
+[2025-03-05 16:31:19] INFO: Expecting Theta and phi for orientations
+[2025-03-05 16:31:19] INFO: User Defined Rectangles File: /dfnWorks/work/100_100_50_3fr_sm5/middle_layer/dfnGen_output/user_defined_rect.dat
+[2025-03-05 16:31:19] INFO: h: 10.000000
+[2025-03-05 16:31:19] INFO: Shape Families:
+[2025-03-05 16:31:19] INFO: Ellipse Family 1:
+[2025-03-05 16:31:19] INFO: Number of Vertices: 8
+[2025-03-05 16:31:19] INFO: Aspect Ratio: 1.000000
+[2025-03-05 16:31:19] INFO: P32 (Fracture Intensity) Target: 0.000010
+[2025-03-05 16:31:19] INFO: Beta Distribution (Rotation Around Normal Vector): [0, 2PI)
+[2025-03-05 16:31:19] INFO: Theta: 0.000000 rad, 0.000000 deg
+[2025-03-05 16:31:19] INFO: Phi: 0.000000 rad, 0.000000 deg 
+[2025-03-05 16:31:19] INFO: Kappa: 0.100000
+[2025-03-05 16:31:19] INFO: Layer: Entire domain
+[2025-03-05 16:31:19] INFO: Region: Entire domain
+[2025-03-05 16:31:19] INFO: Distribution: Truncated Power-Law
+[2025-03-05 16:31:19] INFO: Alpha: 1.200000
+[2025-03-05 16:31:19] INFO: Minimum Radius: 100.000000m
+[2025-03-05 16:31:19] INFO: Maximum Radius: 1000.000000m
+[2025-03-05 16:31:19] INFO: Family Insertion Probability: 1.000000
+[2025-03-05 16:31:19] INFO: 2 User Rectangles Defined
+[2025-03-05 16:31:19] INFO: User Defined Rectangular Fracture 1 Accepted
+[2025-03-05 16:31:19] INFO: User Defined Rectangular Fracture 2 Accepted
+[2025-03-05 16:31:19] INFO: Accepted 200 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000001
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 400 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000002
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 600 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000003
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 800 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000004
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 1000 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000005
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 1200 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000006
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 1400 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000007
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 1600 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000007
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 1800 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000009
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: Accepted 2000 fractures
+[2025-03-05 16:31:19] INFO: Rejected 0 fractures
+[2025-03-05 16:31:19] INFO: Re-translated 0 fractures
+
+[2025-03-05 16:31:19] INFO: Current p32 values per family:
+[2025-03-05 16:31:19] INFO: Ellipse family 1 target P32 = 0.000010, Current P32 = 0.000009
+[2025-03-05 16:31:19] INFO: 
+[2025-03-05 16:31:19] INFO: P32 For Family 1 Completed
+
+[2025-03-05 16:31:19] INFO: ========================================================
+[2025-03-05 16:31:19] INFO:             Network Generation Complete
+[2025-03-05 16:31:19] INFO: ========================================================
+[2025-03-05 16:31:19] INFO: Version of DFNGen: 2.2
+[2025-03-05 16:31:19] INFO: Time Stamp: Wed Mar  5 16:31:19 2025
+
+[2025-03-05 16:31:19] INFO: Final p32 values per family:
+[2025-03-05 16:31:19] INFO: Family 1 target P32 = 0.000010, Final P32 = 0.000010
+[2025-03-05 16:31:19] INFO: ________________________________________________________
+
+[2025-03-05 16:31:19] INFO: Statistics Before Isolated Fractures Removed:
+
+[2025-03-05 16:31:19] INFO: Fractures: 2148
+[2025-03-05 16:31:19] INFO: Truncated: 90
+
+[2025-03-05 16:31:19] INFO: Total Surface Area:     41000037902.808594 m^2
+[2025-03-05 16:31:19] INFO: Total Fracture Density   (P30): 0.000000
+[2025-03-05 16:31:19] INFO: Total Fracture Intensity (P32): 0.000410
+[2025-03-05 16:31:19] INFO: Family: 1
+[2025-03-05 16:31:19] INFO:     Accepted: 2146
+[2025-03-05 16:31:19] INFO:     Rejected: 0
+[2025-03-05 16:31:19] INFO:     Layer: Whole Domain 
+[2025-03-05 16:31:19] INFO:     Region: Whole Domain 
+[2025-03-05 16:31:19] INFO:     Surface Area: 1000037902.808594 m^2
+[2025-03-05 16:31:19] INFO:     Fracture Intensity (P32): 0.000010
+
+[2025-03-05 16:31:19] INFO: User Defined: 
+[2025-03-05 16:31:19] INFO:     Surface Area: 40000000000.000000 m^2
+[2025-03-05 16:31:19] INFO:     Fracture Intensity (P32): 0.000400
+
+[2025-03-05 16:31:19] INFO: In cluster groups
+[2025-03-05 16:31:19] INFO: Number of fractures: 2148
+[2025-03-05 16:31:19] INFO: Number of groups: 2075
+[2025-03-05 16:31:19] INFO: Number of fractures: 2148[2025-03-05 16:31:19] INFO: ________________________________________________________
+
+[2025-03-05 16:31:19] INFO: Statistics After Isolated Fractures Removed:
+[2025-03-05 16:31:19] INFO: Final Number of Fractures: 2148
+[2025-03-05 16:31:19] INFO: Isolated Fractures Removed: 0
+[2025-03-05 16:31:19] INFO: Fractures before isolated fractures removed:: 2148
+
+[2025-03-05 16:31:19] INFO: Total Surface Area:     41000037902.808594 m^2
+[2025-03-05 16:31:19] INFO: Total Fracture Density   (P30): 0.000000
+[2025-03-05 16:31:19] INFO: Total Fracture Intensity (P32): 0.000410
+[2025-03-05 16:31:19] INFO: Family: 1
+[2025-03-05 16:31:19] INFO:     Fractures After Isolated Fracture Removal: 2146
+[2025-03-05 16:31:19] INFO:     Isolated Fractures Removed: 0
+[2025-03-05 16:31:19] INFO:     Accepted: 2146
+[2025-03-05 16:31:19] INFO:     Rejected: 0
+[2025-03-05 16:31:19] INFO:     Layer: Whole Domain 
+[2025-03-05 16:31:19] INFO:     Region: Whole Domain 
+[2025-03-05 16:31:19] INFO:     Surface Area: 1000037902.808594 m^2
+[2025-03-05 16:31:19] INFO:     Fracture Intensity (P32): 0.000010
+
+[2025-03-05 16:31:19] INFO: User Defined Shapes: 
+[2025-03-05 16:31:19] INFO:     Surface Area: 40000000000.000000 m^2
+[2025-03-05 16:31:19] INFO:     Fracture Intensity (P32): 0.000400
+
+[2025-03-05 16:31:19] INFO: ________________________________________________________
+
+[2025-03-05 16:31:19] INFO: 2148 Fractures Accepted (Before Isolated Fracture Removal)
+[2025-03-05 16:31:19] INFO: 2148 Final Fractures (After Isolated Fracture Removal)
+
+[2025-03-05 16:31:19] INFO: Total Fractures Rejected: 0
+[2025-03-05 16:31:19] INFO: Total Fractures Re-translated: 0
+[2025-03-05 16:31:19] INFO: Number of Triple Intersection Points (Before Isolated Fracture Removal): 0
+[2025-03-05 16:31:19] INFO: Intersection Statistics:
+[2025-03-05 16:31:19] INFO:     Number of Intersections: 73 
+[2025-03-05 16:31:19] INFO:     Intersections Shortened: 0 
+[2025-03-05 16:31:19] INFO:     Original Intersection (Before Intersection Shrinking) Length: 41760.652092 m
+[2025-03-05 16:31:19] INFO:     Intersection Length Discarded: 0.000000 m
+[2025-03-05 16:31:19] INFO:     Final Intersection Length: 41760.652092 m
+[2025-03-05 16:31:19] INFO: Rejection Statistics: 
+[2025-03-05 16:31:19] INFO:     0 Short Intersections 
+[2025-03-05 16:31:19] INFO:     0 Close to Node
+[2025-03-05 16:31:19] INFO:     0 Close to Edge
+[2025-03-05 16:31:19] INFO:     0 Vertex Close to Edge
+[2025-03-05 16:31:19] INFO:     0 Outside of Domain
+[2025-03-05 16:31:19] INFO:     0 Triple intersection Rejections
+[2025-03-05 16:31:19] INFO:     0 Intersections Close to Other Intersections
+
+[2025-03-05 16:31:19] INFO: ________________________________________________________
+[2025-03-05 16:31:19] INFO: Fracture Estimation statistics:
+[2025-03-05 16:31:19] INFO: NOTE: If estimation and actual are very different, expected family distributions might not be accurate. If this is the case, try increasing or decreasing the 'radiiListIncrease' option in the input file.
+[2025-03-05 16:31:19] INFO: Ellipse Family 1
+[2025-03-05 16:31:19] INFO: Actual:    21460
+[2025-03-05 16:31:19] INFO: ________________________________________________________
+
+[2025-03-05 16:31:19] INFO: Seed: 1
+[2025-03-05 16:31:19] INFO: /dfnWorks/work/100_100_50_3fr_sm5/middle_layer/dfnGen_output
+[2025-03-05 16:31:19] INFO: Writing Graph Data Files
+[2025-03-05 16:31:19] INFO: Writing Polygon Files
+[2025-03-05 16:31:20] INFO: Writing Polygon Files Complete
+[2025-03-05 16:31:20] INFO: Writing Intersection Files
+[2025-03-05 16:32:10] INFO: Writing poly inp files
+[2025-03-05 16:33:02] INFO: Writing /dfnWorks/work/100_100_50_3fr_sm5/middle_layer/dfnGen_output/../params.txt
+[2025-03-05 16:33:02] INFO: Writing Radii File (radii.dat)
+[2025-03-05 16:33:02] INFO: Writing Rejection Statistics File (rejections.dat)
+[2025-03-05 16:33:02] INFO: Writing Family Definitions File (families.dat)
+[2025-03-05 16:33:02] INFO: Writing Fracture Translations File (translations.dat)
+[2025-03-05 16:33:02] INFO: Writing Connectivity Data (connectivity.dat)
+[2025-03-05 16:33:02] INFO: Writing Rotation Data File (poly_info.dat)
+[2025-03-05 16:33:03] INFO: Writing Normal Vectors into File (normal_vectors.dat)
+[2025-03-05 16:33:03] INFO: Writing Rotation Data File (rejectsPerAttempt.dat)
+[2025-03-05 16:33:03] INFO: Writing Boundary Files
+[2025-03-05 16:33:03] INFO: Lagrit Should Remove 146 Nodes (292/2 - 0)
+[2025-03-05 16:33:03] INFO: DFNGen - Complete

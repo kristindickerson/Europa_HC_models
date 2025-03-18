@@ -1,0 +1,75 @@
+read/avs/mohex2.inp/mohex2                                                      
+cmo/DELATT/mohex2/if_int                                                        
+read/avs/MOTET_np1.inp/MOTET_np1                                                
+read/avs/MOTET.inp/MOTET                                                        
+read/avs/reduced_mesh.inp/MODFN                                                 
+cmo/create/FRACTURE505                                                          
+cmo/copy/FRACTURE505/MODFN                                                      
+cmo/select/FRACTURE505                                                          
+pset/pdel/attribute imt/1 0 0/ne/505                                            
+rmpoint pset,get,pdel                                                           
+rmpoint compress                                                                
+resetpts itp                                                                    
+pset/pdel/delete                                                                
+eltset/edel/itetclr/ne/505                                                      
+rmpoint element eltset,get,edel                                                 
+rmpoint compress                                                                
+resetpts itp                                                                    
+eltset/edel/delete                                                              
+intersect_elements/mohex2/FRACTURE505/if_int                                    
+eltset/erefine/if_int/ne/0                                                      
+pset/pinter/eltset erefine                                                      
+cmo/create/temp505                                                              
+cmo/copy/temp505/mohex2                                                         
+cmo/select/temp505                                                              
+pset/pdel/if_int/1 0 0/eq/0                                                     
+rmpoint,pset,get,pdel                                                           
+rmpoint compress                                                                
+resetpts itp                                                                    
+pset/pdel/delete                                                                
+eltset/edel/if_int/eq/0                                                         
+rmpoint element eltset,get,edel                                                 
+rmpoint compress                                                                
+resetpts itp                                                                    
+eltset/edel/delete                                                              
+cmo/setatt/temp505/itetclr/1 0 0/505                                            
+cmo/setatt/temp505/imt/1 0 0/505                                                
+cmo/create/TETCOPY                                                              
+cmo/copy/TETCOPY/MOTET                                                          
+cmo/select/TETCOPY                                                              
+interpolate/map/TETCOPY/itetclr/1 0 0/temp505/itetclr                           
+compute/distance_field/TETCOPY/temp505/dfield                                   
+cmo/select/TETCOPY                                                              
+pset/pfrac/attribute/dfield/1 0 0/le/1.e-8                                      
+cmo/setatt/TETCOPY/imt/1 0 0/2149                                               
+cmo/setatt/TETCOPY/imt/pset get pfrac/505                                       
+cmo/set_id/MOTET_np1/element/id_cell                                            
+cmo/set_id/MOTET_np1/node/id_vertex                                             
+extract/plane/ptnorm/26433.9472 -9712.989014 3650.208471/-0.367129565884071 0.68
+3913302423569 0.630458941265695/1 0 0/moext/MOTET_np1                           
+cmo/status/brief                                                                
+createpts/median                                                                
+cmo/DELATT/moext/id_cell                                                        
+cmo/DELATT/moext/id_parent                                                      
+dump/avs2/ex_xyz505.table/moext 0 0 0 1                                         
+cmo/addatt/moext/volume/area_tri                                                
+cmo/DELATT/moext/xmed                                                           
+cmo/DELATT/moext/ymed                                                           
+cmo/DELATT/moext/zmed                                                           
+dump/avs2/ex_area505.table/moext 0 0 0 1                                        
+cmo/delete/moext                                                                
+cmo/select/TETCOPY                                                              
+cmo/DELATT/TETCOPY/icr1                                                         
+cmo/DELATT/TETCOPY/itp1                                                         
+cmo/DELATT/TETCOPY/isn1                                                         
+dump/avs2/frac505.inp/TETCOPY                                                   
+cmo/delete/temp505                                                              
+cmo/delete/TETCOPY                                                              
+cmo/select/mohex2                                                               
+cmo/setatt/mohex2/itetclr/eltset get erefine/505                                
+cmo/setatt/mohex2/imt/pset get pinter/505                                       
+eltset/erefine/delete                                                           
+pset/pinter/delete                                                              
+cmo/DELATT/mohex2/if_int                                                        
+cmo/delete/FRACTURE505                                                          
+finish                                                                          

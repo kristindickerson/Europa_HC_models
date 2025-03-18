@@ -1,0 +1,93 @@
+[2025-03-01 18:57:34] INFO: Starting DFNGen
+[2025-03-01 18:57:34] INFO: DFN Generator Input File: dfnGen_output/middle_layer_dfnGen_input_clean.dat
+
+[2025-03-01 18:57:34] INFO: 
+FRAM IS DISABLED
+[2025-03-01 18:57:34] INFO: Expecting Theta and phi for orientations
+[2025-03-01 18:57:34] INFO: User Defined Rectangles File: /dfnWorks/work/100_100_50_0fr_smNONE/middle_layer/dfnGen_output/user_defined_rect.dat
+[2025-03-01 18:57:34] WARNING: Warning: You have defined stopCondition = 1 (P32 program stopping condition) but have no stochastic shape families defined. Automatically setting stopCondition to 0 for use with user defined polygons and nPoly.
+
+[2025-03-01 18:57:34] INFO: h: 100.000000
+[2025-03-01 18:57:34] INFO: 2 User Rectangles Defined
+[2025-03-01 18:57:34] INFO: User Defined Rectangular Fracture 1 Accepted
+[2025-03-01 18:57:34] INFO: User Defined Rectangular Fracture 2 Accepted
+[2025-03-01 18:57:35] INFO: ========================================================
+[2025-03-01 18:57:35] INFO:             Network Generation Complete
+[2025-03-01 18:57:35] INFO: ========================================================
+[2025-03-01 18:57:35] INFO: Version of DFNGen: 2.2
+[2025-03-01 18:57:35] INFO: Time Stamp: Sat Mar  1 18:57:35 2025
+
+[2025-03-01 18:57:35] INFO: ________________________________________________________
+
+[2025-03-01 18:57:35] INFO: Statistics Before Isolated Fractures Removed:
+
+[2025-03-01 18:57:35] INFO: Fractures: 2
+[2025-03-01 18:57:35] INFO: Truncated: 0
+
+[2025-03-01 18:57:35] INFO: Total Surface Area:     40000000000.000000 m^2
+[2025-03-01 18:57:35] INFO: Total Fracture Density   (P30): 0.000000
+[2025-03-01 18:57:35] INFO: Total Fracture Intensity (P32): 0.000400
+[2025-03-01 18:57:35] INFO: User Defined: 
+[2025-03-01 18:57:35] INFO:     Surface Area: 40000000000.000000 m^2
+[2025-03-01 18:57:35] INFO:     Fracture Intensity (P32): 0.000400
+
+[2025-03-01 18:57:35] INFO: In cluster groups
+[2025-03-01 18:57:35] INFO: Number of fractures: 2
+[2025-03-01 18:57:35] INFO: Number of groups: 2
+[2025-03-01 18:57:35] INFO: Number of fractures: 2[2025-03-01 18:57:35] INFO: ________________________________________________________
+
+[2025-03-01 18:57:35] INFO: Statistics After Isolated Fractures Removed:
+[2025-03-01 18:57:35] INFO: Final Number of Fractures: 2
+[2025-03-01 18:57:35] INFO: Isolated Fractures Removed: 0
+[2025-03-01 18:57:35] INFO: Fractures before isolated fractures removed:: 2
+
+[2025-03-01 18:57:35] INFO: Total Surface Area:     40000000000.000000 m^2
+[2025-03-01 18:57:35] INFO: Total Fracture Density   (P30): 0.000000
+[2025-03-01 18:57:35] INFO: Total Fracture Intensity (P32): 0.000400
+[2025-03-01 18:57:35] INFO: User Defined Shapes: 
+[2025-03-01 18:57:35] INFO:     Surface Area: 40000000000.000000 m^2
+[2025-03-01 18:57:35] INFO:     Fracture Intensity (P32): 0.000400
+
+[2025-03-01 18:57:35] INFO: ________________________________________________________
+
+[2025-03-01 18:57:35] INFO: 2 Fractures Accepted (Before Isolated Fracture Removal)
+[2025-03-01 18:57:35] INFO: 2 Final Fractures (After Isolated Fracture Removal)
+
+[2025-03-01 18:57:35] INFO: Total Fractures Rejected: 0
+[2025-03-01 18:57:35] INFO: Total Fractures Re-translated: 0
+[2025-03-01 18:57:35] INFO: Number of Triple Intersection Points (Before Isolated Fracture Removal): 0
+[2025-03-01 18:57:35] INFO: Intersection Statistics:
+[2025-03-01 18:57:35] INFO:     Number of Intersections: 0 
+[2025-03-01 18:57:35] INFO:     Intersections Shortened: 0 
+[2025-03-01 18:57:35] INFO:     Original Intersection (Before Intersection Shrinking) Length: 0.000000 m
+[2025-03-01 18:57:35] INFO:     Intersection Length Discarded: 0.000000 m
+[2025-03-01 18:57:35] INFO:     Final Intersection Length: 0.000000 m
+[2025-03-01 18:57:35] INFO: Rejection Statistics: 
+[2025-03-01 18:57:35] INFO:     0 Short Intersections 
+[2025-03-01 18:57:35] INFO:     0 Close to Node
+[2025-03-01 18:57:35] INFO:     0 Close to Edge
+[2025-03-01 18:57:35] INFO:     0 Vertex Close to Edge
+[2025-03-01 18:57:35] INFO:     0 Outside of Domain
+[2025-03-01 18:57:35] INFO:     0 Triple intersection Rejections
+[2025-03-01 18:57:35] INFO:     0 Intersections Close to Other Intersections
+
+[2025-03-01 18:57:35] INFO: ________________________________________________________
+[2025-03-01 18:57:35] INFO: Seed: 1
+[2025-03-01 18:57:35] INFO: /dfnWorks/work/100_100_50_0fr_smNONE/middle_layer/dfnGen_output
+[2025-03-01 18:57:35] INFO: Writing Graph Data Files
+[2025-03-01 18:57:35] INFO: Writing Polygon Files
+[2025-03-01 18:57:35] INFO: Writing Polygon Files Complete
+[2025-03-01 18:57:35] INFO: Writing Intersection Files
+[2025-03-01 18:57:36] INFO: Writing poly inp files
+[2025-03-01 18:57:37] INFO: Writing /dfnWorks/work/100_100_50_0fr_smNONE/middle_layer/dfnGen_output/../params.txt
+[2025-03-01 18:57:37] INFO: Writing Radii File (radii.dat)
+[2025-03-01 18:57:37] INFO: Writing Rejection Statistics File (rejections.dat)
+[2025-03-01 18:57:37] INFO: Writing Family Definitions File (families.dat)
+[2025-03-01 18:57:38] INFO: Writing Fracture Translations File (translations.dat)
+[2025-03-01 18:57:38] INFO: Writing Connectivity Data (connectivity.dat)
+[2025-03-01 18:57:38] INFO: Writing Rotation Data File (poly_info.dat)
+[2025-03-01 18:57:38] INFO: Writing Normal Vectors into File (normal_vectors.dat)
+[2025-03-01 18:57:38] INFO: Writing Rotation Data File (rejectsPerAttempt.dat)
+[2025-03-01 18:57:39] INFO: Writing Boundary Files
+[2025-03-01 18:57:40] INFO: Lagrit Should Remove 0 Nodes (0/2 - 0)
+[2025-03-01 18:57:40] INFO: DFNGen - Complete

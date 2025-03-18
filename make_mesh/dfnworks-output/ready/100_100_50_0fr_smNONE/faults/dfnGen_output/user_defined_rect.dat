@@ -1,0 +1,59 @@
+nUserRect: 3 
+ 
+nPolygons 
+1 
+1 
+1 
+
+Radii: 
+7500.0 
+7500.0 
+7500.0 
+
+Aspect_Ratio: 
+1 
+1 
+1 
+
+Beta: 
+0 
+0 
+0 
+
+AngleOption: 
+degree 
+degree 
+degree 
+
+Translation: 
+[0, -25000.0, 2500.0] 
+[0, 25000.0, 2500.0] 
+[0, 0, 2500.0] 
+
+userOrientationOption: 0 
+ 
+Normal: 
+[0, 1, 0] 
+[0, 1, 0] 
+[0, 1, 0] 
+
+aperture 
+[0.0001] 
+[0.0001] 
+[0.0001] 
+
+transmissivity 
+[None] 
+[None] 
+[None] 
+
+permeability 
+[None] 
+[None] 
+[None] 
+
+hy_prop_type 
+aperture 
+aperture 
+aperture 
+
