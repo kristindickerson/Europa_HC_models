@@ -1,0 +1,181 @@
+ 
+ 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+*               *                                             *                 
+*               *    Program:  LaGriT V3.3.4   Linux          *                 
+*               *    Compiler Name: GNU                       *                 
+*               *    Compiler Version: 13.3.0                 *                 
+*               *    Date Compile: 2025/02/05                 *                 
+*               *    Run Time: 2025/Mar  6  05:28:06          *                 
+*               *    Manual:   https://lagrit.lanl.gov        *                 
+*               *                                             *                 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+ 
+                               -----oOo-----                                    
+             LaGriT V3 LA-CC-15-069  https://github.com/lanl/LaGriT             
+  Copyright 2016. Triad National Security, LLC.  All rights reserved. This      
+  program was produced under U.S. Government contract 89233218CNA000001         
+  for Los Alamos National Laboratory (LANL), which is operated by Triad         
+  National Security, LLC for the U.S. Department of Energy/National Nuclear     
+  Security Administration.  All rights in the program are reserved by Triad     
+  National Security, LLC, and the U.S. Department of Energy/National Nuclear    
+  Security Administration. The Government is granted for itself and others      
+  acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license   
+  in this material to reproduce, prepare derivative works, distribute copies    
+  to the public, perform publicly and display publicly, and to permit others to 
+  do so. This software is open source and available under the BSD-3 License.    
+                               -----oOo-----                                    
+ 
+ 
+Output log file: lagrit_logs/driver444.out                                      
+Command log file: lagrit_logs/driver444.log                                     
+ 
+read/avs/ex_xyz444_2.inp/mo_vertex                                              
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mo_vertex                                      
+ 
+  1 Mesh Object name: mo_vertex                                                 
+    number of nodes =         93434        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/addatt/mo_vertex/area_tri/vdouble/scalar/nnodes                             
+cmo/readatt/mo_vertex/area_tri/1 0 0/ex_area444_2.table                         
+readatt: reading     1 values from each line.                                   
+readatt filling attribute:       1  area_tri                                    
+cmo/status/mo_vertex brief                                                      
+ 
+The current-mesh-object(CMO) is: mo_vertex                                      
+ 
+  1 Mesh Object name: mo_vertex                                                 
+    number of nodes =         93434        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+File values used:     1 out of     1 from each line.                            
+File values written to     1 out of     1 attributes.                           
+END readatt: reading     1 values from           93434 lines.                   
+read/avs/frac444.inp/frac                                                       
+cmo/addatt/frac/dfield/VDOUBLE/scalar/nnodes/linear/permanent/gxaf/0.0          
+finish                                                                          
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: frac                                           
+ 
+  1 Mesh Object name: mo_vertex                                                 
+    number of nodes =         93434        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: frac                                                      
+    number of nodes =        631820        number of elements =      3604045    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        22000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/addatt/frac/area_sum/vdouble/scalar/nnodes                                  
+upscale/sum/frac,area_sum/1 0 0/mo_vertex,area_tri                              
+cmo/addatt/mo_vertex/pt_gtg/VINT/scalar/nnodes//permanent/agfx/0                
+finish                                                                          
+cmo/addatt/mo_vertex/dups_gtg/VINT/scalar/nnodes//permanent/agfx/0              
+finish                                                                          
+ 
+UPSCALE METHOD:        sum                                                      
+       options:     delatt  multiple    set_id                                  
+      631820  Sink Nodes of area_sum in course mesh: frac                       
+       93434  Source Nodes of area_tri in fine mesh: mo_vertex                  
+ 
+  Source Nodes    Percent Done                                                  
+           1870        2 %                                                      
+           3739        4 %                                                      
+           5608        6 %                                                      
+           7477        8 %                                                      
+           9346       10 %                                                      
+          11215       12 %                                                      
+          13084       14 %                                                      
+          14953       16 %                                                      
+          16822       18 %                                                      
+          18691       20 %                                                      
+          20560       22 %                                                      
+          22429       24 %                                                      
+          24298       26 %                                                      
+          26167       28 %                                                      
+          28036       30 %                                                      
+          29905       32 %                                                      
+          31774       34 %                                                      
+          33643       36 %                                                      
+          35512       38 %                                                      
+          37381       40 %                                                      
+          39250       42 %                                                      
+          41119       44 %                                                      
+          42988       46 %                                                      
+          44857       48 %                                                      
+          46726       50 %                                                      
+          48595       52 %                                                      
+          50464       54 %                                                      
+          52333       56 %                                                      
+          54202       58 %                                                      
+          56071       60 %                                                      
+          57940       62 %                                                      
+          59809       64 %                                                      
+          61678       66 %                                                      
+          63547       68 %                                                      
+          65416       70 %                                                      
+          67285       72 %                                                      
+          69154       74 %                                                      
+          71023       76 %                                                      
+          72892       78 %                                                      
+          74761       80 %                                                      
+          76630       82 %                                                      
+          78499       84 %                                                      
+          80368       86 %                                                      
+          82237       88 %                                                      
+          84106       90 %                                                      
+          85975       92 %                                                      
+          87844       94 %                                                      
+          89713       96 %                                                      
+          91582       98 %                                                      
+          93434 Total source nodes searched.                                    
+           9873 sink nodes out of            631820 assigned values.            
+          93434 source nodes out of           93434 used as source values.      
+UPSCALE/sum/ from area_tri to area_sum Done.                                    
+ 
+cmo DELATT mo_vertex/pt_gtg                                                     
+finish                                                                          
+cmo DELATT mo_vertex/dups_gtg                                                   
+finish                                                                          
+cmo select frac                                                                 
+finish                                                                          
+cmo kdtree release                                                              
+finish                                                                          
+cmo/DELATT/frac/itp1                                                            
+cmo/DELATT/frac/icr1                                                            
+cmo/DELATT/frac/isn1                                                            
+cmo/DELATT/frac/dfield                                                          
+dump/avs/area_sum444.table/frac/0 0 2 0                                         
+WARNING: dump/avs  iopt_points=    0                                            
+WARNING: dump/avs  iopt_elements=    0                                          
+WARNING: dump/avs  iopt_values_node=    2                                       
+WARNING: dump/avs  iopt_values_elem=    0                                       
+WARNING: dump/avs  will produce non-standard AVS output that                    
+WARNING: read/avs may not be able to read.                                      
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+cmo/delete/mo_vertex                                                            
+     Released Mesh Object: mo_vertex                                            
+cmo/delete/frac                                                                 
+     Released Mesh Object: frac                                                 
+finish                                                                          
+LaGriT successfully completed                                                   

@@ -1,0 +1,13 @@
+root: box100x100x50_p15_cold_finer
+input: box100x100x50_p15_cold_finer.dat
+outpu: box100x100x50_p15_cold_finer.out
+grida: box100x100x50_p15_cold_finer.fehmn
+storo: box100x100x50_p15_cold_finer.stor
+rsto: box100x100x50_p15_cold_finer.fin
+error: fehmn.err
+check: box100x100x50_p15_cold_finer.chk
+zone: box100x100x50_p15_cold_finer.zone
+look: box100x100x50_p15_cold_finer.wpi
+hist: box100x100x50_p15_cold_finer.hist
+
+all

@@ -1,0 +1,13 @@
+root: 100_100_50_0fr_sm5
+input: 100_100_50_0fr_sm5.dat
+outpu: 100_100_50_0fr_sm5.out
+grida: 100_100_50_0fr_sm5.fehmn
+storo: 100_100_50_0fr_sm5.stor
+rsto: 100_100_50_0fr_sm5.fin
+error: fehmn.err
+check: 100_100_50_0fr_sm5.chk
+zone: 100_100_50_0fr_sm5.zone
+look: 100_100_50_0fr_sm5.wpi
+hist: 100_100_50_0fr_sm5.hist
+
+all

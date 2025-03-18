@@ -1,0 +1,2862 @@
+FEHM V3.4.0lbUbuntu16 24-03-17   02/25/2025    11:33:16
+
+Copyright  2015.   Los Alamos National Security, LLC.  This material was
+produced under U.S. Government contract DE-AC52-06NA25396 for Los Alamos
+National  Laboratory  (LANL),  which is operated by  Los Alamos National
+Security, LLC  for the U. S. Department of Energy.  The U. S. Government
+has rights to use, reproduce, and distribute this software.  Neither the
+U. S. Government nor Los Alamos National Security, LLC or persons acting
+on their behalf,  make any warranty,  express or implied, or assumes any
+liability for the accuracy, completeness, or usefulness of the software,
+any information pertaining to the software,  or  represents that its use
+would not infringe privately owned rights.
+
+The  software  being licensed  may  be Export Controlled.  It may not be
+distributed  or  used by individuals  or entities prohibited from having
+access to the software package, pursuant to United States export control
+laws and regulations. An export control review and determination must be
+completed before LANS will provide access to the identified Software.
+
+ n0 =        67626
+
+ "100x100x50 box, init coup cold, p15, three layers, no fractures, finer grid res
+
+
+
+ File purpose - Variable - Unit number - File name
+
+    control       - iocntl -  1 - fehmn.files                                                                                         
+    input         - inpt   - 11 - box100x100x50_p15_cold_finer.dat                                                                    
+    geometry      - incoor - 12 - box100x100x50_p15_cold_finer.fehmn                                                                  
+    zone          - inzone - 13 - box100x100x50_p15_cold_finer.zone                                                                   
+    output        - iout   - 14 - box100x100x50_p15_cold_finer.out                                                                    
+    initial state - iread  -  0 - not using                                                                                           
+    final state   - isave  - 16 - box100x100x50_p15_cold_finer.fin                                                                    
+    time history  - ishis  - 17 - box100x100x50_p15_cold_finer.hist                                                                   
+    time his.(tr) - istrc  -  0 - not using                                                                                           
+    contour plot  - iscon  -  0 - not using                                                                                           
+    con plot (dp) - iscon1 -  0 - not using                                                                                           
+    fe coef stor  - isstor - 21 - box100x100x50_p15_cold_finer.stor                                                                   
+    input check   - ischk  - 22 - box100x100x50_p15_cold_finer.chk                                                                    
+ Value provided to subroutine user: not using
+
+ **** input title : coor **** incoor =  12 ****
+ **** input title : elem **** incoor =  12 ****
+ **** input title : stop **** incoor =  12 ****
+ **** input title : zone **** inzone =  13 ****
+ **** input title : stop **** inzone =  13 ****
+ **** input title : cont **** inpt =  11 ****
+ **** contour format defined  : avs  ****
+ **** input title : sol  **** inpt =  11 ****
+ **** input title : node **** inpt =  11 ****
+ **** input title : eos  **** inpt =  11 ****
+ **** input title : pres **** inpt =  11 ****
+ **** input title : flow **** inpt =  11 ****
+ **** input title : perm **** inpt =  11 ****
+ **** input title : rock **** inpt =  11 ****
+ **** input title : cond **** inpt =  11 ****
+ **** input title : ppor **** inpt =  11 ****
+ **** input title : hflx **** inpt =  11 ****
+ **** input title : time **** inpt =  11 ****
+ **** input title : ctrl **** inpt =  11 ****
+ **** input title : stop **** inpt =  11 ****
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ Coefficients read from file box100x100x50_p15_cold_finer.stor
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ storage for geometric coefficients          8 in common(nr)          8
+ gmres method chosen 
+ >>>generating nop .....
+ >>>writing nop to file nop.temp .....
+
+ storage needed for ncon         530503 available     530503
+ storage needed for nop          915503 available     915503
+ storage needed for a matrix    1851504 available    1851504
+ storage needed for b matrix    3391504 available    6380468
+ storage for acceleration   3516552 available    3516552
+ storage available for b matrix resized to    3391504<<<<<<
+
+
+ time for reading input, forming coefficients   2.33    
+
+
+
+ **** analysis of input data on file box100x100x50_p15_cold_finer.chk ****
+
+*********************************************************************
+ Time Step         1
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.273785079E-06     0.100000000E-03    0.100000000E-03
+ Cpu Sec for Time Step =  0.3739     Current Total =    0.3773    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:          2 , Solver:          2
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.2837E-06 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+ EQ2 R=  0.8231E-08 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.125689E-11           0.187984E-13
+  64975     -0.445192E-12           0.659621E-15
+  62374     -0.446658E-12           0.106905E-13
+  59773      0.984010E-15           0.215715E-14
+  57172     -0.447024E-12           0.989340E-14
+  28561      0.301187E-14           0.659987E-14
+   2551     -0.168052E-11           0.430885E-13
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    80.00     0.566      1.00        2.000   0.000       0.00    
+  64975    80.00     0.547      1.00        2.000   0.000      0.210E-03
+  62374    80.00     0.528      1.00        2.000   0.000      0.210E-03
+  59773    80.00     0.510      1.00        2.000   0.000      0.210E-03
+  57172    80.00     0.491      1.00        2.000   0.000      0.210E-03
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.00     0.945E-01  1.00        2.000   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377521E+17 MJ
+
+ Water discharge this time step:   0.116370E+09 kg (0.134687E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.116370E+09 kg (0.134687E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.197668E+08 MJ (0.228783E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.197668E+08 MJ (0.228783E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.116370E+09
+ Net MJ energy discharge (total out-total in):   0.197668E+08
+ Conservation Errors:  -0.601689E-06 (mass),   0.483013E-04 (energy)
+
+ Enthalpy discharge this time step:  0.236347E+08 MJ (0.227958E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.434015E+08 MJ (0.228333E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.139255E+09 kg (0.134312E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.255625E+09 kg (0.134483E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.236347E+08 MJ (0.227958E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.434015E+08 MJ (0.228333E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.282390E+08 MJ (0.226973E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.716405E+08 MJ (0.227795E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.166549E+09 kg (0.133864E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.422173E+09 kg (0.134238E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.282390E+08 MJ (0.226973E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.716405E+08 MJ (0.227795E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.337113E+08 MJ (0.225797E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.105352E+09 MJ (0.227152E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.199059E+09 kg (0.133329E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.621232E+09 kg (0.133945E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.337113E+08 MJ (0.225797E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.105352E+09 MJ (0.227152E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.402026E+08 MJ (0.224396E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.145554E+09 MJ (0.226384E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.237725E+09 kg (0.132689E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.858957E+09 kg (0.133595E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.402026E+08 MJ (0.224396E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.145554E+09 MJ (0.226384E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.478846E+08 MJ (0.222728E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.193439E+09 MJ (0.225468E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.283630E+09 kg (0.131926E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.114259E+10 kg (0.133177E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.478846E+08 MJ (0.222728E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.193439E+09 MJ (0.225468E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.569502E+08 MJ (0.220747E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.250389E+09 MJ (0.224376E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.338010E+09 kg (0.131017E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.148060E+10 kg (0.132678E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.569502E+08 MJ (0.220747E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.250389E+09 MJ (0.224376E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.676127E+08 MJ (0.218397E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.318002E+09 MJ (0.223078E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.402262E+09 kg (0.129935E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.188286E+10 kg (0.132082E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.676127E+08 MJ (0.218397E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.318002E+09 MJ (0.223078E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.801020E+08 MJ (0.215615E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.398104E+09 MJ (0.221535E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.477939E+09 kg (0.128650E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.236080E+10 kg (0.131373E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.801020E+08 MJ (0.215615E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.398104E+09 MJ (0.221535E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.946594E+08 MJ (0.212334E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.492763E+09 MJ (0.219706E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.566732E+09 kg (0.127126E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.292753E+10 kg (0.130528E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.946594E+08 MJ (0.212334E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.492763E+09 MJ (0.219706E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+*********************************************************************
+ Time Step        11
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.880230487E-05     0.321504185E-02    0.619173642E-03
+ Cpu Sec for Time Step =  0.3657     Current Total =     4.105    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:         22 , Solver:         21
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.2964E-04 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+ EQ2 R=  0.5693E-06 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.692876E-11           0.218178E-12
+  64975     -0.154670E-12          -0.724399E-14
+  62374     -0.443347E-15          -0.956747E-15
+  59773      0.442808E-12          -0.191030E-13
+  57172     -0.507631E-14          -0.110642E-13
+  28561      0.448916E-12          -0.575987E-14
+   2551     -0.721203E-11           0.291279E-12
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    80.00     0.566      1.00        2.000   0.000       0.00    
+  64975    80.00     0.547      1.00        2.000   0.000      0.657E-02
+  62374    80.00     0.528      1.00        2.000   0.000      0.657E-02
+  59773    80.00     0.510      1.00        2.000   0.000      0.657E-02
+  57172    80.00     0.491      1.00        2.000   0.000      0.657E-02
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.00     0.945E-01  1.00        2.000   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377521E+17 MJ
+
+ Water discharge this time step:   0.670433E+09 kg (0.125323E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.359796E+10 kg (0.129526E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.111527E+09 MJ (0.208474E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.604290E+09 MJ (0.217543E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.359796E+10
+ Net MJ energy discharge (total out-total in):   0.604290E+09
+ Conservation Errors:   0.155458E-04 (mass),   0.264653E-04 (energy)
+
+ Enthalpy discharge this time step:  0.130957E+09 MJ (0.203996E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.735247E+09 MJ (0.215000E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.791002E+09 kg (0.123217E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.438897E+10 kg (0.128342E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.130957E+09 MJ (0.203996E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.735247E+09 MJ (0.215000E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.153132E+09 MJ (0.198783E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.888380E+09 MJ (0.212018E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.930162E+09 kg (0.120745E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.531913E+10 kg (0.126945E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.153132E+09 MJ (0.198783E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.888380E+09 MJ (0.212018E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.178168E+09 MJ (0.192734E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.106655E+10 MJ (0.208533E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.108944E+10 kg (0.117851E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.640856E+10 kg (0.125301E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.178168E+09 MJ (0.192734E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.106655E+10 MJ (0.208533E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.206082E+09 MJ (0.185775E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.127263E+10 MJ (0.204477E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.126996E+10 kg (0.114483E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.767853E+10 kg (0.123373E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.206082E+09 MJ (0.185775E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.127263E+10 MJ (0.204477E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.236803E+09 MJ (0.177891E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.150943E+10 MJ (0.199792E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.147250E+10 kg (0.110617E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.915103E+10 kg (0.121125E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.236803E+09 MJ (0.177891E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.150943E+10 MJ (0.199792E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.269881E+09 MJ (0.168950E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.177931E+10 MJ (0.194409E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.169589E+10 kg (0.106165E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.108469E+11 kg (0.118514E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.269881E+09 MJ (0.168950E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.177931E+10 MJ (0.194409E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.304624E+09 MJ (0.158917E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.208394E+10 MJ (0.188263E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.193758E+10 kg (0.101080E+08 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.127845E+11 kg (0.115495E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.304624E+09 MJ (0.158917E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.208394E+10 MJ (0.188263E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.340195E+09 MJ (0.147894E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.242413E+10 MJ (0.181318E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.219391E+10 kg (0.953768E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.149784E+11 kg (0.112034E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.340195E+09 MJ (0.147894E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.242413E+10 MJ (0.181318E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.375040E+09 MJ (0.135869E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.279917E+10 MJ (0.173540E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.245683E+10 kg (0.890056E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.174352E+11 kg (0.108093E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.375040E+09 MJ (0.135869E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.279917E+10 MJ (0.173540E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+*********************************************************************
+ Time Step        21
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.616086515E-04     0.225025600E-01    0.383375999E-02
+ Cpu Sec for Time Step =  0.3696     Current Total =     7.894    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:         42 , Solver:         41
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.3382E-05 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+ EQ2 R=  0.7954E-07 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.483062E-10           0.146505E-11
+  64975      0.208007E-12          -0.824809E-14
+  62374     -0.906484E-14          -0.125266E-13
+  59773     -0.677913E-14          -0.726050E-14
+  57172      0.895114E-12          -0.544394E-14
+  28561     -0.634068E-14          -0.140075E-13
+   2551     -0.477930E-10           0.178549E-11
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    80.00     0.566      1.00        2.000   0.000       0.00    
+  64975    80.00     0.547      1.00        2.000   0.000      0.387E-01
+  62374    80.00     0.528      1.00        2.000   0.000      0.387E-01
+  59773    80.00     0.510      1.00        2.000   0.000      0.387E-01
+  57172    80.00     0.491      1.00        2.000   0.000      0.387E-01
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.00     0.945E-01  1.00        2.000   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377521E+17 MJ
+
+ Water discharge this time step:   0.271608E+10 kg (0.819983E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.201513E+11 kg (0.103647E+08 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.407404E+09 MJ (0.122995E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.320658E+10 MJ (0.164929E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.201513E+11
+ Net MJ energy discharge (total out-total in):   0.320658E+10
+ Conservation Errors:   0.497470E-05 (mass),  -0.549795E-05 (energy)
+
+ Enthalpy discharge this time step:  0.435532E+09 MJ (0.109572E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.364211E+10 MJ (0.155532E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.295996E+10 kg (0.744675E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.231113E+11 kg (0.986942E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.435532E+09 MJ (0.109572E+07 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.364211E+10 MJ (0.155532E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.456289E+09 MJ (0.956619E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.409840E+10 MJ (0.145401E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.316697E+10 kg (0.663961E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.262783E+11 kg (0.932287E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.456289E+09 MJ (0.956619E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.409840E+10 MJ (0.145401E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.468242E+09 MJ (0.818065E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.456664E+10 MJ (0.134667E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.332292E+10 kg (0.580547E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.296012E+11 kg (0.872917E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.468242E+09 MJ (0.818065E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.456664E+10 MJ (0.134667E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.468449E+09 MJ (0.682023E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.503509E+10 MJ (0.123472E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.340228E+10 kg (0.495343E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.330035E+11 kg (0.809321E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.468449E+09 MJ (0.682023E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.503509E+10 MJ (0.123472E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.455657E+09 MJ (0.552832E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.549074E+10 MJ (0.112007E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.338753E+10 kg (0.410997E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.363910E+11 kg (0.742349E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.455657E+09 MJ (0.552832E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.549074E+10 MJ (0.112007E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.430279E+09 MJ (0.435035E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.592102E+10 MJ (0.100506E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.327146E+10 kg (0.330762E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.396624E+11 kg (0.673248E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.430279E+09 MJ (0.435035E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.592102E+10 MJ (0.100506E+07 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.391864E+09 MJ (0.330163E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.631289E+10 MJ (0.891892E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.304176E+10 kg (0.256282E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.427042E+11 kg (0.603330E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.391864E+09 MJ (0.330163E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.631289E+10 MJ (0.891892E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.343471E+09 MJ (0.241158E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.665636E+10 MJ (0.782885E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.271325E+10 kg (0.190503E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.454175E+11 kg (0.534176E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.343471E+09 MJ (0.241158E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.665636E+10 MJ (0.782885E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.287828E+09 MJ (0.168408E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.694419E+10 MJ (0.680039E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.230305E+10 kg (0.134751E+07 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.477205E+11 kg (0.467323E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.287828E+09 MJ (0.168408E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.694419E+10 MJ (0.680039E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+*********************************************************************
+ Time Step        31
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.388571631E-03     0.141925788        0.237376314E-01
+ Cpu Sec for Time Step =  0.3684     Current Total =     11.62    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:         62 , Solver:         60
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.2921E-05 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+ EQ2 R=  0.1663E-06 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.300173E-09           0.900684E-11
+  64975      0.823110E-12          -0.120299E-13
+  62374     -0.298646E-12          -0.849078E-14
+  59773      0.584373E-12          -0.850052E-14
+  57172      0.771037E-12          -0.100351E-13
+  28561      0.130737E-11          -0.104163E-12
+   2551     -0.295640E-09           0.110539E-10
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    80.00     0.566      1.00        2.000   0.000       0.00    
+  64975    80.00     0.547      1.00        2.000   0.000      0.109    
+  62374    80.00     0.528      1.00        2.000   0.000      0.109    
+  59773    80.00     0.510      1.00        2.000   0.000      0.109    
+  57172    80.00     0.491      1.00        2.000   0.000      0.109    
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.00     0.945E-01  1.00        2.000   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377521E+17 MJ
+
+ Water discharge this time step:   0.184867E+10 kg (0.901380E+06 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.495692E+11 kg (0.404238E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.229719E+09 MJ (0.112007E+06 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.717391E+10 MJ (0.585033E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.495692E+11
+ Net MJ energy discharge (total out-total in):   0.717391E+10
+ Conservation Errors:   0.278914E-06 (mass),   0.779678E-05 (energy)
+
+ Enthalpy discharge this time step:  0.174393E+09 MJ (0.708594E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.734830E+10 MJ (0.499086E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.139585E+10 kg (0.567160E+06 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.509650E+11 kg (0.346147E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.174393E+09 MJ (0.708594E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.734830E+10 MJ (0.499086E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.126085E+09 MJ (0.426924E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.747439E+10 MJ (0.422835E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.984482E+09 kg (0.333345E+06 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.519495E+11 kg (0.293884E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.126085E+09 MJ (0.426924E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.747439E+10 MJ (0.422835E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.876139E+08 MJ (0.247217E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.756200E+10 MJ (0.356348E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.642658E+09 kg (0.181336E+06 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.525922E+11 kg (0.247832E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.876139E+08 MJ (0.247217E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.756200E+10 MJ (0.356348E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.603491E+08 MJ (0.141904E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.762235E+10 MJ (0.299225E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.384902E+09 kg (0.905054E+05 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.529771E+11 kg (0.207968E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.603491E+08 MJ (0.141904E+05 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.762235E+10 MJ (0.299225E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.440120E+08 MJ (0.862411E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.766636E+10 MJ (0.250723E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.210173E+09 kg (0.411831E+05 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.531872E+11 kg (0.173945E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.440120E+08 MJ (0.862411E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.766636E+10 MJ (0.250723E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.369331E+08 MJ (0.603083E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.770329E+10 MJ (0.209893E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.104377E+09 kg (0.170439E+05 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.532916E+11 kg (0.145204E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.369331E+08 MJ (0.603083E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.770329E+10 MJ (0.209893E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.368464E+08 MJ (0.501390E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.774014E+10 MJ (0.175713E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.476251E+08 kg (0.648062E+04 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.533392E+11 kg (0.121088E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.368464E+08 MJ (0.501390E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.774014E+10 MJ (0.175713E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.416439E+08 MJ (0.472226E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.778178E+10 MJ (0.147191E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.209825E+08 kg (0.237934E+04 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.533602E+11 kg (0.100930E+07 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.416439E+08 MJ (0.472226E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.778178E+10 MJ (0.147191E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.498189E+08 MJ (0.470773E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.783160E+10 MJ (0.123428E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.103361E+08 kg (0.976730E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.533706E+11 kg (0.841131E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.498189E+08 MJ (0.470773E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.783160E+10 MJ (0.123428E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+*********************************************************************
+ Time Step        41
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.241304022E-02     0.881362941        0.146977157    
+ Cpu Sec for Time Step =  0.3643     Current Total =     15.40    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:         82 , Solver:         80
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.2543E-08 node=   8833 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 6731.    
+ EQ2 R=  0.2509E-09 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.183962E-08           0.549550E-10
+  64975     -0.588631E-12           0.143419E-14
+  62374     -0.201154E-12           0.577820E-15
+  59773     -0.400348E-12          -0.277137E-14
+  57172      0.554272E-13           0.908057E-15
+  28561      0.693527E-11          -0.636671E-12
+   2551     -0.183536E-08           0.685991E-10
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    80.00     0.566      1.00        2.000   0.000       0.00    
+  64975    80.00     0.547      1.00        2.000   0.000      0.122    
+  62374    80.00     0.528      1.00        2.000   0.000      0.122    
+  59773    80.00     0.510      1.00        2.000   0.000      0.122    
+  57172    80.00     0.491      1.00        2.000   0.000      0.122    
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.00     0.945E-01  1.00        2.000   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377521E+17 MJ
+
+ Water discharge this time step:   0.707398E+07 kg (0.557058E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.533776E+11 kg (0.700956E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.605585E+08 MJ (0.476883E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.789216E+10 MJ (0.103640E+06 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.533776E+11
+ Net MJ energy discharge (total out-total in):   0.789216E+10
+ Conservation Errors:   0.120063E-05 (mass),   0.940240E-05 (energy)
+
+ Enthalpy discharge this time step:  0.736183E+08 MJ (0.483105E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.796578E+10 MJ (0.871641E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.682497E+07 kg (0.447874E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.533845E+11 kg (0.584149E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.736183E+08 MJ (0.483105E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.796578E+10 MJ (0.871641E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.891446E+08 MJ (0.487494E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.805492E+10 MJ (0.734438E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.774073E+07 kg (0.423308E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.533922E+11 kg (0.486823E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.891446E+08 MJ (0.487494E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.805492E+10 MJ (0.734438E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.107541E+09 MJ (0.490080E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.816247E+10 MJ (0.620162E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.918434E+07 kg (0.418543E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.534014E+11 kg (0.405729E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.107541E+09 MJ (0.490080E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.816247E+10 MJ (0.620162E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.129396E+09 MJ (0.491395E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.829186E+10 MJ (0.524966E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.110001E+08 kg (0.417740E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.534124E+11 kg (0.338159E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.129396E+09 MJ (0.491395E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.829186E+10 MJ (0.524966E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.155451E+09 MJ (0.491953E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.844731E+10 MJ (0.445653E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.131959E+08 kg (0.417610E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.534256E+11 kg (0.281856E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.155451E+09 MJ (0.491953E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.844731E+10 MJ (0.445653E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.186602E+09 MJ (0.492112E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.863391E+10 MJ (0.379567E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.158337E+08 kg (0.417573E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.534414E+11 kg (0.234941E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.186602E+09 MJ (0.492112E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.863391E+10 MJ (0.379567E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.223906E+09 MJ (0.492078E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.885782E+10 MJ (0.324498E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.189992E+08 kg (0.417544E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.534604E+11 kg (0.195847E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.223906E+09 MJ (0.492078E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.885782E+10 MJ (0.324498E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.268618E+09 MJ (0.491950E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.912644E+10 MJ (0.278608E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.227972E+08 kg (0.417511E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.534832E+11 kg (0.163271E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.268618E+09 MJ (0.491950E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.912644E+10 MJ (0.278608E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.322221E+09 MJ (0.491767E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.944866E+10 MJ (0.240365E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.273540E+08 kg (0.417471E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.535106E+11 kg (0.136126E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.322221E+09 MJ (0.491767E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.944866E+10 MJ (0.240365E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+*********************************************************************
+ Time Step        51
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.149480161E-01      5.45976289        0.910043815    
+ Cpu Sec for Time Step =  0.3711     Current Total =     19.19    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        102 , Solver:        100
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.1469E-07 node=   8833 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 6731.    
+ EQ2 R=  0.4308E-09 node=   2336 zone=     5 x=0.7941E+05 y=0.8922E+05 z= 961.5    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.108535E-07           0.311997E-09
+  64975      0.432021E-11           0.337140E-13
+  62374      0.623569E-12           0.556009E-15
+  59773     -0.347270E-13          -0.146641E-15
+  57172      0.155767E-12           0.504643E-15
+  28561      0.401767E-10          -0.395000E-11
+   2551     -0.114591E-07           0.430818E-09
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    79.97     0.566      1.00        2.000   0.000       0.00    
+  64975    80.00     0.547      1.00        2.000   0.000      0.121    
+  62374    80.00     0.528      1.00        2.000   0.000      0.122    
+  59773    80.00     0.510      1.00        2.000   0.000      0.122    
+  57172    80.00     0.491      1.00        2.000   0.000      0.122    
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.03     0.945E-01  1.00        2.000   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377521E+17 MJ
+
+ Water discharge this time step:   0.328211E+08 kg (0.417423E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.535434E+11 kg (0.113506E+06 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.386486E+09 MJ (0.491539E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.983515E+10 MJ (0.208494E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.535434E+11
+ Net MJ energy discharge (total out-total in):   0.983515E+10
+ Conservation Errors:   0.131432E-05 (mass),   0.183531E-04 (energy)
+
+ Enthalpy discharge this time step:  0.463523E+09 MJ (0.491263E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.102987E+11 MJ (0.181931E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.393799E+08 kg (0.417366E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.535828E+11 kg (0.946563E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.463523E+09 MJ (0.491263E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.102987E+11 MJ (0.181931E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.555853E+09 MJ (0.490932E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.108545E+11 MJ (0.159790E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.472481E+08 kg (0.417297E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.536300E+11 kg (0.789488E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.555853E+09 MJ (0.490932E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.108545E+11 MJ (0.159790E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.666484E+09 MJ (0.490535E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.115210E+11 MJ (0.141333E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.566865E+08 kg (0.417215E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.536867E+11 kg (0.658595E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.666484E+09 MJ (0.490535E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.115210E+11 MJ (0.141333E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.799004E+09 MJ (0.490058E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.123200E+11 MJ (0.125944E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.680077E+08 kg (0.417116E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.537547E+11 kg (0.549520E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.799004E+09 MJ (0.490058E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.123200E+11 MJ (0.125944E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.957687E+09 MJ (0.489487E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.132777E+11 MJ (0.113111E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.815861E+08 kg (0.416998E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.538363E+11 kg (0.458625E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.957687E+09 MJ (0.489487E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.132777E+11 MJ (0.113111E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.114762E+10 MJ (0.488803E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.144253E+11 MJ (0.102406E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.978701E+08 kg (0.416856E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.539342E+11 kg (0.382880E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.114762E+10 MJ (0.488803E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.144253E+11 MJ (0.102406E+05 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.137483E+10 MJ (0.487982E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.158001E+11 MJ (0.934708E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.117396E+09 kg (0.416687E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.540516E+11 kg (0.319759E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.137483E+10 MJ (0.487982E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.158001E+11 MJ (0.934708E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.164647E+10 MJ (0.486999E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.174466E+11 MJ (0.860088E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.140807E+09 kg (0.416484E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.541924E+11 kg (0.267159E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.164647E+10 MJ (0.486999E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.174466E+11 MJ (0.860088E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.197099E+10 MJ (0.485822E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.194176E+11 MJ (0.797710E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.168870E+09 kg (0.416241E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.543612E+11 kg (0.223326E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.197099E+10 MJ (0.485822E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.194176E+11 MJ (0.797710E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+*********************************************************************
+ Time Step        61
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.925612830E-01      33.8080086         5.63475144    
+ Cpu Sec for Time Step =  0.3670     Current Total =     22.97    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        122 , Solver:        120
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.7677E-07 node=   1719 zone=     5 x=0.6961E+05 y=0.6569E+05 z= 961.5    
+ EQ2 R=  0.2775E-08 node=      2 zone=     5 x= 2941.     y= 980.4     z= 961.5    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.491453E-07           0.985224E-09
+  64975      0.156232E-09           0.203780E-12
+  62374      0.715342E-12           0.627975E-15
+  59773      0.475494E-12           0.743077E-16
+  57172      0.124387E-12          -0.132103E-15
+  28561      0.249369E-09          -0.244125E-10
+   2551     -0.767658E-07           0.277511E-08
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    79.84     0.566      1.00        1.999   0.000       0.00    
+  64975    80.00     0.547      1.00        2.000   0.000      0.114    
+  62374    80.00     0.528      1.00        2.000   0.000      0.122    
+  59773    80.00     0.510      1.00        2.000   0.000      0.122    
+  57172    80.00     0.491      1.00        2.000   0.000      0.122    
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.16     0.947E-01  1.00        2.001   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377521E+17 MJ
+
+ Water discharge this time step:   0.202503E+09 kg (0.415951E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.545637E+11 kg (0.186797E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.235833E+10 MJ (0.484413E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.217759E+11 MJ (0.745493E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.545637E+11
+ Net MJ energy discharge (total out-total in):   0.217759E+11
+ Conservation Errors:   0.334796E-06 (mass),   0.345418E-04 (energy)
+
+ Enthalpy discharge this time step:  0.282014E+10 MJ (0.482726E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.245961E+11 MJ (0.701698E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.242801E+09 kg (0.415605E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.548065E+11 kg (0.156357E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.282014E+10 MJ (0.482726E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.245961E+11 MJ (0.701698E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.337002E+10 MJ (0.480708E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.279661E+11 MJ (0.664866E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.291072E+09 kg (0.415192E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.550976E+11 kg (0.130989E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.337002E+10 MJ (0.480708E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.279661E+11 MJ (0.664866E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.402374E+10 MJ (0.478297E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.319898E+11 MJ (0.633771E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.348872E+09 kg (0.414700E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.554465E+11 kg (0.109849E+05 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.402374E+10 MJ (0.478297E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.319898E+11 MJ (0.633771E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.479941E+10 MJ (0.475416E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.367892E+11 MJ (0.607378E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.418056E+09 kg (0.414115E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.558645E+11 kg (0.922305E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.479941E+10 MJ (0.475416E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.367892E+11 MJ (0.607378E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.571765E+10 MJ (0.471979E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.425069E+11 MJ (0.584811E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.500825E+09 kg (0.413420E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.563654E+11 kg (0.775477E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.571765E+10 MJ (0.471979E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.425069E+11 MJ (0.584811E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.680163E+10 MJ (0.467883E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.493085E+11 MJ (0.565323E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.599791E+09 kg (0.412595E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.569652E+11 kg (0.653107E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.680163E+10 MJ (0.467883E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.493085E+11 MJ (0.565323E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.807688E+10 MJ (0.463006E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.573854E+11 MJ (0.548270E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.718049E+09 kg (0.411620E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.576832E+11 kg (0.551116E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.807688E+10 MJ (0.463006E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.573854E+11 MJ (0.548270E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.957093E+10 MJ (0.457210E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.669563E+11 MJ (0.533093E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.859251E+09 kg (0.410470E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.585425E+11 kg (0.466104E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.957093E+10 MJ (0.457210E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.669563E+11 MJ (0.533093E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.113124E+11 MJ (0.450334E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.782687E+11 MJ (0.519300E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.102771E+10 kg (0.409118E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.595702E+11 kg (0.395238E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.113124E+11 MJ (0.450334E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.782687E+11 MJ (0.519300E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+*********************************************************************
+ Time Step        71
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+     0.573122174          209.332874         34.8888957    
+ Cpu Sec for Time Step =  0.3910     Current Total =     26.79    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.5
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        142 , Solver:        143
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.1159E-05 node=      2 zone=     5 x= 2941.     y= 980.4     z= 961.5    
+ EQ2 R=  0.1231E-07 node=   8833 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 6731.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.180832E-06          -0.872895E-10
+  64975      0.233578E-08           0.959191E-12
+  62374      0.192075E-09           0.264073E-13
+  59773      0.338231E-11           0.412757E-15
+  57172      0.440743E-11          -0.927165E-15
+  28561      0.151484E-08          -0.151212E-09
+   2551     -0.115892E-05          -0.542213E-08
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    79.02     0.565      1.00        1.995   0.000       0.00    
+  64975    79.99     0.547      1.00        2.000   0.000      0.721E-01
+  62374    80.00     0.528      1.00        2.000   0.000      0.121    
+  59773    80.00     0.510      1.00        2.000   0.000      0.122    
+  57172    80.00     0.491      1.00        2.000   0.000      0.122    
+  28561    80.00     0.283      1.00        2.000   0.000       0.00    
+   2551    80.98     0.954E-01  1.00        2.006   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377520E+17 MJ
+
+ Water discharge this time step:   0.122848E+10 kg (0.407535E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.607986E+11 kg (0.336157E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.133296E+11 MJ (0.442196E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.915983E+11 MJ (0.506450E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.607986E+11
+ Net MJ energy discharge (total out-total in):   0.915983E+11
+ Conservation Errors:  -0.573638E-04 (mass),   0.182429E-04 (energy)
+
+ Enthalpy discharge this time step:  0.156480E+11 MJ (0.432589E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.107246E+12 MJ (0.494139E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.146750E+10 kg (0.405690E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.622661E+11 kg (0.286893E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.156480E+11 MJ (0.432589E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.107246E+12 MJ (0.494139E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.182868E+11 MJ (0.421283E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.125533E+12 MJ (0.481997E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.175171E+10 kg (0.403551E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.640178E+11 kg (0.245803E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.182868E+11 MJ (0.421283E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.125533E+12 MJ (0.481997E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.212537E+11 MJ (0.408027E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.146787E+12 MJ (0.469668E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.208922E+10 kg (0.401087E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.661071E+11 kg (0.211521E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.212537E+11 MJ (0.408027E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.146787E+12 MJ (0.469668E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.245371E+11 MJ (0.392553E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.171324E+12 MJ (0.456816E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.248943E+10 kg (0.398267E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.685965E+11 kg (0.182905E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.245371E+11 MJ (0.392553E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.171324E+12 MJ (0.456816E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.280961E+11 MJ (0.374575E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.199420E+12 MJ (0.443109E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Water discharge this time step:   0.296333E+10 kg (0.395069E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.715598E+11 kg (0.159005E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.280961E+11 MJ (0.374575E+04 MJ/s)
+ Enthalpy input this time step:      0.000000E+00 MJ (0.000000E+00 MJ/s)
+ Total enthalpy discharge:           0.199420E+12 MJ (0.443109E+04 MJ/s)
+ Total enthalpy input:               0.000000E+00 MJ (0.000000E+00 MJ/s)
+
+ Enthalpy discharge this time step:  0.328343E+11 MJ (0.364787E+04 MJ/s)
+ Enthalpy input this time step:      0.987315E+09 MJ (0.109690E+03 MJ/s)
+ Total enthalpy discharge:           0.232254E+12 MJ (0.430055E+04 MJ/s)
+ Total enthalpy input:               0.987315E+09 MJ (0.182817E+02 MJ/s)
+
+ Water discharge this time step:   0.352367E+10 kg (0.391478E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.750835E+11 kg (0.139029E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.328343E+11 MJ (0.364787E+04 MJ/s)
+ Enthalpy input this time step:      0.987315E+09 MJ (0.109690E+03 MJ/s)
+ Total enthalpy discharge:           0.232254E+12 MJ (0.430055E+04 MJ/s)
+ Total enthalpy input:               0.987315E+09 MJ (0.182817E+02 MJ/s)
+
+ Enthalpy discharge this time step:  0.391450E+11 MJ (0.362415E+04 MJ/s)
+ Enthalpy input this time step:      0.349939E+10 MJ (0.323983E+03 MJ/s)
+ Total enthalpy discharge:           0.271399E+12 MJ (0.418782E+04 MJ/s)
+ Total enthalpy input:               0.448671E+10 MJ (0.692320E+02 MJ/s)
+
+ Water discharge this time step:   0.418532E+10 kg (0.387489E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.792688E+11 kg (0.122316E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.391450E+11 MJ (0.362415E+04 MJ/s)
+ Enthalpy input this time step:      0.349939E+10 MJ (0.323983E+03 MJ/s)
+ Total enthalpy discharge:           0.271399E+12 MJ (0.418782E+04 MJ/s)
+ Total enthalpy input:               0.448671E+10 MJ (0.692320E+02 MJ/s)
+
+ Enthalpy discharge this time step:  0.465531E+11 MJ (0.359168E+04 MJ/s)
+ Enthalpy input this time step:      0.728752E+10 MJ (0.562249E+03 MJ/s)
+ Total enthalpy discharge:           0.317952E+12 MJ (0.408846E+04 MJ/s)
+ Total enthalpy input:               0.117742E+11 MJ (0.151402E+03 MJ/s)
+
+ Water discharge this time step:   0.496593E+10 kg (0.383133E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.842347E+11 kg (0.108315E+04 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.465531E+11 MJ (0.359168E+04 MJ/s)
+ Enthalpy input this time step:      0.728752E+10 MJ (0.562249E+03 MJ/s)
+ Total enthalpy discharge:           0.317952E+12 MJ (0.408846E+04 MJ/s)
+ Total enthalpy input:               0.117742E+11 MJ (0.151402E+03 MJ/s)
+
+ Enthalpy discharge this time step:  0.551784E+11 MJ (0.354762E+04 MJ/s)
+ Enthalpy input this time step:      0.127617E+11 MJ (0.820494E+03 MJ/s)
+ Total enthalpy discharge:           0.373131E+12 MJ (0.399832E+04 MJ/s)
+ Total enthalpy input:               0.245359E+11 MJ (0.262917E+03 MJ/s)
+
+ Water discharge this time step:   0.588610E+10 kg (0.378439E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.901208E+11 kg (0.965700E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.551784E+11 MJ (0.354762E+04 MJ/s)
+ Enthalpy input this time step:      0.127617E+11 MJ (0.820494E+03 MJ/s)
+ Total enthalpy discharge:           0.373131E+12 MJ (0.399832E+04 MJ/s)
+ Total enthalpy input:               0.245359E+11 MJ (0.262917E+03 MJ/s)
+*********************************************************************
+ Time Step        81
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+      3.54862855          1296.13658         216.022846    
+ Cpu Sec for Time Step =  0.3812     Current Total =     30.67    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   2.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        162 , Solver:        176
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.8340E-04 node=      1 zone=     5 x= 980.4     y= 980.4     z= 961.5    
+ EQ2 R=  0.8028E-06 node=      1 zone=     5 x= 980.4     y= 980.4     z= 961.5    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.231815E-05          -0.582048E-07
+  64975      0.108947E-06           0.238042E-11
+  62374      0.245606E-07           0.652519E-12
+  59773      0.310469E-08           0.616415E-13
+  57172      0.394555E-09          -0.898829E-14
+  28561      0.831803E-08          -0.939011E-09
+   2551     -0.834032E-04          -0.802832E-06
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    74.71     0.561      1.00        1.971   0.000       0.00    
+  64975    79.57     0.547      1.00        2.000   0.000     -0.110    
+  62374    79.97     0.528      1.00        2.000   0.000      0.102    
+  59773    80.00     0.510      1.00        2.000   0.000      0.121    
+  57172    80.00     0.491      1.00        2.000   0.000      0.122    
+  28561    80.00     0.283      1.00        2.003   0.000       0.00    
+   2551    85.35     0.995E-01  1.00        2.035   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377517E+17 MJ
+
+ Water discharge this time step:   0.696976E+10 kg (0.373426E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.970906E+11 kg (0.866987E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.651090E+11 MJ (0.348841E+04 MJ/s)
+ Enthalpy input this time step:      0.204922E+11 MJ (0.109793E+04 MJ/s)
+ Total enthalpy discharge:           0.438240E+12 MJ (0.391334E+04 MJ/s)
+ Total enthalpy input:               0.450281E+11 MJ (0.402086E+03 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.970906E+11
+ Net MJ energy discharge (total out-total in):   0.393212E+12
+ Conservation Errors:  -0.167189E-02 (mass),   0.588929E-04 (energy)
+
+ Enthalpy discharge this time step:  0.763682E+11 MJ (0.340971E+04 MJ/s)
+ Enthalpy input this time step:      0.311511E+11 MJ (0.139084E+04 MJ/s)
+ Total enthalpy discharge:           0.514608E+12 MJ (0.382940E+04 MJ/s)
+ Total enthalpy input:               0.761792E+11 MJ (0.566879E+03 MJ/s)
+
+ Water discharge this time step:   0.824566E+10 kg (0.368155E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.105336E+12 kg (0.783848E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.763682E+11 MJ (0.340971E+04 MJ/s)
+ Enthalpy input this time step:      0.311511E+11 MJ (0.139084E+04 MJ/s)
+ Total enthalpy discharge:           0.514608E+12 MJ (0.382940E+04 MJ/s)
+ Total enthalpy input:               0.761792E+11 MJ (0.566879E+03 MJ/s)
+
+ Enthalpy discharge this time step:  0.888671E+11 MJ (0.330647E+04 MJ/s)
+ Enthalpy input this time step:      0.454931E+11 MJ (0.169266E+04 MJ/s)
+ Total enthalpy discharge:           0.603475E+12 MJ (0.374225E+04 MJ/s)
+ Total enthalpy input:               0.121672E+12 MJ (0.754509E+03 MJ/s)
+
+ Water discharge this time step:   0.974823E+10 kg (0.362702E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.115084E+12 kg (0.713657E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.888671E+11 MJ (0.330647E+04 MJ/s)
+ Enthalpy input this time step:      0.454931E+11 MJ (0.169266E+04 MJ/s)
+ Total enthalpy discharge:           0.603475E+12 MJ (0.374225E+04 MJ/s)
+ Total enthalpy input:               0.121672E+12 MJ (0.754509E+03 MJ/s)
+
+ Enthalpy discharge this time step:  0.102338E+12 MJ (0.317306E+04 MJ/s)
+ Enthalpy input this time step:      0.642901E+11 MJ (0.199336E+04 MJ/s)
+ Total enthalpy discharge:           0.705813E+12 MJ (0.364738E+04 MJ/s)
+ Total enthalpy input:               0.185962E+12 MJ (0.960985E+03 MJ/s)
+
+ Water discharge this time step:   0.115191E+11 kg (0.357158E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.126604E+12 kg (0.654241E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.102338E+12 MJ (0.317306E+04 MJ/s)
+ Enthalpy input this time step:      0.642901E+11 MJ (0.199336E+04 MJ/s)
+ Total enthalpy discharge:           0.705813E+12 MJ (0.364738E+04 MJ/s)
+ Total enthalpy input:               0.185962E+12 MJ (0.960985E+03 MJ/s)
+
+ Enthalpy discharge this time step:  0.116256E+12 MJ (0.300383E+04 MJ/s)
+ Enthalpy input this time step:      0.882277E+11 MJ (0.227964E+04 MJ/s)
+ Total enthalpy discharge:           0.822068E+12 MJ (0.354012E+04 MJ/s)
+ Total enthalpy input:               0.274190E+12 MJ (0.118076E+04 MJ/s)
+
+ Water discharge this time step:   0.136097E+11 kg (0.351650E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.140213E+12 kg (0.603809E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.116256E+12 MJ (0.300383E+04 MJ/s)
+ Enthalpy input this time step:      0.882277E+11 MJ (0.227964E+04 MJ/s)
+ Total enthalpy discharge:           0.822068E+12 MJ (0.354012E+04 MJ/s)
+ Total enthalpy input:               0.274190E+12 MJ (0.118076E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.129723E+12 MJ (0.279317E+04 MJ/s)
+ Enthalpy input this time step:      0.118187E+12 MJ (0.254477E+04 MJ/s)
+ Total enthalpy discharge:           0.951791E+12 MJ (0.341563E+04 MJ/s)
+ Total enthalpy input:               0.392377E+12 MJ (0.140810E+04 MJ/s)
+
+ Water discharge this time step:   0.160816E+11 kg (0.346265E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.156295E+12 kg (0.560885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.129723E+12 MJ (0.279317E+04 MJ/s)
+ Enthalpy input this time step:      0.118187E+12 MJ (0.254477E+04 MJ/s)
+ Total enthalpy discharge:           0.951791E+12 MJ (0.341563E+04 MJ/s)
+ Total enthalpy input:               0.392377E+12 MJ (0.140810E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.141349E+12 MJ (0.253625E+04 MJ/s)
+ Enthalpy input this time step:      0.148868E+12 MJ (0.267116E+04 MJ/s)
+ Total enthalpy discharge:           0.109314E+13 MJ (0.326907E+04 MJ/s)
+ Total enthalpy input:               0.541244E+12 MJ (0.161861E+04 MJ/s)
+
+ Water discharge this time step:   0.190055E+11 kg (0.341019E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.175300E+12 kg (0.524241E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.141349E+12 MJ (0.253625E+04 MJ/s)
+ Enthalpy input this time step:      0.148868E+12 MJ (0.267116E+04 MJ/s)
+ Total enthalpy discharge:           0.109314E+13 MJ (0.326907E+04 MJ/s)
+ Total enthalpy input:               0.541244E+12 MJ (0.161861E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.149160E+12 MJ (0.223034E+04 MJ/s)
+ Enthalpy input this time step:      0.190504E+12 MJ (0.284853E+04 MJ/s)
+ Total enthalpy discharge:           0.124230E+13 MJ (0.309594E+04 MJ/s)
+ Total enthalpy input:               0.731748E+12 MJ (0.182359E+04 MJ/s)
+
+ Water discharge this time step:   0.224718E+11 kg (0.336013E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.197772E+12 kg (0.492869E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.149160E+12 MJ (0.223034E+04 MJ/s)
+ Enthalpy input this time step:      0.190504E+12 MJ (0.284853E+04 MJ/s)
+ Total enthalpy discharge:           0.124230E+13 MJ (0.309594E+04 MJ/s)
+ Total enthalpy input:               0.731748E+12 MJ (0.182359E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.166544E+12 MJ (0.207523E+04 MJ/s)
+ Enthalpy input this time step:      0.251289E+12 MJ (0.313119E+04 MJ/s)
+ Total enthalpy discharge:           0.140884E+13 MJ (0.292583E+04 MJ/s)
+ Total enthalpy input:               0.983037E+12 MJ (0.204153E+04 MJ/s)
+
+ Water discharge this time step:   0.265893E+11 kg (0.331316E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.224361E+12 kg (0.465944E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.166544E+12 MJ (0.207523E+04 MJ/s)
+ Enthalpy input this time step:      0.251289E+12 MJ (0.313119E+04 MJ/s)
+ Total enthalpy discharge:           0.140884E+13 MJ (0.292583E+04 MJ/s)
+ Total enthalpy input:               0.983037E+12 MJ (0.204153E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.184441E+12 MJ (0.191520E+04 MJ/s)
+ Enthalpy input this time step:      0.321195E+12 MJ (0.333521E+04 MJ/s)
+ Total enthalpy discharge:           0.159329E+13 MJ (0.275739E+04 MJ/s)
+ Total enthalpy input:               0.130423E+13 MJ (0.225714E+04 MJ/s)
+
+ Water discharge this time step:   0.314919E+11 kg (0.327005E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.255853E+12 kg (0.442788E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.184441E+12 MJ (0.191520E+04 MJ/s)
+ Enthalpy input this time step:      0.321195E+12 MJ (0.333521E+04 MJ/s)
+ Total enthalpy discharge:           0.159329E+13 MJ (0.275739E+04 MJ/s)
+ Total enthalpy input:               0.130423E+13 MJ (0.225714E+04 MJ/s)
+*********************************************************************
+ Time Step        91
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+      21.9721797          8025.33865         1337.55652    
+ Cpu Sec for Time Step =  0.3983     Current Total =     34.67    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   3.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        182 , Solver:        224
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.2262E-04 node=   3631 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 2885.    
+ EQ2 R=  0.4446E-06 node=   3631 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 2885.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.134806E-04           0.310553E-06
+  64975     -0.964402E-06           0.378379E-12
+  62374      0.109052E-05           0.212778E-11
+  59773     -0.210798E-06           0.430137E-12
+  57172      0.661371E-07           0.547305E-12
+  28561      0.285101E-07          -0.585787E-08
+   2551      0.392744E-05           0.117738E-06
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    60.38     0.548      1.00        1.903   0.000       0.00    
+  64975    73.28     0.541      1.00        2.000   0.000     -0.287    
+  62374    78.09     0.527      1.00        2.000   0.000     -0.667E-01
+  59773    79.53     0.509      1.00        2.000   0.000      0.614E-01
+  57172    79.90     0.491      1.00        2.000   0.000      0.106    
+  28561    80.01     0.283      1.00        2.017   0.000       0.00    
+   2551    100.4     0.114      1.00        2.138   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143705E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377520E+17 MJ
+
+ Water discharge this time step:   0.373466E+11 kg (0.323166E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.293200E+12 kg (0.422851E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.198038E+12 MJ (0.171365E+04 MJ/s)
+ Enthalpy input this time step:      0.408705E+12 MJ (0.353658E+04 MJ/s)
+ Total enthalpy discharge:           0.179132E+13 MJ (0.258343E+04 MJ/s)
+ Total enthalpy input:               0.171294E+13 MJ (0.247038E+04 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.293200E+12
+ Net MJ energy discharge (total out-total in):   0.783867E+11
+ Conservation Errors:  -0.176960E-02 (mass),   0.637853E-05 (energy)
+
+ Enthalpy discharge this time step:  0.203822E+12 MJ (0.146975E+04 MJ/s)
+ Enthalpy input this time step:      0.500590E+12 MJ (0.360973E+04 MJ/s)
+ Total enthalpy discharge:           0.199515E+13 MJ (0.239782E+04 MJ/s)
+ Total enthalpy input:               0.221353E+13 MJ (0.266027E+04 MJ/s)
+
+ Water discharge this time step:   0.443621E+11 kg (0.319893E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.337562E+12 kg (0.405691E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.203822E+12 MJ (0.146975E+04 MJ/s)
+ Enthalpy input this time step:      0.500590E+12 MJ (0.360973E+04 MJ/s)
+ Total enthalpy discharge:           0.199515E+13 MJ (0.239782E+04 MJ/s)
+ Total enthalpy input:               0.221353E+13 MJ (0.266027E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.197696E+12 MJ (0.118798E+04 MJ/s)
+ Enthalpy input this time step:      0.601386E+12 MJ (0.361381E+04 MJ/s)
+ Total enthalpy discharge:           0.219284E+13 MJ (0.219618E+04 MJ/s)
+ Total enthalpy input:               0.281491E+13 MJ (0.281920E+04 MJ/s)
+
+ Water discharge this time step:   0.528057E+11 kg (0.317316E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.390368E+12 kg (0.390962E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.197696E+12 MJ (0.118798E+04 MJ/s)
+ Enthalpy input this time step:      0.601386E+12 MJ (0.361381E+04 MJ/s)
+ Total enthalpy discharge:           0.219284E+13 MJ (0.219618E+04 MJ/s)
+ Total enthalpy input:               0.281491E+13 MJ (0.281920E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.175366E+12 MJ (0.878164E+03 MJ/s)
+ Enthalpy input this time step:      0.706825E+12 MJ (0.353950E+04 MJ/s)
+ Total enthalpy discharge:           0.236821E+13 MJ (0.197651E+04 MJ/s)
+ Total enthalpy input:               0.352174E+13 MJ (0.293925E+04 MJ/s)
+
+ Water discharge this time step:   0.630248E+11 kg (0.315604E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.453393E+12 kg (0.378402E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.175366E+12 MJ (0.878164E+03 MJ/s)
+ Enthalpy input this time step:      0.706825E+12 MJ (0.353950E+04 MJ/s)
+ Total enthalpy discharge:           0.236821E+13 MJ (0.197651E+04 MJ/s)
+ Total enthalpy input:               0.352174E+13 MJ (0.293925E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.159600E+12 MJ (0.666010E+03 MJ/s)
+ Enthalpy input this time step:      0.841037E+12 MJ (0.350965E+04 MJ/s)
+ Total enthalpy discharge:           0.252781E+13 MJ (0.175809E+04 MJ/s)
+ Total enthalpy input:               0.436277E+13 MJ (0.303431E+04 MJ/s)
+
+ Water discharge this time step:   0.754751E+11 kg (0.314958E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.528868E+12 kg (0.367828E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.159600E+12 MJ (0.666010E+03 MJ/s)
+ Enthalpy input this time step:      0.841037E+12 MJ (0.350965E+04 MJ/s)
+ Total enthalpy discharge:           0.252781E+13 MJ (0.175809E+04 MJ/s)
+ Total enthalpy input:               0.436277E+13 MJ (0.303431E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.147101E+12 MJ (0.511543E+03 MJ/s)
+ Enthalpy input this time step:      0.100062E+13 MJ (0.347967E+04 MJ/s)
+ Total enthalpy discharge:           0.267491E+13 MJ (0.155033E+04 MJ/s)
+ Total enthalpy input:               0.536340E+13 MJ (0.310854E+04 MJ/s)
+
+ Water discharge this time step:   0.907648E+11 kg (0.315635E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.619633E+12 kg (0.359129E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.147101E+12 MJ (0.511543E+03 MJ/s)
+ Enthalpy input this time step:      0.100062E+13 MJ (0.347967E+04 MJ/s)
+ Total enthalpy discharge:           0.267491E+13 MJ (0.155033E+04 MJ/s)
+ Total enthalpy input:               0.536340E+13 MJ (0.310854E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.122990E+12 MJ (0.356415E+03 MJ/s)
+ Enthalpy input this time step:      0.116636E+13 MJ (0.338003E+04 MJ/s)
+ Total enthalpy discharge:           0.279790E+13 MJ (0.135135E+04 MJ/s)
+ Total enthalpy input:               0.652976E+13 MJ (0.315379E+04 MJ/s)
+
+ Water discharge this time step:   0.109708E+12 kg (0.317924E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.729340E+12 kg (0.352262E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.122990E+12 MJ (0.356415E+03 MJ/s)
+ Enthalpy input this time step:      0.116636E+13 MJ (0.338003E+04 MJ/s)
+ Total enthalpy discharge:           0.279790E+13 MJ (0.135135E+04 MJ/s)
+ Total enthalpy input:               0.652976E+13 MJ (0.315379E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.901227E+11 MJ (0.217641E+03 MJ/s)
+ Enthalpy input this time step:      0.132690E+13 MJ (0.320438E+04 MJ/s)
+ Total enthalpy discharge:           0.288802E+13 MJ (0.116240E+04 MJ/s)
+ Total enthalpy input:               0.785666E+13 MJ (0.316222E+04 MJ/s)
+
+ Water discharge this time step:   0.133392E+12 kg (0.322134E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.862733E+12 kg (0.347240E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.901227E+11 MJ (0.217641E+03 MJ/s)
+ Enthalpy input this time step:      0.132690E+13 MJ (0.320438E+04 MJ/s)
+ Total enthalpy discharge:           0.288802E+13 MJ (0.116240E+04 MJ/s)
+ Total enthalpy input:               0.785666E+13 MJ (0.316222E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.401590E+11 MJ (0.808177E+02 MJ/s)
+ Enthalpy input this time step:      0.149325E+13 MJ (0.300507E+04 MJ/s)
+ Total enthalpy discharge:           0.292818E+13 MJ (0.982134E+03 MJ/s)
+ Total enthalpy input:               0.934990E+13 MJ (0.313603E+04 MJ/s)
+
+ Water discharge this time step:   0.163279E+12 kg (0.328589E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.102601E+13 kg (0.344132E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.401590E+11 MJ (0.808177E+02 MJ/s)
+ Enthalpy input this time step:      0.149325E+13 MJ (0.300507E+04 MJ/s)
+ Total enthalpy discharge:           0.292818E+13 MJ (0.982134E+03 MJ/s)
+ Total enthalpy input:               0.934990E+13 MJ (0.313603E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.256702E+11 MJ (0.430500E+02 MJ/s)
+ Enthalpy input this time step:      0.167245E+13 MJ (0.280475E+04 MJ/s)
+ Total enthalpy discharge:           0.295385E+13 MJ (0.825620E+03 MJ/s)
+ Total enthalpy input:               0.110224E+14 MJ (0.308082E+04 MJ/s)
+
+ Water discharge this time step:   0.201340E+12 kg (0.337655E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.122735E+13 kg (0.343053E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.256702E+11 MJ (0.430500E+02 MJ/s)
+ Enthalpy input this time step:      0.167245E+13 MJ (0.280475E+04 MJ/s)
+ Total enthalpy discharge:           0.295385E+13 MJ (0.825620E+03 MJ/s)
+ Total enthalpy input:               0.110224E+14 MJ (0.308082E+04 MJ/s)
+*********************************************************************
+ Time Step       101
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+      136.045953          49690.7842         8281.79745    
+ Cpu Sec for Time Step =  0.4425     Current Total =     38.95    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   6.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        202 , Solver:        315
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            0
+                    Largest Residuals
+ EQ1 R=  0.1898E-04 node=   6538 zone=     1 x=0.1863E+05 y=0.5196E+05 z= 4808.    
+ EQ2 R=  0.1641E-05 node=   3631 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 2885.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.443124E-06          -0.308040E-06
+  64975     -0.956678E-05           0.221754E-11
+  62374      0.117991E-04           0.395701E-11
+  59773      0.467553E-05           0.397978E-11
+  57172      0.377447E-05           0.220003E-11
+  28561      0.360710E-07          -0.404915E-07
+   2551      0.787960E-05           0.146491E-05
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    28.73     0.517      1.00        1.810   0.000       0.00    
+  64975    45.34     0.515      1.00        2.000   0.000     -0.953E-01
+  62374    57.51     0.508      1.00        2.000   0.000     -0.908E-01
+  59773    65.98     0.497      1.00        2.000   0.000     -0.595E-01
+  57172    71.60     0.483      1.00        2.000   0.000     -0.158E-01
+  28561    80.21     0.284      1.00        2.106   0.000       0.00    
+   2551    135.5     0.146      1.00        2.416   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143704E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377620E+17 MJ
+
+ Water discharge this time step:   0.250238E+12 kg (0.349716E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.147759E+13 kg (0.344163E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.323481E+11 MJ (0.452075E+02 MJ/s)
+ Enthalpy input this time step:      0.187041E+13 MJ (0.261396E+04 MJ/s)
+ Total enthalpy discharge:           0.298620E+13 MJ (0.695551E+03 MJ/s)
+ Total enthalpy input:               0.128928E+14 MJ (0.300301E+04 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.147759E+13
+ Net MJ energy discharge (total out-total in):  -0.990656E+13
+ Conservation Errors:  -0.862025E-03 (mass),   0.433627E-04 (energy)
+
+ Enthalpy discharge this time step:  0.412126E+11 MJ (0.479966E+02 MJ/s)
+ Enthalpy input this time step:      0.201149E+13 MJ (0.234260E+04 MJ/s)
+ Total enthalpy discharge:           0.302741E+13 MJ (0.587625E+03 MJ/s)
+ Total enthalpy input:               0.149042E+14 MJ (0.289294E+04 MJ/s)
+
+ Water discharge this time step:   0.313509E+12 kg (0.365116E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.179110E+13 kg (0.347655E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.412126E+11 MJ (0.479966E+02 MJ/s)
+ Enthalpy input this time step:      0.201149E+13 MJ (0.234260E+04 MJ/s)
+ Total enthalpy discharge:           0.302741E+13 MJ (0.587625E+03 MJ/s)
+ Total enthalpy input:               0.149042E+14 MJ (0.289294E+04 MJ/s)
+time step =      103 time step size =   11925.788331170    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   18.6788298     t =  1.79828753     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    103 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      103 ####
+ EQ1 R=   6.163     node=   2295 zone=     5 x=0.9902E+05 y=0.8725E+05 z= 961.5    
+ EQ2 R=  0.6610     node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.100330E+11 MJ (0.486856E+02 MJ/s)
+ Enthalpy input this time step:      0.465687E+12 MJ (0.225976E+04 MJ/s)
+ Total enthalpy discharge:           0.303744E+13 MJ (0.566897E+03 MJ/s)
+ Total enthalpy input:               0.153699E+14 MJ (0.286859E+04 MJ/s)
+
+ Water discharge this time step:   0.760167E+11 kg (0.368874E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.186712E+13 kg (0.348471E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.100330E+11 MJ (0.486856E+02 MJ/s)
+ Enthalpy input this time step:      0.465687E+12 MJ (0.225976E+04 MJ/s)
+ Total enthalpy discharge:           0.303744E+13 MJ (0.566897E+03 MJ/s)
+ Total enthalpy input:               0.153699E+14 MJ (0.286859E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.122477E+11 MJ (0.495270E+02 MJ/s)
+ Enthalpy input this time step:      0.533589E+12 MJ (0.215772E+04 MJ/s)
+ Total enthalpy discharge:           0.304969E+13 MJ (0.544072E+03 MJ/s)
+ Total enthalpy input:               0.159035E+14 MJ (0.283722E+04 MJ/s)
+
+ Water discharge this time step:   0.923492E+11 kg (0.373440E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.195946E+13 kg (0.349573E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.122477E+11 MJ (0.495270E+02 MJ/s)
+ Enthalpy input this time step:      0.533589E+12 MJ (0.215772E+04 MJ/s)
+ Total enthalpy discharge:           0.304969E+13 MJ (0.544072E+03 MJ/s)
+ Total enthalpy input:               0.159035E+14 MJ (0.283722E+04 MJ/s)
+time step =      105 time step size =   3434.6270393770    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9633109     t =  1.79921738     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    105 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      105 ####
+ EQ1 R=   1.818     node=     98 zone=     5 x=0.9118E+05 y= 2941.     z= 961.5    
+ EQ2 R=  0.1887     node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.295152E+10 MJ (0.497305E+02 MJ/s)
+ Enthalpy input this time step:      0.128456E+12 MJ (0.216436E+04 MJ/s)
+ Total enthalpy discharge:           0.305264E+13 MJ (0.538892E+03 MJ/s)
+ Total enthalpy input:               0.160320E+14 MJ (0.283017E+04 MJ/s)
+
+ Water discharge this time step:   0.222291E+11 kg (0.374540E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.198169E+13 kg (0.349834E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.295152E+10 MJ (0.497305E+02 MJ/s)
+ Enthalpy input this time step:      0.128456E+12 MJ (0.216436E+04 MJ/s)
+ Total enthalpy discharge:           0.305264E+13 MJ (0.538892E+03 MJ/s)
+ Total enthalpy input:               0.160320E+14 MJ (0.283017E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.355930E+10 MJ (0.499758E+02 MJ/s)
+ Enthalpy input this time step:      0.150681E+12 MJ (0.211570E+04 MJ/s)
+ Total enthalpy discharge:           0.305620E+13 MJ (0.532822E+03 MJ/s)
+ Total enthalpy input:               0.161827E+14 MJ (0.282130E+04 MJ/s)
+
+ Water discharge this time step:   0.267692E+11 kg (0.375865E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.200846E+13 kg (0.350158E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.355930E+10 MJ (0.499758E+02 MJ/s)
+ Enthalpy input this time step:      0.150681E+12 MJ (0.211570E+04 MJ/s)
+ Total enthalpy discharge:           0.305620E+13 MJ (0.532822E+03 MJ/s)
+ Total enthalpy input:               0.161827E+14 MJ (0.282130E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.429645E+10 MJ (0.502718E+02 MJ/s)
+ Enthalpy input this time step:      0.180217E+12 MJ (0.210868E+04 MJ/s)
+ Total enthalpy discharge:           0.306050E+13 MJ (0.525737E+03 MJ/s)
+ Total enthalpy input:               0.163629E+14 MJ (0.281084E+04 MJ/s)
+
+ Water discharge this time step:   0.322593E+11 kg (0.377459E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.204072E+13 kg (0.350558E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.429645E+10 MJ (0.502718E+02 MJ/s)
+ Enthalpy input this time step:      0.180217E+12 MJ (0.210868E+04 MJ/s)
+ Total enthalpy discharge:           0.306050E+13 MJ (0.525737E+03 MJ/s)
+ Total enthalpy input:               0.163629E+14 MJ (0.281084E+04 MJ/s)
+time step =      108 time step size =   1187.0071048087    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.8349901     t =  1.79909359     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    108 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      108 ####
+ EQ1 R=  0.6273     node=    101 zone=     5 x=0.9706E+05 y= 2941.     z= 961.5    
+ EQ2 R=  0.6525E-01 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.103261E+10 MJ (0.503430E+02 MJ/s)
+ Enthalpy input this time step:      0.427036E+11 MJ (0.208194E+04 MJ/s)
+ Total enthalpy discharge:           0.306153E+13 MJ (0.524068E+03 MJ/s)
+ Total enthalpy input:               0.164056E+14 MJ (0.280828E+04 MJ/s)
+
+ Water discharge this time step:   0.775009E+10 kg (0.377842E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.204847E+13 kg (0.350654E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.103261E+10 MJ (0.503430E+02 MJ/s)
+ Enthalpy input this time step:      0.427036E+11 MJ (0.208194E+04 MJ/s)
+ Total enthalpy discharge:           0.306153E+13 MJ (0.524068E+03 MJ/s)
+ Total enthalpy input:               0.164056E+14 MJ (0.280828E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.124124E+10 MJ (0.504285E+02 MJ/s)
+ Enthalpy input this time step:      0.513311E+11 MJ (0.208546E+04 MJ/s)
+ Total enthalpy discharge:           0.306277E+13 MJ (0.522081E+03 MJ/s)
+ Total enthalpy input:               0.164569E+14 MJ (0.280525E+04 MJ/s)
+
+ Water discharge this time step:   0.931143E+10 kg (0.378302E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.205778E+13 kg (0.350770E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.124124E+10 MJ (0.504285E+02 MJ/s)
+ Enthalpy input this time step:      0.513311E+11 MJ (0.208546E+04 MJ/s)
+ Total enthalpy discharge:           0.306277E+13 MJ (0.522081E+03 MJ/s)
+ Total enthalpy input:               0.164569E+14 MJ (0.280525E+04 MJ/s)
+time step =      110 time step size =   341.85804618490    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9746850     t =  1.79919099     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    110 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      110 ####
+ EQ1 R=  0.1812     node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.1877E-01 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.298018E+09 MJ (0.504491E+02 MJ/s)
+ Enthalpy input this time step:      0.123437E+11 MJ (0.208956E+04 MJ/s)
+ Total enthalpy discharge:           0.306307E+13 MJ (0.521606E+03 MJ/s)
+ Total enthalpy input:               0.164693E+14 MJ (0.280453E+04 MJ/s)
+
+ Water discharge this time step:   0.223540E+10 kg (0.378412E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206002E+13 kg (0.350798E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.298018E+09 MJ (0.504491E+02 MJ/s)
+ Enthalpy input this time step:      0.123437E+11 MJ (0.208956E+04 MJ/s)
+ Total enthalpy discharge:           0.306307E+13 MJ (0.521606E+03 MJ/s)
+ Total enthalpy input:               0.164693E+14 MJ (0.280453E+04 MJ/s)
+*********************************************************************
+ Time Step       111
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+      186.309096          68049.3972         82.0459311    
+ Cpu Sec for Time Step =  0.3708     Current Total =     43.71    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.5
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        226 , Solver:        393
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps            4
+                    Largest Residuals
+ EQ1 R=  0.3611E-05 node=   6284 zone=     1 x=0.2059E+05 y=0.4216E+05 z= 4808.    
+ EQ2 R=  0.4970E-07 node=   6284 zone=     1 x=0.2059E+05 y=0.4216E+05 z= 4808.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.209092E-05           0.398818E-07
+  64975      0.285958E-06           0.117193E-11
+  62374      0.510252E-06           0.130491E-10
+  59773      0.242412E-06           0.539265E-11
+  57172      0.426586E-06           0.403280E-11
+  28561     -0.140263E-08           0.261953E-10
+   2551     -0.859955E-08           0.507170E-09
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    20.06     0.509      1.00        1.799   0.000       0.00    
+  64975    36.95     0.507      1.00        2.000   0.000     -0.623E-01
+  62374    49.99     0.501      1.00        2.000   0.000     -0.699E-01
+  59773    59.70     0.491      1.00        2.000   0.000     -0.507E-01
+  57172    66.68     0.478      1.00        2.000   0.000     -0.250E-01
+  28561    80.57     0.284      1.00        2.145   0.000       0.00    
+   2551    145.7     0.155      1.00        2.506   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143703E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377655E+17 MJ
+
+ Water discharge this time step:   0.268341E+10 kg (0.378544E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206270E+13 kg (0.350832E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.357797E+09 MJ (0.504737E+02 MJ/s)
+ Enthalpy input this time step:      0.147395E+11 MJ (0.207928E+04 MJ/s)
+ Total enthalpy discharge:           0.306343E+13 MJ (0.521038E+03 MJ/s)
+ Total enthalpy input:               0.164840E+14 MJ (0.280365E+04 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.206270E+13
+ Net MJ energy discharge (total out-total in):  -0.134206E+14
+ Conservation Errors:  -0.273882E-03 (mass),   0.648395E-04 (energy)
+
+ Enthalpy discharge this time step:  0.429608E+09 MJ (0.505033E+02 MJ/s)
+ Enthalpy input this time step:      0.173106E+11 MJ (0.203498E+04 MJ/s)
+ Total enthalpy discharge:           0.306386E+13 MJ (0.520359E+03 MJ/s)
+ Total enthalpy input:               0.165013E+14 MJ (0.280254E+04 MJ/s)
+
+ Water discharge this time step:   0.322145E+10 kg (0.378704E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206592E+13 kg (0.350872E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.429608E+09 MJ (0.505033E+02 MJ/s)
+ Enthalpy input this time step:      0.173106E+11 MJ (0.203498E+04 MJ/s)
+ Total enthalpy discharge:           0.306386E+13 MJ (0.520359E+03 MJ/s)
+ Total enthalpy input:               0.165013E+14 MJ (0.280254E+04 MJ/s)
+time step =      113 time step size =   118.14614076150    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9625701     t =  1.79916564     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    113 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      113 ####
+ EQ1 R=  0.6262E-01 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.6489E-02 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.103120E+09 MJ (0.505105E+02 MJ/s)
+ Enthalpy input this time step:      0.415723E+10 MJ (0.203629E+04 MJ/s)
+ Total enthalpy discharge:           0.306396E+13 MJ (0.520196E+03 MJ/s)
+ Total enthalpy input:               0.165055E+14 MJ (0.280228E+04 MJ/s)
+
+ Water discharge this time step:   0.773226E+09 kg (0.378742E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206670E+13 kg (0.350881E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.103120E+09 MJ (0.505105E+02 MJ/s)
+ Enthalpy input this time step:      0.415723E+10 MJ (0.203629E+04 MJ/s)
+ Total enthalpy discharge:           0.306396E+13 MJ (0.520196E+03 MJ/s)
+ Total enthalpy input:               0.165055E+14 MJ (0.280228E+04 MJ/s)
+time step =      114 time step size =   28.355073782760    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9917827     t =  1.79919007     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    114 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      114 ####
+ EQ1 R=  0.1504E-01 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.1557E-02 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.247497E+08 MJ (0.505122E+02 MJ/s)
+ Enthalpy input this time step:      0.997902E+09 MJ (0.203664E+04 MJ/s)
+ Total enthalpy discharge:           0.306399E+13 MJ (0.520157E+03 MJ/s)
+ Total enthalpy input:               0.165065E+14 MJ (0.280221E+04 MJ/s)
+
+ Water discharge this time step:   0.185579E+09 kg (0.378751E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206688E+13 kg (0.350884E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.247497E+08 MJ (0.505122E+02 MJ/s)
+ Enthalpy input this time step:      0.997902E+09 MJ (0.203664E+04 MJ/s)
+ Total enthalpy discharge:           0.306399E+13 MJ (0.520157E+03 MJ/s)
+ Total enthalpy input:               0.165065E+14 MJ (0.280221E+04 MJ/s)
+time step =      115 time step size =   6.8052177078625    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9987993     t =  1.79919596     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    115 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      115 ####
+ EQ1 R=  0.3609E-02 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.3737E-03 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.593998E+07 MJ (0.505126E+02 MJ/s)
+ Enthalpy input this time step:      0.239506E+09 MJ (0.203672E+04 MJ/s)
+ Total enthalpy discharge:           0.306399E+13 MJ (0.520147E+03 MJ/s)
+ Total enthalpy input:               0.165067E+14 MJ (0.280220E+04 MJ/s)
+
+ Water discharge this time step:   0.445391E+08 kg (0.378753E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206693E+13 kg (0.350884E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.593998E+07 MJ (0.505126E+02 MJ/s)
+ Enthalpy input this time step:      0.239506E+09 MJ (0.203672E+04 MJ/s)
+ Total enthalpy discharge:           0.306399E+13 MJ (0.520147E+03 MJ/s)
+ Total enthalpy input:               0.165067E+14 MJ (0.280220E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.712805E+07 MJ (0.505131E+02 MJ/s)
+ Enthalpy input this time step:      0.287412E+09 MJ (0.203675E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520136E+03 MJ/s)
+ Total enthalpy input:               0.165070E+14 MJ (0.280218E+04 MJ/s)
+
+ Water discharge this time step:   0.534473E+08 kg (0.378756E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206698E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.712805E+07 MJ (0.505131E+02 MJ/s)
+ Enthalpy input this time step:      0.287412E+09 MJ (0.203675E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520136E+03 MJ/s)
+ Total enthalpy input:               0.165070E+14 MJ (0.280218E+04 MJ/s)
+time step =      117 time step size =   1.9599026998644    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9996089     t =  1.79919649     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    117 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      117 ####
+ EQ1 R=  0.1040E-02 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.1076E-03 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.171074E+07 MJ (0.505132E+02 MJ/s)
+ Enthalpy input this time step:      0.689794E+08 MJ (0.203677E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520133E+03 MJ/s)
+ Total enthalpy input:               0.165071E+14 MJ (0.280218E+04 MJ/s)
+
+ Water discharge this time step:   0.128274E+08 kg (0.378756E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206699E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.171074E+07 MJ (0.505132E+02 MJ/s)
+ Enthalpy input this time step:      0.689794E+08 MJ (0.203677E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520133E+03 MJ/s)
+ Total enthalpy input:               0.165071E+14 MJ (0.280218E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.205289E+07 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.827757E+08 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520130E+03 MJ/s)
+ Total enthalpy input:               0.165071E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.153929E+08 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.205289E+07 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.827757E+08 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520130E+03 MJ/s)
+ Total enthalpy input:               0.165071E+14 MJ (0.280217E+04 MJ/s)
+time step =      119 time step size =  0.56445197756095    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9998421     t =  1.79919664     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    119 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      119 ####
+ EQ1 R=  0.2994E-03 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.3099E-04 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.492694E+06 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.198662E+08 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.369430E+07 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.492694E+06 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.198662E+08 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+time step =      120 time step size =  0.13546847461463    
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9999818     t =  1.79919676     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    120 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      120 ####
+ EQ1 R=  0.7185E-04 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.7438E-05 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.118246E+06 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.476789E+07 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.886631E+06 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.118246E+06 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.476789E+07 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+*********************************************************************
+ Time Step       121
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+      186.669902          68181.1817        0.325124339E-01
+ Cpu Sec for Time Step =  0.3649     Current Total =     48.46    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   1.0
+ Number of Active Nodes:     67626.
+ Total Number of Iterations, N-R:        252 , Solver:        423
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps           10
+                    Largest Residuals
+ EQ1 R=  0.1632E-08 node=   6284 zone=     1 x=0.2059E+05 y=0.4216E+05 z= 4808.    
+ EQ2 R=  0.2243E-10 node=   6284 zone=     1 x=0.2059E+05 y=0.4216E+05 z= 4808.    
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576      0.912378E-09           0.174074E-10
+  64975      0.127787E-09           0.685223E-12
+  62374      0.228598E-09           0.429109E-11
+  59773      0.114640E-09           0.171947E-11
+  57172      0.185194E-09           0.175074E-11
+  28561     -0.479613E-12           0.112858E-13
+   2551     -0.118594E-11           0.799410E-14
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    20.00     0.509      1.00        1.799   0.000       0.00    
+  64975    36.90     0.507      1.00        2.000   0.000     -0.624E-01
+  62374    49.94     0.500      1.00        2.000   0.000     -0.654E-01
+  59773    59.65     0.491      1.00        2.000   0.000     -0.508E-01
+  57172    66.64     0.478      1.00        2.000   0.000     -0.251E-01
+  28561    80.58     0.284      1.00        2.146   0.000       0.00    
+   2551    145.7     0.155      1.00        2.507   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143703E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377655E+17 MJ
+
+ Water discharge this time step:   0.106396E+07 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.141896E+06 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.572148E+07 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.206701E+13
+ Net MJ energy discharge (total out-total in):  -0.134432E+14
+ Conservation Errors:  -0.271719E-03 (mass),   0.652243E-04 (energy)
+time step =      122 time step size =  0.39014920689013E-01
+out of bounds : node    65026 x =    980.4     y =    980.4     z =   0.4904E+05
+ p =   19.9999979     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    122 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      122 ####
+ EQ1 R=  0.2069E-04 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.2142E-05 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+time step =      122 time step size =  0.78029841378025E-02
+out of bounds : node    65901 x =   0.1667E+05 y =   0.3431E+05 z =   0.4904E+05
+ p =   19.9999997     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    122 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      122 ####
+ EQ1 R=  0.4139E-05 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.4285E-06 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+time step =      122 time step size =  0.15605968275605E-02
+out of bounds : node    66004 x =   0.1863E+05 y =   0.3824E+05 z =   0.4904E+05
+ p =   19.9999998     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    122 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      122 ####
+ EQ1 R=  0.8277E-06 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.8569E-07 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+time step =      122 time step size =  0.31211936551210E-03
+out of bounds : node    66055 x =   0.1863E+05 y =   0.4020E+05 z =   0.4904E+05
+ p =   20.0000000     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    122 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      122 ####
+ EQ1 R=  0.1655E-06 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.1714E-07 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.272440E+03 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.109852E+05 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.204280E+04 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.272440E+03 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.109852E+05 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.326928E+03 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.131823E+05 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.245136E+04 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.326928E+03 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.131823E+05 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.392313E+03 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.158187E+05 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.294163E+04 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.392313E+03 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.158187E+05 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+time step =      125 time step size =  0.10786845272098E-03
+out of bounds : node    66055 x =   0.1863E+05 y =   0.4020E+05 z =   0.4904E+05
+ p =   20.0000000     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    125 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      125 ####
+ EQ1 R=  0.5721E-07 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.5923E-08 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.941553E+02 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.379650E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.705991E+03 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.941553E+02 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.379650E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.112986E+03 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.455580E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.847189E+03 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.112986E+03 MJ (0.505134E+02 MJ/s)
+ Enthalpy input this time step:      0.455580E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+time step =      127 time step size =  0.31066114383643E-04
+out of bounds : node    66055 x =   0.1863E+05 y =   0.4020E+05 z =   0.4904E+05
+ p =   20.0000000     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    127 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      127 ####
+ EQ1 R=  0.1648E-07 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.1706E-08 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.271167E+02 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.109339E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.203325E+03 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.271167E+02 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.109339E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.325400E+02 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.131207E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.243990E+03 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.325400E+02 MJ (0.505133E+02 MJ/s)
+ Enthalpy input this time step:      0.131207E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Enthalpy discharge this time step:  0.390479E+02 MJ (0.505131E+02 MJ/s)
+ Enthalpy input this time step:      0.157448E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.292789E+03 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.390479E+02 MJ (0.505131E+02 MJ/s)
+ Enthalpy input this time step:      0.157448E+04 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+time step =      130 time step size =  0.10736449130987E-04
+out of bounds : node    66055 x =   0.1863E+05 y =   0.4020E+05 z =   0.4904E+05
+ p =   20.0000000     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    130 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      130 ####
+ EQ1 R=  0.5695E-08 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.5895E-09 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ Enthalpy discharge this time step:  0.937158E+01 MJ (0.505136E+02 MJ/s)
+ Enthalpy input this time step:      0.377876E+03 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Water discharge this time step:   0.702693E+02 kg (0.378757E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.937158E+01 MJ (0.505136E+02 MJ/s)
+ Enthalpy input this time step:      0.377876E+03 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+*********************************************************************
+ Time Step       131
+
+                    Timing Information
+           Years              Days         Step Size (Days)
+      186.669903          68181.1820        0.257674779E-05
+ Cpu Sec for Time Step =  0.3347     Current Total =     53.24    
+
+                    Equation Performance
+ Number of N-R Iterations:          2
+ Avg # of Linear Equation Solver Iterations:   0.5
+ Number of Active Nodes:     33813.
+ Total Number of Iterations, N-R:        279 , Solver:        448
+ Phase Changes This Time Step:        0 Total           0
+ Nodes Liq Phase:    67626 change        0
+ Nodes Two Phase:        0 change        0
+ Nodes Gas Phase:         0 change        0
+ Nodes SC Phase:        0 change        0
+ Number of restarted time steps           17
+                    Largest Residuals
+ EQ1 R=  0.1487E-11 node=   3533 zone=     1 x=0.2647E+05 y=0.3627E+05 z= 2885.    
+ EQ2 R=  0.3087E-13 node=  59739 zone=     2 x=0.3431E+05 y=0.9706E+05 z=0.4327E+05
+   Node   Equation 1 Residual   Equation 2 Residual
+  67576     -0.748043E-13          -0.369153E-14
+  64975     -0.232881E-12          -0.892520E-14
+  62374      0.623484E-12           0.975557E-14
+  59773      0.101294E-12          -0.898659E-14
+  57172      0.309517E-13           0.869203E-14
+  28561      0.981126E-13           0.184816E-14
+   2551     -0.916168E-12          -0.866424E-14
+
+                    Nodal Information (Water)
+                                                  source/sink  E source/sink
+   Node   P (MPa)    E (MJ)    L sat     Temp (C)    (kg/s)       (MJ/s)
+  67576    20.00     0.509      1.00        1.799   0.000       0.00    
+  64975    36.90     0.507      1.00        2.000   0.000     -0.624E-01
+  62374    49.94     0.500      1.00        2.000   0.000     -0.654E-01
+  59773    59.65     0.491      1.00        2.000   0.000     -0.508E-01
+  57172    66.64     0.478      1.00        2.000   0.000     -0.251E-01
+  28561    80.58     0.284      1.00        2.146   0.000       0.00    
+   2551    145.7     0.155      1.00        2.507   0.000       0.00    
+
+                    Global Mass & Energy Balances
+ Total mass in system at this time:            0.143703E+18 kg
+ Total mass of steam in system at this time:   0.000000E+00 kg
+ Total enthalpy in system at this time:        0.377655E+17 MJ
+
+ Water discharge this time step:   0.843232E+02 kg (0.378758E+03 kg/s)
+ Water input this time step:       0.000000E+00 kg (0.000000E+00 kg/s)
+ Total water discharge:            0.206701E+13 kg (0.350885E+03 kg/s)
+ Total water input:                0.000000E+00 kg (0.000000E+00 kg/s)
+
+ Enthalpy discharge this time step:  0.112456E+02 MJ (0.505123E+02 MJ/s)
+ Enthalpy input this time step:      0.453451E+03 MJ (0.203678E+04 MJ/s)
+ Total enthalpy discharge:           0.306400E+13 MJ (0.520129E+03 MJ/s)
+ Total enthalpy input:               0.165072E+14 MJ (0.280217E+04 MJ/s)
+
+ Net kg water discharge (total out-total in):   0.206701E+13
+ Net MJ energy discharge (total out-total in):  -0.134432E+14
+ Conservation Errors:  -0.271719E-03 (mass),   0.652243E-04 (energy)
+time step =      132 time step size =  0.30920973497242E-05
+out of bounds : node    66055 x =   0.1863E+05 y =   0.4020E+05 z =   0.4904E+05
+ p =   20.0000000     t =  1.79919677     s =   1.00000000    
+ porosity =   0.30000000     permx   1.00000000E-15 phase state    1 iter    1
+
+ timestep =    132 timestep restarted because of balance errors or variable out of bounds
+    
+#### largest N-R corrections, timestep      132 ####
+ EQ1 R=  0.1640E-08 node=   2601 zone=     5 x=0.9902E+05 y=0.9902E+05 z= 961.5    
+ EQ2 R=  0.1698E-09 node=  11434 zone=     1 x=0.1863E+05 y=0.4020E+05 z= 8654.    
+
+ timestep less than daymin  132        0.618419E-06         68181.2    
