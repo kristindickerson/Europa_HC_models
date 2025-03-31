@@ -1,9 +1,0 @@
-
-cmo / create / MO_TMP / / / triplane
-createpts / xyz / NX NY NZ / 0. 0. ZSURF / XL YL ZSURF / 1 1 1
-cmo / setatt / -def- / imt / 1 0 0 / 1
-connect
-dump / avs / SURF_OUT / MO_TMP
-cmo / delete / MO_TMP
-finish
-

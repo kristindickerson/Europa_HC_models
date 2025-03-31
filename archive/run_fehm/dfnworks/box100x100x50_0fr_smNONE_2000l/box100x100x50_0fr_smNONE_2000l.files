@@ -1,0 +1,13 @@
+root: box100x100x50_0fr_smNONE_2000l
+input: box100x100x50_0fr_smNONE_2000l.dat
+outpu: box100x100x50_0fr_smNONE_2000l.out
+grida: box100x100x50_0fr_smNONE_2000l.fehmn
+storo: box100x100x50_0fr_smNONE_2000l.stor
+rsto: box100x100x50_0fr_smNONE_2000l.fin
+error: fehmn.err
+check: box100x100x50_0fr_smNONE_2000l.chk
+zone: box100x100x50_0fr_smNONE_2000l.zone
+look: box100x100x50_0fr_smNONE_2000l.wpi
+hist: box100x100x50_0fr_smNONE_2000l.hist
+
+all

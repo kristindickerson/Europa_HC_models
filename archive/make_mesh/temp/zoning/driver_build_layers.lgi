@@ -1,0 +1,39 @@
+#
+# Build layers using a more modular approach
+#
+infile define_variables.mlgi
+#
+define / ZSURF / 0.0
+define / SURF_OUT / tmp_surf0.inp
+infile / build_layer.mlgi
+#
+define / ZSURF / 6000.0
+define / SURF_OUT / tmp_surf1.inp
+infile / build_layer.mlgi
+#
+define / ZSURF / 9000.0
+define / SURF_OUT / tmp_surf2.inp
+infile / build_layer.mlgi
+#
+# Add some random noise to the vertical coordinate on this surface
+#
+read / avs / SURF_OUT / mo_tmp
+perturb / 1 0 0 / 0.0 0.0 100.0
+dump / avs / SURF_OUT / mo_tmp
+cmo / delete / mo_tmp
+#
+define / ZSURF / 10000.0
+define / SURF_OUT / tmp_surf3.inp
+infile / build_layer.mlgi
+#
+# Create a vertical quad surface by defining 4 points
+#
+cmo / create / mo_vert / / / quad
+quadxy / 2 2 / 4000. 4000. 6000. / 6000. 6000. 6000. &
+               6000. 6000. 10000. / 4000. 4000. 10000.
+createpts/brick/xyz/ 2 2 1 /1,0,0/connect
+cmo / setatt / -def- / 1 0 0 / 1
+dump / avs / tmp_vert.inp / mo_vert
+cmo / delete / mo_vert
+
+finish

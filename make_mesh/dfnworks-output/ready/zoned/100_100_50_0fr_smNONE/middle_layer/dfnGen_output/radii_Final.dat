@@ -1,4 +1,0 @@
-Fracture Radii List After Isolated Fracture and Cluster Removal
-Format: xRadius yRadius Family# (-2 = userPolygon, -1 = userRectangle, 0 = userEllipse, > 0 is family in order of famProb)
-50000 50000 -1
-50000 50000 -1
