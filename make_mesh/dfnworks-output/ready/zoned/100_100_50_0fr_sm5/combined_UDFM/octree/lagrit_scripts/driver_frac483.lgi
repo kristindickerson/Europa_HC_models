@@ -1,0 +1,88 @@
+read / avs / mohex2.inp / mohex2 
+    cmo / DELATT / mohex2 / if_int
+    read / avs / MOTET_np1.inp / MOTET_np1
+    read / avs / MOTET.inp / MOTET
+    read / avs / reduced_mesh.inp / MODFN
+    cmo / create / FRACTURE483 
+    cmo / copy / FRACTURE483 / MODFN
+    cmo / select / FRACTURE483
+    pset / pdel / attribute imt / 1 0 0 / ne / 483
+    rmpoint pset, get, pdel
+    rmpoint compress
+    resetpts itp
+    pset / pdel / delete
+    eltset / edel / itetclr / ne / 483
+    rmpoint element eltset, get, edel
+    rmpoint compress
+    resetpts itp
+    eltset / edel / delete
+    
+    intersect_elements / mohex2 / FRACTURE483 / if_int
+    eltset / erefine / if_int / ne / 0
+    pset / pinter / eltset erefine
+
+    cmo / create / temp483
+    cmo / copy / temp483 / mohex2
+    cmo / select / temp483
+    pset / pdel / if_int / 1 0 0 / eq / 0
+    rmpoint, pset, get, pdel
+    rmpoint compress
+    resetpts itp
+    pset / pdel / delete
+    eltset / edel / if_int / eq / 0
+    rmpoint element eltset, get, edel
+    rmpoint compress
+    resetpts itp
+    eltset / edel / delete    
+    cmo / setatt / temp483 / itetclr / 1 0 0 / 483
+    cmo / setatt / temp483 / imt / 1 0 0 / 483
+    
+    cmo / create / TETCOPY
+    cmo / copy / TETCOPY / MOTET
+    cmo / select / TETCOPY
+    interpolate / map / TETCOPY / itetclr / 1 0 0 / temp483 / itetclr
+    compute / distance_field / TETCOPY / temp483 /dfield
+    cmo / select / TETCOPY
+    pset / pfrac / attribute / dfield / 1 0 0 / le / 1.e-8
+    cmo / setatt / TETCOPY / imt / 1 0 0 / 2149
+    cmo / setatt / TETCOPY / imt / pset get pfrac / 483
+    
+    cmo / set_id / MOTET_np1 / element / id_cell
+    cmo / set_id / MOTET_np1 / node / id_vertex
+
+    extract / plane / ptnorm / &
+    -25933.31137 17944.93763 -4148.614056 / &
+    -0.191500243265052 -0.044519403961574 0.980482370825877 / &
+    1 0 0 / moext / MOTET_np1
+    cmo / status / brief
+
+    createpts / median
+    cmo / DELATT / moext / id_cell
+    cmo / DELATT / moext / id_parent
+    dump / avs2 / ex_xyz483.table / moext 0 0 0 1
+    
+    cmo / addatt /  moext / volume / area_tri
+    cmo / DELATT / moext / xmed
+    cmo / DELATT / moext / ymed
+    cmo / DELATT / moext / zmed
+    dump / avs2 / ex_area483.table / moext 0 0 0 1
+    cmo / delete / moext
+
+    cmo / select / TETCOPY
+    cmo / DELATT / TETCOPY / icr1
+    cmo / DELATT / TETCOPY / itp1
+    cmo / DELATT / TETCOPY / isn1
+ 
+    dump / avs2 / frac483.inp / TETCOPY  
+    cmo / delete / temp483   
+    cmo / delete / TETCOPY
+ 
+    cmo / select / mohex2
+    cmo / setatt / mohex2 / itetclr / eltset get erefine / 483
+    cmo / setatt / mohex2 / imt / pset get pinter / 483
+    eltset / erefine / delete
+    pset / pinter / delete
+    cmo / DELATT / mohex2 / if_int
+    cmo / delete / FRACTURE483
+    finish
+    

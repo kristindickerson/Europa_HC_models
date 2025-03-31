@@ -1,0 +1,449 @@
+ 
+ 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+*               *                                             *                 
+*               *    Program:  LaGriT V2.200   Linux m32      *                 
+*               *    date_compile: 2010/11/22                 *                 
+ 
+WARNING: code expiration date has passed.                                       
+WARNING: code expiration date has passed.                                       
+ 
+ 
+*               *    Run Time: 2025/03/31  09:50:33           *                 
+*               *    Manual:   http://lagrit.lanl.gov         *                 
+*               *                                             *                 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+ 
+                               -----oOo-----                                    
+LaGriT Copyright: This program was prepared by Los Alamos National Security, LLC
+at Los Alamos National Laboratory (LANL) under contract No. DE-AC52-06NA25396   
+with the U.S. Department of Energy (DOE). All rights in the program are reserved
+by the DOE and Los Alamos National Security, LLC. Permission is granted to the  
+public to copy and use this software without charge, provided that this Notice  
+and any statement of authorship are reproduced on all copies. Neither the       
+U.S. Government nor LANS makes any warranty, express or implied, or assumes     
+any liability or responsibility for the use of this software.                   
+                               -----oOo-----                                    
+ 
+ 
+Output log file: outx3dgen                                                      
+Command log file: logx3dgen                                                     
+ 
+define/XL/100000                                                                
+define/YL/100000                                                                
+define/ZL/50000                                                                 
+define/NX/101                                                                   
+define/NY/101                                                                   
+define/NZ/1                                                                     
+cmo/create/mo_mesh///tet                                                        
+createpts/xyz/NX NY NZ/0. 0. 0./XL YL ZL                                        
+  RZ GENERATED POINTS                    1 TO                10201              
+cmo/setatt/mo_mesh/imt/1 0 0/1                                                  
+Warning: nelements = 0                                                          
+     10201 values reset for attribute imt1                                      
+ 
+connectresetpts/itp                                                             
+ 
+Invalid LaGriT generator command: connectresetpts                               
+ 
+error in command : connectresetpts/itp                                          
+resetpts/itp                                                                    
+geniee                                                                          
+geniee_cmo warning: no elements with faces so no jtet                           
+finish                                                                          
+read/avs/tmp_surf0.inp/mo0                                                      
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mo0                                            
+ 
+  1 Mesh Object name: mo_mesh                                                   
+    number of nodes =         10201        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mo0                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/printatt/mo0/-xyz-/minmax                                                   
+ATTRIBUTE NAME              MIN               MAX         DIFFERENCE    LENGTH  
+ xic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ yic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ zic                0.000000000E+00  0.000000000E+00 0.000000000E+00     10201  
+ 
+read/avs/tmp_surf1.inp/mo1                                                      
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mo1                                            
+ 
+  1 Mesh Object name: mo_mesh                                                   
+    number of nodes =         10201        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mo0                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: mo1                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/printatt/mo1/-xyz-/minmax                                                   
+ATTRIBUTE NAME              MIN               MAX         DIFFERENCE    LENGTH  
+ xic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ yic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ zic                6.000000000E+03  6.000000000E+03 0.000000000E+00     10201  
+ 
+read/avs/tmp_surf2.inp/mo2                                                      
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mo2                                            
+ 
+  1 Mesh Object name: mo_mesh                                                   
+    number of nodes =         10201        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mo0                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: mo1                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  4 Mesh Object name: mo2                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/printatt/mo2/-xyz-/minmax                                                   
+ATTRIBUTE NAME              MIN               MAX         DIFFERENCE    LENGTH  
+ xic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ yic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ zic                8.900002948E+03  9.099984560E+03 1.999816125E+02     10201  
+ 
+read/avs/tmp_surf3.inp/mo3                                                      
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mo3                                            
+ 
+  1 Mesh Object name: mo_mesh                                                   
+    number of nodes =         10201        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mo0                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: mo1                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  4 Mesh Object name: mo2                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  5 Mesh Object name: mo3                                                       
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/printatt/mo3/-xyz-/minmax                                                   
+ATTRIBUTE NAME              MIN               MAX         DIFFERENCE    LENGTH  
+ xic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ yic                0.000000000E+00  1.000000000E+05 1.000000000E+05     10201  
+ zic                1.000000000E+04  1.000000000E+04 0.000000000E+00     10201  
+ 
+surface/s0/reflect/sheet/mo0                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/permanent//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//permanent/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/permanent//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/permanent/x/0.0                   
+finish                                                                          
+log/tty/off                                                                     
+finish                                                                          
+cmo/DELATT/s0 isetwd                                                            
+finish                                                                          
+cmo/DELATT/s0 ialias                                                            
+finish                                                                          
+cmo/DELATT/s0 imt1                                                              
+finish                                                                          
+cmo/DELATT/s0 itp1                                                              
+finish                                                                          
+cmo/DELATT/s0 icr1                                                              
+finish                                                                          
+cmo/DELATT/s0 isn1                                                              
+finish                                                                          
+cmo/DELATT/s0 xtetwd                                                            
+finish                                                                          
+cmo/DELATT/s0 itetclr                                                           
+finish                                                                          
+log/tty/on                                                                      
+finish                                                                          
+cmo/addatt//ncon50/INT/scalar/scalar/constant/permanent/l/0                     
+finish                                                                          
+cmo/addatt//nconbnd/INT/scalar/scalar/constant/permanent/l/0                    
+finish                                                                          
+cmo/addatt//icontab/VINT/scalar/ncon50/constant/permanent/l/0.0                 
+finish                                                                          
+surface/s1/reflect/sheet/mo1                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/permanent//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//permanent/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/permanent//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/permanent/x/0.0                   
+finish                                                                          
+log/tty/off                                                                     
+finish                                                                          
+cmo/DELATT/s1 isetwd                                                            
+finish                                                                          
+cmo/DELATT/s1 ialias                                                            
+finish                                                                          
+cmo/DELATT/s1 imt1                                                              
+finish                                                                          
+cmo/DELATT/s1 itp1                                                              
+finish                                                                          
+cmo/DELATT/s1 icr1                                                              
+finish                                                                          
+cmo/DELATT/s1 isn1                                                              
+finish                                                                          
+cmo/DELATT/s1 xtetwd                                                            
+finish                                                                          
+cmo/DELATT/s1 itetclr                                                           
+finish                                                                          
+log/tty/on                                                                      
+finish                                                                          
+surface/s2/reflect/sheet/mo2                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/permanent//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//permanent/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/permanent//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/permanent/x/0.0                   
+finish                                                                          
+log/tty/off                                                                     
+finish                                                                          
+cmo/DELATT/s2 isetwd                                                            
+finish                                                                          
+cmo/DELATT/s2 ialias                                                            
+finish                                                                          
+cmo/DELATT/s2 imt1                                                              
+finish                                                                          
+cmo/DELATT/s2 itp1                                                              
+finish                                                                          
+cmo/DELATT/s2 icr1                                                              
+finish                                                                          
+cmo/DELATT/s2 isn1                                                              
+finish                                                                          
+cmo/DELATT/s2 xtetwd                                                            
+finish                                                                          
+cmo/DELATT/s2 itetclr                                                           
+finish                                                                          
+log/tty/on                                                                      
+finish                                                                          
+surface/s3/reflect/sheet/mo3cmo/select/mo_mesh                                  
+ 
+ The QUAD-POINT file, mo3cmo, does not exist.                                   
+region/r1/gt s0 and le s1                                                       
+region/r2/gt s1 and le s2                                                       
+region/r3/gt s2 and le s3                                                       
+pset/p1/region r1/1 0 0                                                         
+ 
+ THE PSET  p1  HAS          0 POINTS                                            
+pset/p2/region r2/1 0 0                                                         
+ 
+ THE PSET  p2  HAS          0 POINTS                                            
+pset/p3/region r3/1 0 0cmo/setatt/mo_mesh/imt/pset get p1/1                     
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not exist: -none-                                
+CMO_GET_INFO: Mesh Object does not 

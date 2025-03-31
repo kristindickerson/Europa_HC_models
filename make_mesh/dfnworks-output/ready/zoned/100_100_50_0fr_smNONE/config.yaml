@@ -1,0 +1,102 @@
+variables:
+  alpha_frac_fam: 1.2
+  ap_1: 0.0001
+  ap_2: 0.0001
+  ap_3: 0.0001
+  aq_z: 10000
+  asp_rat_int: 1.0
+  cb_z: 35000
+  dist_frac_fam: tpl
+  domain_size_x: 100000.0
+  domain_size_y: 100000.0
+  domain_size_z: 50000.0
+  fault_center_x_1: 0
+  fault_center_x_2: 0
+  fault_center_x_3: 0
+  fault_center_y_1: -25000.0
+  fault_center_y_2: 25000.0
+  fault_center_y_3: 0
+  fault_center_z_1: 2500.0
+  fault_center_z_2: 2500.0
+  fault_center_z_3: 2500.0
+  flow_solver_in: FEHM
+  h: 100
+  hy_function_frac_fam: constant
+  hy_params_frac_fam:
+    mu: 0.0001
+  hy_variable_frac_fam: aperture
+  interface_bot: -5000.0
+  interface_top: 5000.0
+  kappa_frac_fam: 0.1
+  l: 2000
+  mat_perm_bottom: 1.0e-15
+  mat_perm_middle: 1.0e-15
+  mat_perm_top: 1.0e-15
+  mat_por_bottom: 0.01
+  mat_por_middle: 0.01
+  mat_por_top: 0.01
+  max_radius_frac_fam: 1000.0
+  midlayer_center_x: 0
+  midlayer_center_y: 0
+  midlayer_center_z: 15000.0
+  midlayer_size_x: 100000.0
+  midlayer_size_y: 100000.0
+  midlayer_size_z: 10000
+  min_radius_frac_fam: 100.0
+  ncpu_in: 8
+  norm_vec_1:
+  - 0
+  - 1
+  - 0
+  norm_vec_2:
+  - 0
+  - 1
+  - 0
+  norm_vec_3:
+  - 0
+  - 1
+  - 0
+  norm_vec_int_bot:
+  - 0
+  - 0
+  - 1
+  norm_vec_int_top:
+  - 0
+  - 0
+  - 1
+  orl: 2
+  p32_frac_fam: 1.0e-07
+  phi_frac_fam: 0.0
+  rad_int: 50000.0
+  radi_1: 7500.0
+  radi_2: 7500.0
+  radi_3: 7500.0
+  s_z: 5000
+  seed_value: 1
+  shap_1: rect
+  shap_2: rect
+  shap_3: rect
+  shap_frac_fam: ell
+  shap_int: rect
+  theta_frac_fam: 0.0
+  tot_z: 50000
+  trans_1:
+  - 0
+  - -25000.0
+  - 2500.0
+  trans_2:
+  - 0
+  - 25000.0
+  - 2500.0
+  trans_3:
+  - 0
+  - 0
+  - 2500.0
+  trans_int_bot:
+  - 0
+  - 0
+  - -5000.0
+  trans_int_top:
+  - 0
+  - 0
+  - 5000.0

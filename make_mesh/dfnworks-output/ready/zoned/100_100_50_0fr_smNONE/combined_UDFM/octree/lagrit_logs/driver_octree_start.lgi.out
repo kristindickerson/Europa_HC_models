@@ -1,0 +1,1903 @@
+ 
+ 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+*               *                                             *                 
+*               *    Program:  LaGriT V3.3.4   Linux          *                 
+*               *    Compiler Name: GNU                       *                 
+*               *    Compiler Version: 13.3.0                 *                 
+*               *    Date Compile: 2025/02/05                 *                 
+*               *    Run Time: 2025/Mar  1  18:58:04          *                 
+*               *    Manual:   https://lagrit.lanl.gov        *                 
+*               *                                             *                 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+ 
+                               -----oOo-----                                    
+             LaGriT V3 LA-CC-15-069  https://github.com/lanl/LaGriT             
+  Copyright 2016. Triad National Security, LLC.  All rights reserved. This      
+  program was produced under U.S. Government contract 89233218CNA000001         
+  for Los Alamos National Laboratory (LANL), which is operated by Triad         
+  National Security, LLC for the U.S. Department of Energy/National Nuclear     
+  Security Administration.  All rights in the program are reserved by Triad     
+  National Security, LLC, and the U.S. Department of Energy/National Nuclear    
+  Security Administration. The Government is granted for itself and others      
+  acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license   
+  in this material to reproduce, prepare derivative works, distribute copies    
+  to the public, perform publicly and display publicly, and to permit others to 
+  do so. This software is open source and available under the BSD-3 License.    
+                               -----oOo-----                                    
+ 
+ 
+Output log file: driver_octree_start.lgi.out                                    
+Command log file: driver_octree_start.lgi.log                                   
+ 
+#                                                                               
+# LaGriT control files to build an octree refined hex mesh with refinement      
+# based on intersection of hex mesh with a DFN triangulation mesh               
+#                                                                               
+# driver_octree.lgi                                                             
+#   parameters_octree_dfn.mlgi                                                  
+#   build_octree.mlgi                                                           
+#       intersect_refine.mlgi                                                   
+#   hex_to_tet.mlgi                                                             
+#   remove_cells.mlgi                                                           
+#                                                                               
+# Define some parameters                                                        
+#                                                                               
+infile parameters_octree_dfn.mlgi                                               
+#                                                                               
+# Define some parameters                                                        
+#                                                                               
+# Input DFN mesh                                                                
+#                                                                               
+define/FTYPE/avs                                                                
+define/FNAME/reduced_mesh.inp                                                   
+#                                                                               
+define/MOHEX/mohex                                                              
+define/MOTET/motet                                                              
+#                                                                               
+# Set AMR refinement. 123 means refine in x,y,z directions                      
+# See LaGriT refine command for more options                                    
+#                                                                               
+define/REFINE_AMR/123                                                           
+#                                                                               
+define/N_OCTREE_REFINE/2                                                        
+define/N_OCTREE_REFINE_M1/1                                                     
+define/N_OCTREE_np1/3                                                           
+define/N_OCTREE_np1_M1/2                                                        
+define/X0/-50000.000000000000                                                   
+define/X1/50000.000000000000                                                    
+define/Y0/-50000.000000000000                                                   
+define/Y1/50000.000000000000                                                    
+define/Z0/-25000.000000000000                                                   
+define/Z1/25000.000000000000                                                    
+define/XMAX/49999.000000000000                                                  
+define/XMIN/-49999.000000000000                                                 
+define/YMAX/49999.000000000000                                                  
+define/YMIN/-49999.000000000000                                                 
+define/ZMAX/24999.000000000000                                                  
+define/ZMIN/-24999.000000000000                                                 
+define/NX/51                                                                    
+define/NY/51                                                                    
+define/NZ/26                                                                    
+finish                                                                          
+#                                                                               
+# Read in DFN mesh                                                              
+#                                                                               
+read/FTYPE/FNAME/MODFN                                                          
+cmo/addatt/MODFN/family_id/VINT/scalar/nelements/linear/permanent/gxaf/0.0      
+finish                                                                          
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: MODFN                                          
+ 
+  1 Mesh Object name: MODFN                                                     
+    number of nodes =             8        number of elements =            4    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/printatt/MODFN/-xyz-/minmax                                                 
+ATTRIBUTE NAME              MIN               MAX         DIFFERENCE    LENGTH  
+ xic               -5.000000000E+04  5.000000000E+04 1.000000000E+05         8  
+ yic               -5.000000000E+04  5.000000000E+04 1.000000000E+05         8  
+ zic                1.000000000E+04  2.000000000E+04 1.000000000E+04         8  
+ 
+#                                                                               
+# Octree refined orthogonal mesh based on intersection with DFN mesh            
+#                                                                               
+infile build_octree.mlgi                                                        
+cmo/create/MOHEX///hex                                                          
+createpts/brick/xyz/NX NY NZ/X0 Y0 Z0/X1 Y1 Z1/1 1 1                            
+          Number of nodes:       67626                                          
+          Number of elements:       62500                                       
+          Number of negative volume elements:           0                       
+          Total volume:     0.500000000000E+15                                  
+cmo/setatt/MOHEX/imt/1 0 0/1                                                    
+     67626 values reset for attribute imt1                                      
+ 
+cmo/setatt/MOHEX/itetclr/1 0 0/1                                                
+     62500 values reset for attribute itetclr                                   
+ 
+resetpts/itp                                                                    
+geniee                                                                          
+finish                                                                          
+#                                                                               
+# Print to screen and logfiles the extents of the hex mesh and dfn mesh         
+#                                                                               
+cmo/printatt/MOHEX/-xyz-/minmax                                                 
+ATTRIBUTE NAME              MIN               MAX         DIFFERENCE    LENGTH  
+ xic               -5.000000000E+04  5.000000000E+04 1.000000000E+05     67626  
+ yic               -5.000000000E+04  5.000000000E+04 1.000000000E+05     67626  
+ zic               -2.500000000E+04  2.500000000E+04 5.000000000E+04     67626  
+ 
+cmo/select/MODFN                                                                
+cmo/printatt/MODFN/-xyz-/minmax                                                 
+ATTRIBUTE NAME              MIN               MAX         DIFFERENCE    LENGTH  
+ xic               -5.000000000E+04  5.000000000E+04 1.000000000E+05         8  
+ yic               -5.000000000E+04  5.000000000E+04 1.000000000E+05         8  
+ zic                1.000000000E+04  2.000000000E+04 1.000000000E+04         8  
+ 
+#                                                                               
+# Generate copy of hex mesh for upscaling                                       
+#                                                                               
+cmo/copy/MOHEX_np1/MOHEX                                                        
+#                                                                               
+# Loop through steps to intersect dfn mesh (MODFN) with hex mesh (MOHEX)        
+# and refine hex mesh based on cell intersections. Loop through                 
+# N_OCTREE_REFINE times                                                         
+#                                                                               
+loop/do/NTIMEs/1 N_OCTREE_REFINE 1/loop_end infile intersect_refine.mlgi        
+LOOP: loop nesting level =     1                                                
+define/NTIMEs/1                                                                 
+finish                                                                          
+infile intersect_refine.mlgi                                                    
+#                                                                               
+# Compute mesh to mesh intersection and refine hex mesh                         
+#                                                                               
+intersect_elements/MOHEX/MODFN/if_int                                           
+cmo/select/mohex                                                                
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/mohex/if_int/VINT/scalar/nelements/linear/permanent//0/              
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1             4458           1324        5 %                      
+              4            17008           5000    Total Done                   
+ 
+cmo/select/mohex                                                                
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/mohex/sbox                                                           
+finish                                                                          
+cmo/DELATT/mohex/v12                                                            
+finish                                                                          
+cmo/DELATT/mohex/linkt                                                          
+finish                                                                          
+cmo/DELATT/mohex/v2                                                             
+finish                                                                          
+finish                                                                          
+eltset/erefine/if_int/ne/0                                                      
+ 
+ THE ELTSET erefine                          HAS       5000 ELEMENTS            
+pset/prefine/eltset erefine                                                     
+ 
+ THE PSET  prefine  HAS      10404 POINTS                                       
+#                                                                               
+# If one wants anisotropic mesh refinement, then the                            
+# variable REFINE_AMR can be set in parameters_octree_dfn.mlgi                  
+#                                                                               
+refine/constant/imt1/linear/element/pset,get,prefine/-1.,0.,0./exclusive/amr REF
+INE_AMR                                                                         
+refine elements:                                                                
+refine hex     :       5000                                                     
+cmo/addatt/mohex/itetpar/VINT/scalar/nelements/linear/permanent//0.0            
+finish                                                                          
+cmo/addatt/mohex/itetkid/VINT/scalar/nelements/linear/permanent//0.0            
+finish                                                                          
+cmo/addatt/mohex/itetlev/VINT/scalar/nelements/linear/permanent//0.0            
+finish                                                                          
+cmo/addatt/mohex/xradavg/VDOUBLE/scalar/nnodes/linear/temporary//0.0            
+finish                                                                          
+Element iteration:          1      5000                                         
+Octree(PRD) refined elems: old=     62500 new=    102500                        
+FILTER_SUBSET:Dudding duplicate points:       44198                             
+ 
+filter/1,0,0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+geniee                                                                          
+finish                                                                          
+cmo/DELATT/mohex/xradavg                                                        
+finish                                                                          
+#                                                                               
+# Clean up eltset, pset, and if_int attribute                                   
+#                                                                               
+eltset/erefine/delete                                                           
+ 
+ ELTSET erefine                          DELETED                                
+ 
+pset/prefine/delete                                                             
+ 
+ PSET prefine  DELETED                                                          
+ 
+cmo/DELATT/MOHEX/if_int                                                         
+#                                                                               
+# Print out diagnostics                                                         
+#                                                                               
+quality                                                                         
+ 
+epsilonl, epsilonaspect:   3.3306691E-08  3.6948299E-23                         
+--------------------------------------------                                    
+elements with aspect ratio < .01:                    0                          
+elements with aspect ratio b/w .01 and .02:          0                          
+elements with aspect ratio b/w .02 and .05:          0                          
+elements with aspect ratio b/w .05 and .1 :          0                          
+elements with aspect ratio b/w .1  and .2 :          0                          
+elements with aspect ratio b/w .2  and .5 :          0                          
+elements with aspect ratio b/w .5  and 1. :     102500                          
+min aspect ratio =  0.1000E+01  max aspect ratio =  0.1000E+01                  
+ 
+epsilonvol:   1.1102230E+02                                                     
+---------------------------------------                                         
+element volumes b/w  0.1000E+07 and  0.6034E+07:         0                      
+element volumes b/w  0.6034E+07 and  0.3641E+08:         0                      
+element volumes b/w  0.3641E+08 and  0.2197E+09:         0                      
+element volumes b/w  0.2197E+09 and  0.1326E+10:     40000                      
+element volumes b/w  0.1326E+10 and  0.8000E+10:     62500                      
+min volume =   1.0000000E+06  max volume =   8.0000000E+09                      
+-----------------------------------------------------------                     
+    102500 total elements evaluated.                                            
+ 
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mohex                                          
+ 
+  1 Mesh Object name: MODFN                                                     
+    number of nodes =             8        number of elements =            4    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mohex                                                     
+    number of nodes =        162626        number of elements =       102500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+  3 Mesh Object name: MOHEX_np1                                                 
+    number of nodes =         67626        number of elements =        62500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+ 
+#                                                                               
+finish                                                                          
+finish                                                                          
+define/NTIMEs/2                                                                 
+finish                                                                          
+infile intersect_refine.mlgi                                                    
+#                                                                               
+# Compute mesh to mesh intersection and refine hex mesh                         
+#                                                                               
+intersect_elements/MOHEX/MODFN/if_int                                           
+cmo/select/mohex                                                                
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/mohex/if_int/VINT/scalar/nelements/linear/permanent//0/              
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1            24575          10298        5 %                      
+              4            98820          40000    Total Done                   
+ 
+cmo/select/mohex                                                                
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/mohex/sbox                                                           
+finish                                                                          
+cmo/DELATT/mohex/v12                                                            
+finish                                                                          
+cmo/DELATT/mohex/linkt                                                          
+finish                                                                          
+cmo/DELATT/mohex/v2                                                             
+finish                                                                          
+finish                                                                          
+eltset/erefine/if_int/ne/0                                                      
+ 
+ THE ELTSET erefine                          HAS      40000 ELEMENTS            
+pset/prefine/eltset erefine                                                     
+ 
+ THE PSET  prefine  HAS      61206 POINTS                                       
+#                                                                               
+# If one wants anisotropic mesh refinement, then the                            
+# variable REFINE_AMR can be set in parameters_octree_dfn.mlgi                  
+#                                                                               
+refine/constant/imt1/linear/element/pset,get,prefine/-1.,0.,0./exclusive/amr REF
+INE_AMR                                                                         
+refine elements:                                                                
+refine hex     :      45000                                                     
+cmo/addatt/mohex/xradavg/VDOUBLE/scalar/nnodes/linear/temporary//0.0            
+finish                                                                          
+Element iteration:          1     40000                                         
+Octree(PRD) refined elems: old=    102500 new=    422500                        
+FILTER_SUBSET:Dudding duplicate points:      417196                             
+ 
+filter/1,0,0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+geniee                                                                          
+finish                                                                          
+Element iteration:          1     10000                                         
+Octree(PRD) refined elems: old=    422500 new=    502500                        
+FILTER_SUBSET:Dudding duplicate points:      118796                             
+ 
+filter/1,0,0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+geniee                                                                          
+finish                                                                          
+cmo/DELATT/mohex/xradavg                                                        
+finish                                                                          
+#                                                                               
+# Clean up eltset, pset, and if_int attribute                                   
+#                                                                               
+eltset/erefine/delete                                                           
+ 
+ ELTSET erefine                          DELETED                                
+ 
+pset/prefine/delete                                                             
+ 
+ PSET prefine  DELETED                                                          
+ 
+cmo/DELATT/MOHEX/if_int                                                         
+#                                                                               
+# Print out diagnostics                                                         
+#                                                                               
+quality                                                                         
+ 
+epsilonl, epsilonaspect:   3.3306691E-08  3.6948299E-23                         
+--------------------------------------------                                    
+elements with aspect ratio < .01:                    0                          
+elements with aspect ratio b/w .01 and .02:          0                          
+elements with aspect ratio b/w .02 and .05:          0                          
+elements with aspect ratio b/w .05 and .1 :          0                          
+elements with aspect ratio b/w .1  and .2 :          0                          
+elements with aspect ratio b/w .2  and .5 :          0                          
+elements with aspect ratio b/w .5  and 1. :     502500                          
+min aspect ratio =  0.1000E+01  max aspect ratio =  0.1000E+01                  
+ 
+epsilonvol:   1.1102230E+02                                                     
+---------------------------------------                                         
+element volumes b/w  0.1000E+07 and  0.6034E+07:         0                      
+element volumes b/w  0.6034E+07 and  0.3641E+08:         0                      
+element volumes b/w  0.3641E+08 and  0.2197E+09:    320000                      
+element volumes b/w  0.2197E+09 and  0.1326E+10:    120000                      
+element volumes b/w  0.1326E+10 and  0.8000E+10:     62500                      
+min volume =   1.0000000E+06  max volume =   8.0000000E+09                      
+-----------------------------------------------------------                     
+    502500 total elements evaluated.                                            
+ 
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mohex                                          
+ 
+  1 Mesh Object name: MODFN                                                     
+    number of nodes =             8        number of elements =            4    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mohex                                                     
+    number of nodes =       1112626        number of elements =       502500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+  3 Mesh Object name: MOHEX_np1                                                 
+    number of nodes =         67626        number of elements =        62500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+ 
+#                                                                               
+finish                                                                          
+finish                                                                          
+define/NTIMEs/remove                                                            
+finish                                                                          
+#                                                                               
+# See above - except do it once additional time ("np1")                         
+#                                                                               
+loop/do/NTIMEs/1 N_OCTREE_np1 1/loop_end infile intersect_refine_np1.mlgi       
+LOOP: loop nesting level =     1                                                
+define/NTIMEs/1                                                                 
+finish                                                                          
+infile intersect_refine_np1.mlgi                                                
+#                                                                               
+# For comments see intersect_refine.mlgi                                        
+#                                                                               
+intersect_elements/MOHEX_np1/MODFN/if_int                                       
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/MOHEX_np1/if_int/VINT/scalar/nelements/linear/permanent//0/          
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1             4458           1324        5 %                      
+              4            17008           5000    Total Done                   
+ 
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/MOHEX_np1/sbox                                                       
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v12                                                        
+finish                                                                          
+cmo/DELATT/MOHEX_np1/linkt                                                      
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v2                                                         
+finish                                                                          
+finish                                                                          
+eltset/erefine/if_int/ne/0                                                      
+ 
+ THE ELTSET erefine                          HAS       5000 ELEMENTS            
+pset/prefine/eltset erefine                                                     
+ 
+ THE PSET  prefine  HAS      10404 POINTS                                       
+refine/constant/imt1/linear/element/pset,get,prefine/-1.,0.,0./exclusive/amr REF
+INE_AMR                                                                         
+refine elements:                                                                
+refine hex     :       5000                                                     
+cmo/addatt/MOHEX_np1/itetpar/VINT/scalar/nelements/linear/permanent//0.0        
+finish                                                                          
+cmo/addatt/MOHEX_np1/itetkid/VINT/scalar/nelements/linear/permanent//0.0        
+finish                                                                          
+cmo/addatt/MOHEX_np1/itetlev/VINT/scalar/nelements/linear/permanent//0.0        
+finish                                                                          
+cmo/addatt/MOHEX_np1/xradavg/VDOUBLE/scalar/nnodes/linear/temporary//0.0        
+finish                                                                          
+Element iteration:          1      5000                                         
+Octree(PRD) refined elems: old=     62500 new=    102500                        
+FILTER_SUBSET:Dudding duplicate points:       44198                             
+ 
+filter/1,0,0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+geniee                                                                          
+finish                                                                          
+cmo/DELATT/MOHEX_np1/xradavg                                                    
+finish                                                                          
+#                                                                               
+eltset/erefine/delete                                                           
+ 
+ ELTSET erefine                          DELETED                                
+ 
+pset/prefine/delete                                                             
+ 
+ PSET prefine  DELETED                                                          
+ 
+cmo/DELATT/MOHEX_np1/if_int                                                     
+#                                                                               
+quality                                                                         
+ 
+epsilonl, epsilonaspect:   3.3306691E-08  3.6948299E-23                         
+--------------------------------------------                                    
+elements with aspect ratio < .01:                    0                          
+elements with aspect ratio b/w .01 and .02:          0                          
+elements with aspect ratio b/w .02 and .05:          0                          
+elements with aspect ratio b/w .05 and .1 :          0                          
+elements with aspect ratio b/w .1  and .2 :          0                          
+elements with aspect ratio b/w .2  and .5 :          0                          
+elements with aspect ratio b/w .5  and 1. :     102500                          
+min aspect ratio =  0.1000E+01  max aspect ratio =  0.1000E+01                  
+ 
+epsilonvol:   1.1102230E+02                                                     
+---------------------------------------                                         
+element volumes b/w  0.1000E+07 and  0.6034E+07:         0                      
+element volumes b/w  0.6034E+07 and  0.3641E+08:         0                      
+element volumes b/w  0.3641E+08 and  0.2197E+09:         0                      
+element volumes b/w  0.2197E+09 and  0.1326E+10:     40000                      
+element volumes b/w  0.1326E+10 and  0.8000E+10:     62500                      
+min volume =   1.0000000E+06  max volume =   8.0000000E+09                      
+-----------------------------------------------------------                     
+    102500 total elements evaluated.                                            
+ 
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: MOHEX_np1                                      
+ 
+  1 Mesh Object name: MODFN                                                     
+    number of nodes =             8        number of elements =            4    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mohex                                                     
+    number of nodes =       1112626        number of elements =       502500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: MOHEX_np1                                                 
+    number of nodes =        162626        number of elements =       102500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+#                                                                               
+finish                                                                          
+finish                                                                          
+define/NTIMEs/2                                                                 
+finish                                                                          
+infile intersect_refine_np1.mlgi                                                
+#                                                                               
+# For comments see intersect_refine.mlgi                                        
+#                                                                               
+intersect_elements/MOHEX_np1/MODFN/if_int                                       
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/MOHEX_np1/if_int/VINT/scalar/nelements/linear/permanent//0/          
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1            24575          10298        5 %                      
+              4            98820          40000    Total Done                   
+ 
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/MOHEX_np1/sbox                                                       
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v12                                                        
+finish                                                                          
+cmo/DELATT/MOHEX_np1/linkt                                                      
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v2                                                         
+finish                                                                          
+finish                                                                          
+eltset/erefine/if_int/ne/0                                                      
+ 
+ THE ELTSET erefine                          HAS      40000 ELEMENTS            
+pset/prefine/eltset erefine                                                     
+ 
+ THE PSET  prefine  HAS      61206 POINTS                                       
+refine/constant/imt1/linear/element/pset,get,prefine/-1.,0.,0./exclusive/amr REF
+INE_AMR                                                                         
+refine elements:                                                                
+refine hex     :      45000                                                     
+cmo/addatt/MOHEX_np1/xradavg/VDOUBLE/scalar/nnodes/linear/temporary//0.0        
+finish                                                                          
+Element iteration:          1     40000                                         
+Octree(PRD) refined elems: old=    102500 new=    422500                        
+FILTER_SUBSET:Dudding duplicate points:      417196                             
+ 
+filter/1,0,0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+geniee                                                                          
+finish                                                                          
+Element iteration:          1     10000                                         
+Octree(PRD) refined elems: old=    422500 new=    502500                        
+FILTER_SUBSET:Dudding duplicate points:      118796                             
+ 
+filter/1,0,0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+geniee                                                                          
+finish                                                                          
+cmo/DELATT/MOHEX_np1/xradavg                                                    
+finish                                                                          
+#                                                                               
+eltset/erefine/delete                                                           
+ 
+ ELTSET erefine                          DELETED                                
+ 
+pset/prefine/delete                                                             
+ 
+ PSET prefine  DELETED                                                          
+ 
+cmo/DELATT/MOHEX_np1/if_int                                                     
+#                                                                               
+quality                                                                         
+ 
+epsilonl, epsilonaspect:   3.3306691E-08  3.6948299E-23                         
+--------------------------------------------                                    
+elements with aspect ratio < .01:                    0                          
+elements with aspect ratio b/w .01 and .02:          0                          
+elements with aspect ratio b/w .02 and .05:          0                          
+elements with aspect ratio b/w .05 and .1 :          0                          
+elements with aspect ratio b/w .1  and .2 :          0                          
+elements with aspect ratio b/w .2  and .5 :          0                          
+elements with aspect ratio b/w .5  and 1. :     502500                          
+min aspect ratio =  0.1000E+01  max aspect ratio =  0.1000E+01                  
+ 
+epsilonvol:   1.1102230E+02                                                     
+---------------------------------------                                         
+element volumes b/w  0.1000E+07 and  0.6034E+07:         0                      
+element volumes b/w  0.6034E+07 and  0.3641E+08:         0                      
+element volumes b/w  0.3641E+08 and  0.2197E+09:    320000                      
+element volumes b/w  0.2197E+09 and  0.1326E+10:    120000                      
+element volumes b/w  0.1326E+10 and  0.8000E+10:     62500                      
+min volume =   1.0000000E+06  max volume =   8.0000000E+09                      
+-----------------------------------------------------------                     
+    502500 total elements evaluated.                                            
+ 
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: MOHEX_np1                                      
+ 
+  1 Mesh Object name: MODFN                                                     
+    number of nodes =             8        number of elements =            4    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mohex                                                     
+    number of nodes =       1112626        number of elements =       502500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: MOHEX_np1                                                 
+    number of nodes =       1112626        number of elements =       502500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+#                                                                               
+finish                                                                          
+finish                                                                          
+define/NTIMEs/3                                                                 
+finish                                                                          
+infile intersect_refine_np1.mlgi                                                
+#                                                                               
+# For comments see intersect_refine.mlgi                                        
+#                                                                               
+intersect_elements/MOHEX_np1/MODFN/if_int                                       
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/MOHEX_np1/if_int/VINT/scalar/nelements/linear/permanent//0/          
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1           135495          40598        2 %                      
+              4           513378         160000    Total Done                   
+ 
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/MOHEX_np1/sbox                                                       
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v12                                                        
+finish                                                                          
+cmo/DELATT/MOHEX_np1/linkt                                                      
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v2                                                         
+finish                                                                          
+finish                                                                          
+eltset/erefine/if_int/ne/0                                                      
+ 
+ THE ELTSET erefine                          HAS     160000 ELEMENTS            
+pset/prefine/eltset erefine                                                     
+ 
+ THE PSET  prefine  HAS     242406 POINTS                                       
+refine/constant/imt1/linear/element/pset,get,prefine/-1.,0.,0./exclusive/amr REF
+INE_AMR                                                                         
+refine elements:                                                                
+refine hex     :     160000                                                     
+cmo/addatt/MOHEX_np1/xradavg/VDOUBLE/scalar/nnodes/linear/temporary//0.0        
+finish                                                                          
+Element iteration:          1    160000                                         
+Octree(PRD) refined elems: old=    502500 new=   1782500                        
+FILTER_SUBSET:Dudding duplicate points:     1674396                             
+ 
+filter/1,0,0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+geniee                                                                          
+finish                                                                          
+cmo/DELATT/MOHEX_np1/xradavg                                                    
+finish                                                                          
+#                                                                               
+eltset/erefine/delete                                                           
+ 
+ ELTSET erefine                          DELETED                                
+ 
+pset/prefine/delete                                                             
+ 
+ PSET prefine  DELETED                                                          
+ 
+cmo/DELATT/MOHEX_np1/if_int                                                     
+#                                                                               
+quality                                                                         
+ 
+epsilonl, epsilonaspect:   3.3306691E-08  3.6948299E-23                         
+--------------------------------------------                                    
+elements with aspect ratio < .01:                    0                          
+elements with aspect ratio b/w .01 and .02:          0                          
+elements with aspect ratio b/w .02 and .05:          0                          
+elements with aspect ratio b/w .05 and .1 :          0                          
+elements with aspect ratio b/w .1  and .2 :          0                          
+elements with aspect ratio b/w .2  and .5 :          0                          
+elements with aspect ratio b/w .5  and 1. :    1782500                          
+min aspect ratio =  0.1000E+01  max aspect ratio =  0.1000E+01                  
+ 
+epsilonvol:   1.1102230E+02                                                     
+---------------------------------------                                         
+element volumes b/w  0.1000E+07 and  0.6034E+07:         0                      
+element volumes b/w  0.6034E+07 and  0.3641E+08:   1280000                      
+element volumes b/w  0.3641E+08 and  0.2197E+09:    320000                      
+element volumes b/w  0.2197E+09 and  0.1326E+10:    120000                      
+element volumes b/w  0.1326E+10 and  0.8000E+10:     62500                      
+min volume =   1.0000000E+06  max volume =   8.0000000E+09                      
+-----------------------------------------------------------                     
+   1782500 total elements evaluated.                                            
+ 
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: MOHEX_np1                                      
+ 
+  1 Mesh Object name: MODFN                                                     
+    number of nodes =             8        number of elements =            4    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mohex                                                     
+    number of nodes =       1112626        number of elements =       502500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: MOHEX_np1                                                 
+    number of nodes =       4152626        number of elements =      1782500    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+#                                                                               
+finish                                                                          
+finish                                                                          
+define/NTIMEs/remove                                                            
+finish                                                                          
+#                                                                               
+finish                                                                          
+#                                                                               
+# Identify cells in hex mesh that are intersected by DFN mesh                   
+#                                                                               
+# This is the last pass through intersect_elements in order to figure out       
+# which cells in the fully refined hex mesh are intersected by the dfn mesh     
+#                                                                               
+intersect_elements/MOHEX/MODFN/if_int                                           
+cmo/select/mohex                                                                
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/mohex/if_int/VINT/scalar/nelements/linear/permanent//0/              
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1           135495          40598        2 %                      
+              4           513378         160000    Total Done                   
+ 
+cmo/select/mohex                                                                
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/mohex/sbox                                                           
+finish                                                                          
+cmo/DELATT/mohex/v12                                                            
+finish                                                                          
+cmo/DELATT/mohex/linkt                                                          
+finish                                                                          
+cmo/DELATT/mohex/v2                                                             
+finish                                                                          
+finish                                                                          
+eltset/einter/if_int/ne/0                                                       
+ 
+ THE ELTSET einter                           HAS     160000 ELEMENTS            
+pset/pinter/eltset einter                                                       
+ 
+ THE PSET  pinter  HAS     242406 POINTS                                        
+#                                                                               
+# Use the itetclr(cell) and imt(vertex) attribute to hold the information       
+#                                                                               
+cmo/setatt/MOHEX/itetclr/1 0 0/1                                                
+    502500 values reset for attribute itetclr                                   
+ 
+cmo/setatt/MOHEX/itetclr/eltset get einter/2                                    
+    160000 values reset for attribute itetclr                                   
+ 
+cmo/setatt/MOHEX/imt/1 0 0/1                                                    
+    532436 values reset for attribute imt1                                      
+ 
+cmo/setatt/MOHEX/imt/pset get pinter/2                                          
+    242406 values reset for attribute imt1                                      
+ 
+#                                                                               
+# Output final hex mesh                                                         
+#                                                                               
+#dump / avs2 / tmp_hex_refine.inp / MOHEX                                       
+#                                                                               
+# Same as above but for np1 hex mesh                                            
+#                                                                               
+intersect_elements/MOHEX_np1/MODFN/if_int                                       
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/MOHEX_np1/if_int/VINT/scalar/nelements/linear/permanent//0/          
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1           516202         161198        2 %                      
+              4          1997144         640000    Total Done                   
+ 
+cmo/select/MOHEX_np1                                                            
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/MOHEX_np1/sbox                                                       
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v12                                                        
+finish                                                                          
+cmo/DELATT/MOHEX_np1/linkt                                                      
+finish                                                                          
+cmo/DELATT/MOHEX_np1/v2                                                         
+finish                                                                          
+finish                                                                          
+eltset/einter/if_int/ne/0                                                       
+ 
+ THE ELTSET einter                           HAS     640000 ELEMENTS            
+pset/pinter/eltset einter                                                       
+ 
+ THE PSET  pinter  HAS     964806 POINTS                                        
+#                                                                               
+# See above                                                                     
+#                                                                               
+cmo/setatt/MOHEX_np1/itetclr/1 0 0/1                                            
+   1782500 values reset for attribute itetclr                                   
+ 
+cmo/setatt/MOHEX_np1/itetclr/eltset get einter/2                                
+    640000 values reset for attribute itetclr                                   
+ 
+cmo/setatt/MOHEX_np1/imt/1 0 0/1                                                
+   1898040 values reset for attribute imt1                                      
+ 
+cmo/setatt/MOHEX_np1/imt/pset get pinter/2                                      
+    964806 values reset for attribute imt1                                      
+ 
+#dump / avs2 / tmp_hex_np1_refine.inp / MOHEX_np1                               
+#                                                                               
+# Convert the hex mesh to a tet mesh                                            
+#                                                                               
+infile hex_to_tet.mlgi                                                          
+#                                                                               
+# Convert the octree hex mesh to tet mesh by connecting the                     
+# octree vertex collection to a Delaunay mesh                                   
+#                                                                               
+cmo/create/MOTET                                                                
+copypts/MOTET/MOHEX                                                             
+copypts added nodes          1 to     532436                                    
+cmo/select/MOTET                                                                
+filter 1 0 0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+rmpoint/compress                                                                
+         0 points removed and          0 elements removed.                      
+RMPOINT: new point count is       532436                                        
+RMPOINT: new element count is          0                                        
+cmo/setatt/MOTET/imt/1 0 0/1                                                    
+Warning: nelements = 0                                                          
+    532436 values reset for attribute imt1                                      
+ 
+cmo/setatt/MOTET/itp/1 0 0/0                                                    
+Warning: nelements = 0                                                          
+    532436 values reset for attribute itp1                                      
+ 
+#                                                                               
+# Sort and reorder the nodes based on coordinates                               
+#                                                                               
+sort/MOTET/index/ascending/ikey/xic yic zic                                     
+cmo/addatt/motet/ikey/vint/scalar/nnodes///gax/0                                
+finish                                                                          
+ SORT: order key written to attribute: ikey                                     
+ 
+reorder/MOTET/ikey                                                              
+cmo/DELATT/MOTET/ikey                                                           
+#                                                                               
+# Connect                                                                       
+#                                                                               
+connect/noadd                                                                   
+ Coordinates of enclosing tetrahedron are:                                      
+          -0.12500D+06   -0.12500D+06   -0.12500D+06                            
+          -0.12500D+06    0.37500D+06    0.00000D+00                            
+          -0.12500D+06   -0.12500D+06    0.12500D+06                            
+           0.37500D+06    0.00000D+00    0.00000D+00                            
+ ntets=     30961     node index=     5000     nlstfail=       0 %done=   0.97  
+ ntets=     62273     node index=    10000     nlstfail=       0 %done=   1.95  
+ ntets=     93592     node index=    15000     nlstfail=       0 %done=   2.93  
+ ntets=    124894     node index=    20000     nlstfail=       0 %done=   3.91  
+ ntets=    156204     node index=    25000     nlstfail=       0 %done=   4.89  
+ ntets=    187520     node index=    30000     nlstfail=       0 %done=   5.87  
+ ntets=    219900     node index=    35000     nlstfail=       0 %done=   6.88  
+ ntets=    252793     node index=    40000     nlstfail=       0 %done=   7.91  
+ ntets=    285703     node index=    45000     nlstfail=       0 %done=   8.94  
+ ntets=    318599     node index=    50000     nlstfail=       0 %done=   9.97  
+ ntets=    351481     node index=    55000     nlstfail=       0 %done=  11.00  
+ ntets=    384344     node index=    60000     nlstfail=       0 %done=  12.03  
+ ntets=    416489     node index=    65000     nlstfail=       0 %done=  13.04  
+ ntets=    448759     node index=    70000     nlstfail=       0 %done=  14.05  
+ ntets=    481015     node index=    75000     nlstfail=       0 %done=  15.06  
+ ntets=    513277     node index=    80000     nlstfail=       0 %done=  16.07  
+ ntets=    545529     node index=    85000     nlstfail=       0 %done=  17.08  
+ ntets=    577761     node index=    90000     nlstfail=       0 %done=  18.09  
+ ntets=    609529     node index=    95000     nlstfail=       0 %done=  19.08  
+ ntets=    641080     node index=   100000     nlstfail=       0 %done=  20.07  
+ ntets=    672636     node index=   105000     nlstfail=       0 %done=  21.06  
+ ntets=    704189     node index=   110000     nlstfail=       0 %done=  22.04  
+ ntets=    735743     node index=   115000     nlstfail=       0 %done=  23.03  
+ ntets=    767285     node index=   120000     nlstfail=       0 %done=  24.02  
+ ntets=    798639     node index=   125000     nlstfail=       0 %done=  25.00  
+ ntets=    827847     node index=   130000     nlstfail=       0 %done=  25.91  
+ ntets=    857235     node index=   135000     nlstfail=       0 %done=  26.83  
+ ntets=    886620     node index=   140000     nlstfail=       0 %done=  27.75  
+ ntets=    916006     node index=   145000     nlstfail=       0 %done=  28.67  
+ ntets=    945387     node index=   150000     nlstfail=       0 %done=  29.59  
+ ntets=    974753     node index=   155000     nlstfail=       0 %done=  30.51  
+ ntets=   1004546     node index=   160000     nlstfail=       0 %done=  31.44  
+ ntets=   1035176     node index=   165000     nlstfail=       0 %done=  32.40  
+ ntets=   1065794     node index=   170000     nlstfail=       0 %done=  33.36  
+ ntets=   1096402     node index=   175000     nlstfail=       0 %done=  34.32  
+ ntets=   1127017     node index=   180000     nlstfail=       0 %done=  35.28  
+ ntets=   1157632     node index=   185000     nlstfail=       0 %done=  36.24  
+ ntets=   1188419     node index=   190000     nlstfail=       0 %done=  37.20  
+ ntets=   1220518     node index=   195000     nlstfail=       0 %done=  38.21  
+ ntets=   1252616     node index=   200000     nlstfail=       0 %done=  39.21  
+ ntets=   1284718     node index=   205000     nlstfail=       0 %done=  40.21  
+ ntets=   1316823     node index=   210000     nlstfail=       0 %done=  41.22  
+ ntets=   1348906     node index=   215000     nlstfail=       0 %done=  42.22  
+ ntets=   1380194     node index=   220000     nlstfail=       0 %done=  43.20  
+ ntets=   1410503     node index=   225000     nlstfail=       0 %done=  44.15  
+ ntets=   1440816     node index=   230000     nlstfail=       0 %done=  45.10  
+ ntets=   1471113     node index=   235000     nlstfail=       0 %done=  46.05  
+ ntets=   1501385     node index=   240000     nlstfail=       0 %done=  47.00  
+ ntets=   1531660     node index=   245000     nlstfail=       0 %done=  47.94  
+ ntets=   1561924     node index=   250000     nlstfail=       0 %done=  48.89  
+ ntets=   1591675     node index=   255000     nlstfail=       0 %done=  49.82  
+ ntets=   1622051     node index=   260000     nlstfail=       0 %done=  50.77  
+ ntets=   1652410     node index=   265000     nlstfail=       0 %done=  51.72  
+ ntets=   1682796     node index=   270000     nlstfail=       0 %done=  52.68  
+ ntets=   1713170     node index=   275000     nlstfail=       0 %done=  53.63  
+ ntets=   1743530     node index=   280000     nlstfail=       0 %done=  54.58  
+ ntets=   1773615     node index=   285000     nlstfail=       0 %done=  55.52  
+ ntets=   1804527     node index=   290000     nlstfail=       0 %done=  56.49  
+ ntets=   1835442     node index=   295000     nlstfail=       0 %done=  57.45  
+ ntets=   1866365     node index=   300000     nlstfail=       0 %done=  58.42  
+ ntets=   1897270     node index=   305000     nlstfail=       0 %done=  59.39  
+ ntets=   1928179     node index=   310000     nlstfail=       0 %done=  60.36  
+ ntets=   1957855     node index=   315000     nlstfail=       0 %done=  61.29  
+ ntets=   1986829     node index=   320000     nlstfail=       0 %done=  62.19  
+ ntets=   2015805     node index=   325000     nlstfail=       0 %done=  63.10  
+ ntets=   2044779     node index=   330000     nlstfail=       0 %done=  64.01  
+ ntets=   2073776     node index=   335000     nlstfail=       0 %done=  64.91  
+ ntets=   2102776     node index=   340000     nlstfail=       0 %done=  65.82  
+ ntets=   2131360     node index=   345000     nlstfail=       0 %done=  66.72  
+ ntets=   2160500     node index=   350000     nlstfail=       0 %done=  67.63  
+ ntets=   2189629     node index=   355000     nlstfail=       0 %done=  68.54  
+ ntets=   2218760     node index=   360000     nlstfail=       0 %done=  69.45  
+ ntets=   2247890     node index=   365000     nlstfail=       0 %done=  70.36  
+ ntets=   2277022     node index=   370000     nlstfail=       0 %done=  71.28  
+ ntets=   2306160     node index=   375000     nlstfail=       0 %done=  72.19  
+ ntets=   2334854     node index=   380000     nlstfail=       0 %done=  73.09  
+ ntets=   2363875     node index=   385000     nlstfail=       0 %done=  74.00  
+ ntets=   2392895     node index=   390000     nlstfail=       0 %done=  74.90  
+ ntets=   2421912     node index=   395000     nlstfail=       0 %done=  75.81  
+ ntets=   2450931     node index=   400000     nlstfail=       0 %done=  76.72  
+ ntets=   2479951     node index=   405000     nlstfail=       0 %done=  77.63  
+ ntets=   2506939     node index=   410000     nlstfail=       0 %done=  78.47  
+ ntets=   2532874     node index=   415000     nlstfail=       0 %done=  79.29  
+ ntets=   2558805     node index=   420000     nlstfail=       0 %done=  80.10  
+ ntets=   2584746     node index=   425000     nlstfail=       0 %done=  80.91  
+ ntets=   2610677     node index=   430000     nlstfail=       0 %done=  81.72  
+ ntets=   2636595     node index=   435000     nlstfail=       0 %done=  82.53  
+ ntets=   2661896     node index=   440000     nlstfail=       0 %done=  83.32  
+ ntets=   2686691     node index=   445000     nlstfail=       0 %done=  84.10  
+ ntets=   2711488     node index=   450000     nlstfail=       0 %done=  84.88  
+ ntets=   2736287     node index=   455000     nlstfail=       0 %done=  85.65  
+ ntets=   2761082     node index=   460000     nlstfail=       0 %done=  86.43  
+ ntets=   2785877     node index=   465000     nlstfail=       0 %done=  87.20  
+ ntets=   2810456     node index=   470000     nlstfail=       0 %done=  87.97  
+ ntets=   2834498     node index=   475000     nlstfail=       0 %done=  88.73  
+ ntets=   2858538     node index=   480000     nlstfail=       0 %done=  89.48  
+ ntets=   2882580     node index=   485000     nlstfail=       0 %done=  90.23  
+ ntets=   2906629     node index=   490000     nlstfail=       0 %done=  90.98  
+ ntets=   2930669     node index=   495000     nlstfail=       0 %done=  91.74  
+ ntets=   2954709     node index=   500000     nlstfail=       0 %done=  92.49  
+ ntets=   2976953     node index=   505000     nlstfail=       0 %done=  93.19  
+ ntets=   2998914     node index=   510000     nlstfail=       0 %done=  93.87  
+ ntets=   3020870     node index=   515000     nlstfail=       0 %done=  94.56  
+ ntets=   3042827     node index=   520000     nlstfail=       0 %done=  95.25  
+ ntets=   3064780     node index=   525000     nlstfail=       0 %done=  95.94  
+ ntets=   3086735     node index=   530000     nlstfail=       0 %done=  96.62  
+ 
+ The mesh is now complete!                                                      
+ 
+LaGriT FINISH: connect                                                          
+ 
+cmo/setatt/MOTET/itetclr/1 0 0/1                                                
+   3057700 values reset for attribute itetclr                                   
+ 
+resetpts/itp                                                                    
+geniee                                                                          
+finish                                                                          
+#                                                                               
+# Do the same for np1 mesh                                                      
+#                                                                               
+cmo/create/MOTET_np1                                                            
+copypts/MOTET_np1/MOHEX_np1                                                     
+copypts added nodes          1 to    1898040                                    
+cmo/select/MOTET_np1                                                            
+filter 1 0 0                                                                    
+FILTER:Use internal epsilonl value =   0.333066907388E-07                       
+FILTER:Dudding duplicate points:           0                                    
+rmpoint/compress                                                                
+         0 points removed and          0 elements removed.                      
+RMPOINT: new point count is      1898040                                        
+RMPOINT: new element count is          0                                        
+cmo/setatt/MOTET_np1/imt/1 0 0/1                                                
+Warning: nelements = 0                                                          
+   1898040 values reset for attribute imt1                                      
+ 
+cmo/setatt/MOTET_np1/itp/1 0 0/0                                                
+Warning: nelements = 0                                                          
+   1898040 values reset for attribute itp1                                      
+ 
+#                                                                               
+# See above                                                                     
+#                                                                               
+sort/MOTET_np1/index/ascending/ikey/xic yic zic                                 
+cmo/addatt/MOTET_np1/ikey/vint/scalar/nnodes///gax/0                            
+finish                                                                          
+ SORT: order key written to attribute: ikey                                     
+ 
+reorder/MOTET_np1/ikey                                                          
+cmo/DELATT/MOTET_np1/ikey                                                       
+#                                                                               
+connect/noadd                                                                   
+ Coordinates of enclosing tetrahedron are:                                      
+          -0.12500D+06   -0.12500D+06   -0.12500D+06                            
+          -0.12500D+06    0.37500D+06    0.00000D+00                            
+          -0.12500D+06   -0.12500D+06    0.12500D+06                            
+           0.37500D+06    0.00000D+00    0.00000D+00                            
+ ntets=     30997     node index=     5000     nlstfail=       0 %done=   0.27  
+ ntets=     62437     node index=    10000     nlstfail=       0 %done=   0.55  
+ ntets=     94194     node index=    15000     nlstfail=       0 %done=   0.83  
+ ntets=    125605     node index=    20000     nlstfail=       0 %done=   1.10  
+ ntets=    157093     node index=    25000     nlstfail=       0 %done=   1.38  
+ ntets=    188564     node index=    30000     nlstfail=       0 %done=   1.66  
+ ntets=    220317     node index=    35000     nlstfail=       0 %done=   1.93  
+ ntets=    251729     node index=    40000     nlstfail=       0 %done=   2.21  
+ ntets=    283539     node index=    45000     nlstfail=       0 %done=   2.49  
+ ntets=    314782     node index=    50000     nlstfail=       0 %done=   2.76  
+ ntets=    346575     node index=    55000     nlstfail=       0 %done=   3.04  
+ ntets=    377959     node index=    60000     nlstfail=       0 %done=   3.32  
+ ntets=    409720     node index=    65000     nlstfail=       0 %done=   3.60  
+ ntets=    440967     node index=    70000     nlstfail=       0 %done=   3.87  
+ ntets=    472979     node index=    75000     nlstfail=       0 %done=   4.15  
+ ntets=    504219     node index=    80000     nlstfail=       0 %done=   4.43  
+ ntets=    536200     node index=    85000     nlstfail=       0 %done=   4.71  
+ ntets=    567489     node index=    90000     nlstfail=       0 %done=   4.98  
+ ntets=    599294     node index=    95000     nlstfail=       0 %done=   5.26  
+ ntets=    630339     node index=   100000     nlstfail=       0 %done=   5.53  
+ ntets=    663910     node index=   105000     nlstfail=       0 %done=   5.83  
+ ntets=    697895     node index=   110000     nlstfail=       0 %done=   6.13  
+ ntets=    732039     node index=   115000     nlstfail=       0 %done=   6.43  
+ ntets=    766158     node index=   120000     nlstfail=       0 %done=   6.73  
+ ntets=    800440     node index=   125000     nlstfail=       0 %done=   7.03  
+ ntets=    834153     node index=   130000     nlstfail=       0 %done=   7.32  
+ ntets=    868358     node index=   135000     nlstfail=       0 %done=   7.63  
+ ntets=    902274     node index=   140000     nlstfail=       0 %done=   7.92  
+ ntets=    936233     node index=   145000     nlstfail=       0 %done=   8.22  
+ ntets=    970224     node index=   150000     nlstfail=       0 %done=   8.52  
+ ntets=   1004506     node index=   155000     nlstfail=       0 %done=   8.82  
+ ntets=   1038615     node index=   160000     nlstfail=       0 %done=   9.12  
+ ntets=   1072644     node index=   165000     nlstfail=       0 %done=   9.42  
+ ntets=   1106412     node index=   170000     nlstfail=       0 %done=   9.72  
+ ntets=   1140665     node index=   175000     nlstfail=       0 %done=  10.02  
+ ntets=   1174533     node index=   180000     nlstfail=       0 %done=  10.31  
+ ntets=   1208437     node index=   185000     nlstfail=       0 %done=  10.61  
+ ntets=   1242547     node index=   190000     nlstfail=       0 %done=  10.91  
+ ntets=   1276786     node index=   195000     nlstfail=       0 %done=  11.21  
+ ntets=   1310180     node index=   200000     nlstfail=       0 %done=  11.50  
+ ntets=   1345513     node index=   205000     nlstfail=       0 %done=  11.81  
+ ntets=   1381031     node index=   210000     nlstfail=       0 %done=  12.13  
+ ntets=   1416134     node index=   215000     nlstfail=       0 %done=  12.44  
+ ntets=   1451177     node index=   220000     nlstfail=       0 %done=  12.74  
+ ntets=   1486642     node index=   225000     nlstfail=       0 %done=  13.05  
+ ntets=   1521964     node index=   230000     nlstfail=       0 %done=  13.36  
+ ntets=   1556975     node index=   235000     nlstfail=       0 %done=  13.67  
+ ntets=   1592031     node index=   240000     nlstfail=       0 %done=  13.98  
+ ntets=   1627864     node index=   245000     nlstfail=       0 %done=  14.29  
+ ntets=   1663032     node index=   250000     nlstfail=       0 %done=  14.60  
+ ntets=   1698286     node index=   255000     nlstfail=       0 %done=  14.91  
+ ntets=   1733543     node index=   260000     nlstfail=       0 %done=  15.22  
+ ntets=   1768614     node index=   265000     nlstfail=       0 %done=  15.53  
+ ntets=   1804074     node index=   270000     nlstfail=       0 %done=  15.84  
+ ntets=   1839061     node index=   275000     nlstfail=       0 %done=  16.15  
+ ntets=   1874539     node index=   280000     nlstfail=       0 %done=  16.46  
+ ntets=   1910088     node index=   285000     nlstfail=       0 %done=  16.77  
+ ntets=   1945035     node index=   290000     nlstfail=       0 %done=  17.08  
+ ntets=   1980318     node index=   295000     nlstfail=       0 %done=  17.39  
+ ntets=   2014847     node index=   300000     nlstfail=       0 %done=  17.69  
+ ntets=   2047010     node index=   305000     nlstfail=       0 %done=  17.97  
+ ntets=   2079939     node index=   310000     nlstfail=       0 %done=  18.26  
+ ntets=   2112573     node index=   315000     nlstfail=       0 %done=  18.55  
+ ntets=   2144604     node index=   320000     nlstfail=       0 %done=  18.83  
+ ntets=   2177099     node index=   325000     nlstfail=       0 %done=  19.12  
+ ntets=   2209678     node index=   330000     nlstfail=       0 %done=  19.40  
+ ntets=   2241825     node index=   335000     nlstfail=       0 %done=  19.69  
+ ntets=   2273937     node index=   340000     nlstfail=       0 %done=  19.97  
+ ntets=   2306452     node index=   345000     nlstfail=       0 %done=  20.25  
+ ntets=   2339573     node index=   350000     nlstfail=       0 %done=  20.54  
+ ntets=   2371766     node index=   355000     nlstfail=       0 %done=  20.83  
+ ntets=   2403793     node index=   360000     nlstfail=       0 %done=  21.11  
+ ntets=   2436476     node index=   365000     nlstfail=       0 %done=  21.39  
+ ntets=   2469138     node index=   370000     nlstfail=       0 %done=  21.68  
+ ntets=   2501228     node index=   375000     nlstfail=       0 %done=  21.96  
+ ntets=   2533323     node index=   380000     nlstfail=       0 %done=  22.25  
+ ntets=   2566403     node index=   385000     nlstfail=       0 %done=  22.54  
+ ntets=   2599052     node index=   390000     nlstfail=       0 %done=  22.82  
+ ntets=   2631061     node index=   395000     nlstfail=       0 %done=  23.10  
+ ntets=   2662525     node index=   400000     nlstfail=       0 %done=  23.38  
+ ntets=   2692528     node index=   405000     nlstfail=       0 %done=  23.64  
+ ntets=   2722937     node index=   410000     nlstfail=       0 %done=  23.91  
+ ntets=   2753621     node index=   415000     nlstfail=       0 %done=  24.18  
+ ntets=   2784197     node index=   420000     nlstfail=       0 %done=  24.45  
+ ntets=   2814303     node index=   425000     nlstfail=       0 %done=  24.71  
+ ntets=   2844971     node index=   430000     nlstfail=       0 %done=  24.98  
+ ntets=   2875692     node index=   435000     nlstfail=       0 %done=  25.25  
+ ntets=   2905400     node index=   440000     nlstfail=       0 %done=  25.51  
+ ntets=   2935892     node index=   445000     nlstfail=       0 %done=  25.78  
+ ntets=   2966290     node index=   450000     nlstfail=       0 %done=  26.05  
+ ntets=   2997002     node index=   455000     nlstfail=       0 %done=  26.32  
+ ntets=   3027411     node index=   460000     nlstfail=       0 %done=  26.58  
+ ntets=   3057654     node index=   465000     nlstfail=       0 %done=  26.85  
+ ntets=   3088578     node index=   470000     nlstfail=       0 %done=  27.12  
+ ntets=   3118661     node index=   475000     nlstfail=       0 %done=  27.38  
+ ntets=   3148606     node index=   480000     nlstfail=       0 %done=  27.65  
+ ntets=   3179094     node index=   485000     nlstfail=       0 %done=  27.92  
+ ntets=   3209616     node index=   490000     nlstfail=       0 %done=  28.18  
+ ntets=   3240381     node index=   495000     nlstfail=       0 %done=  28.45  
+ ntets=   3269970     node index=   500000     nlstfail=       0 %done=  28.71  
+ ntets=   3299612     node index=   505000     nlstfail=       0 %done=  28.97  
+ ntets=   3328271     node index=   510000     nlstfail=       0 %done=  29.23  
+ ntets=   3357478     node index=   515000     nlstfail=       0 %done=  29.48  
+ ntets=   3387132     node index=   520000     nlstfail=       0 %done=  29.74  
+ ntets=   3416860     node index=   525000     nlstfail=       0 %done=  30.00  
+ ntets=   3445828     node index=   530000     nlstfail=       0 %done=  30.26  
+ ntets=   3474977     node index=   535000     nlstfail=       0 %done=  30.51  
+ ntets=   3505160     node index=   540000     nlstfail=       0 %done=  30.78  
+ ntets=   3534149     node index=   545000     nlstfail=       0 %done=  31.03  
+ ntets=   3562979     node index=   550000     nlstfail=       0 %done=  31.29  
+ ntets=   3592401     node index=   555000     nlstfail=       0 %done=  31.54  
+ ntets=   3622129     node index=   560000     nlstfail=       0 %done=  31.81  
+ ntets=   3651575     node index=   565000     nlstfail=       0 %done=  32.06  
+ ntets=   3680319     node index=   570000     nlstfail=       0 %done=  32.32  
+ ntets=   3710086     node index=   575000     nlstfail=       0 %done=  32.58  
+ ntets=   3739934     node index=   580000     nlstfail=       0 %done=  32.84  
+ ntets=   3768597     node index=   585000     nlstfail=       0 %done=  33.09  
+ ntets=   3797795     node index=   590000     nlstfail=       0 %done=  33.35  
+ ntets=   3827378     node index=   595000     nlstfail=       0 %done=  33.61  
+ ntets=   3856676     node index=   600000     nlstfail=       0 %done=  33.87  
+ ntets=   3886069     node index=   605000     nlstfail=       0 %done=  34.12  
+ ntets=   3915470     node index=   610000     nlstfail=       0 %done=  34.38  
+ ntets=   3944027     node index=   615000     nlstfail=       0 %done=  34.63  
+ ntets=   3972926     node index=   620000     nlstfail=       0 %done=  34.89  
+ ntets=   4002253     node index=   625000     nlstfail=       0 %done=  35.14  
+ ntets=   4031492     node index=   630000     nlstfail=       0 %done=  35.40  
+ ntets=   4061004     node index=   635000     nlstfail=       0 %done=  35.66  
+ ntets=   4090063     node index=   640000     nlstfail=       0 %done=  35.91  
+ ntets=   4119704     node index=   645000     nlstfail=       0 %done=  36.17  
+ ntets=   4148638     node index=   650000     nlstfail=       0 %done=  36.43  
+ ntets=   4176981     node index=   655000     nlstfail=       0 %done=  36.68  
+ ntets=   4206164     node index=   660000     nlstfail=       0 %done=  36.93  
+ ntets=   4235545     node index=   665000     nlstfail=       0 %done=  37.19  
+ ntets=   4264956     node index=   670000     nlstfail=       0 %done=  37.45  
+ ntets=   4294021     node index=   675000     nlstfail=       0 %done=  37.71  
+ ntets=   4323425     node index=   680000     nlstfail=       0 %done=  37.96  
+ ntets=   4352865     node index=   685000     nlstfail=       0 %done=  38.22  
+ ntets=   4381545     node index=   690000     nlstfail=       0 %done=  38.47  
+ ntets=   4410250     node index=   695000     nlstfail=       0 %done=  38.73  
+ ntets=   4439205     node index=   700000     nlstfail=       0 %done=  38.98  
+ ntets=   4469198     node index=   705000     nlstfail=       0 %done=  39.24  
+ ntets=   4499347     node index=   710000     nlstfail=       0 %done=  39.51  
+ ntets=   4529904     node index=   715000     nlstfail=       0 %done=  39.78  
+ ntets=   4559792     node index=   720000     nlstfail=       0 %done=  40.04  
+ ntets=   4589530     node index=   725000     nlstfail=       0 %done=  40.30  
+ ntets=   4620000     node index=   730000     nlstfail=       0 %done=  40.57  
+ ntets=   4650202     node index=   735000     nlstfail=       0 %done=  40.83  
+ ntets=   4680566     node index=   740000     nlstfail=       0 %done=  41.10  
+ ntets=   4710084     node index=   745000     nlstfail=       0 %done=  41.36  
+ ntets=   4740675     node index=   750000     nlstfail=       0 %done=  41.63  
+ ntets=   4771112     node index=   755000     nlstfail=       0 %done=  41.89  
+ ntets=   4800678     node index=   760000     nlstfail=       0 %done=  42.15  
+ ntets=   4831007     node index=   765000     nlstfail=       0 %done=  42.42  
+ ntets=   4861280     node index=   770000     nlstfail=       0 %done=  42.69  
+ ntets=   4891401     node index=   775000     nlstfail=       0 %done=  42.95  
+ ntets=   4921459     node index=   780000     nlstfail=       0 %done=  43.22  
+ ntets=   4951271     node index=   785000     nlstfail=       0 %done=  43.48  
+ ntets=   4982096     node index=   790000     nlstfail=       0 %done=  43.75  
+ ntets=   5012104     node index=   795000     nlstfail=       0 %done=  44.01  
+ ntets=   5041180     node index=   800000     nlstfail=       0 %done=  44.27  
+ ntets=   5071626     node index=   805000     nlstfail=       0 %done=  44.53  
+ ntets=   5101448     node index=   810000     nlstfail=       0 %done=  44.80  
+ ntets=   5131309     node index=   815000     nlstfail=       0 %done=  45.06  
+ ntets=   5162166     node index=   820000     nlstfail=       0 %done=  45.33  
+ ntets=   5192240     node index=   825000     nlstfail=       0 %done=  45.59  
+ ntets=   5222204     node index=   830000     nlstfail=       0 %done=  45.86  
+ ntets=   5252398     node index=   835000     nlstfail=       0 %done=  46.12  
+ ntets=   5282915     node index=   840000     nlstfail=       0 %done=  46.39  
+ ntets=   5313167     node index=   845000     nlstfail=       0 %done=  46.65  
+ ntets=   5343031     node index=   850000     nlstfail=       0 %done=  46.92  
+ ntets=   5373216     node index=   855000     nlstfail=       0 %done=  47.18  
+ ntets=   5403829     node index=   860000     nlstfail=       0 %done=  47.45  
+ ntets=   5433768     node index=   865000     nlstfail=       0 %done=  47.71  
+ ntets=   5464076     node index=   870000     nlstfail=       0 %done=  47.98  
+ ntets=   5494313     node index=   875000     nlstfail=       0 %done=  48.25  
+ ntets=   5524913     node index=   880000     nlstfail=       0 %done=  48.51  
+ ntets=   5554752     node index=   885000     nlstfail=       0 %done=  48.78  
+ ntets=   5584720     node index=   890000     nlstfail=       0 %done=  49.04  
+ ntets=   5615278     node index=   895000     nlstfail=       0 %done=  49.31  
+ ntets=   5645069     node index=   900000     nlstfail=       0 %done=  49.57  
+ ntets=   5675476     node index=   905000     nlstfail=       0 %done=  49.84  
+ ntets=   5706584     node index=   910000     nlstfail=       0 %done=  50.11  
+ ntets=   5737472     node index=   915000     nlstfail=       0 %done=  50.38  
+ ntets=   5768564     node index=   920000     nlstfail=       0 %done=  50.65  
+ ntets=   5799466     node index=   925000     nlstfail=       0 %done=  50.92  
+ ntets=   5830797     node index=   930000     nlstfail=       0 %done=  51.20  
+ ntets=   5861884     node index=   935000     nlstfail=       0 %done=  51.47  
+ ntets=   5892858     node index=   940000     nlstfail=       0 %done=  51.75  
+ ntets=   5923273     node index=   945000     nlstfail=       0 %done=  52.01  
+ ntets=   5954400     node index=   950000     nlstfail=       0 %done=  52.29  
+ ntets=   5985489     node index=   955000     nlstfail=       0 %done=  52.56  
+ ntets=   6016426     node index=   960000     nlstfail=       0 %done=  52.83  
+ ntets=   6047382     node index=   965000     nlstfail=       0 %done=  53.10  
+ ntets=   6078740     node index=   970000     nlstfail=       0 %done=  53.38  
+ ntets=   6109815     node index=   975000     nlstfail=       0 %done=  53.65  
+ ntets=   6140329     node index=   980000     nlstfail=       0 %done=  53.92  
+ ntets=   6171251     node index=   985000     nlstfail=       0 %done=  54.19  
+ ntets=   6202111     node index=   990000     nlstfail=       0 %done=  54.46  
+ ntets=   6233305     node index=   995000     nlstfail=       0 %done=  54.73  
+ ntets=   6263333     node index=  1000000     nlstfail=       0 %done=  55.00  
+ ntets=   6293829     node index=  1005000     nlstfail=       0 %done=  55.27  
+ ntets=   6324024     node index=  1010000     nlstfail=       0 %done=  55.53  
+ ntets=   6354513     node index=  1015000     nlstfail=       0 %done=  55.80  
+ ntets=   6384953     node index=  1020000     nlstfail=       0 %done=  56.07  
+ ntets=   6415412     node index=  1025000     nlstfail=       0 %done=  56.33  
+ ntets=   6446051     node index=  1030000     nlstfail=       0 %done=  56.60  
+ ntets=   6476212     node index=  1035000     nlstfail=       0 %done=  56.87  
+ ntets=   6506635     node index=  1040000     nlstfail=       0 %done=  57.13  
+ ntets=   6537365     node index=  1045000     nlstfail=       0 %done=  57.40  
+ ntets=   6567459     node index=  1050000     nlstfail=       0 %done=  57.67  
+ ntets=   6598058     node index=  1055000     nlstfail=       0 %done=  57.94  
+ ntets=   6628167     node index=  1060000     nlstfail=       0 %done=  58.20  
+ ntets=   6658944     node index=  1065000     nlstfail=       0 %done=  58.47  
+ ntets=   6689261     node index=  1070000     nlstfail=       0 %done=  58.74  
+ ntets=   6719812     node index=  1075000     nlstfail=       0 %done=  59.01  
+ ntets=   6750261     node index=  1080000     nlstfail=       0 %done=  59.27  
+ ntets=   6780674     node index=  1085000     nlstfail=       0 %done=  59.54  
+ ntets=   6810907     node index=  1090000     nlstfail=       0 %done=  59.81  
+ ntets=   6841427     node index=  1095000     nlstfail=       0 %done=  60.07  
+ ntets=   6870645     node index=  1100000     nlstfail=       0 %done=  60.33  
+ ntets=   6900309     node index=  1105000     nlstfail=       0 %done=  60.59  
+ ntets=   6929501     node index=  1110000     nlstfail=       0 %done=  60.85  
+ ntets=   6958361     node index=  1115000     nlstfail=       0 %done=  61.10  
+ ntets=   6987391     node index=  1120000     nlstfail=       0 %done=  61.36  
+ ntets=   7016959     node index=  1125000     nlstfail=       0 %done=  61.62  
+ ntets=   7046226     node index=  1130000     nlstfail=       0 %done=  61.87  
+ ntets=   7075882     node index=  1135000     nlstfail=       0 %done=  62.13  
+ ntets=   7105283     node index=  1140000     nlstfail=       0 %done=  62.39  
+ ntets=   7134713     node index=  1145000     nlstfail=       0 %done=  62.65  
+ ntets=   7163668     node index=  1150000     nlstfail=       0 %done=  62.90  
+ ntets=   7192519     node index=  1155000     nlstfail=       0 %done=  63.16  
+ ntets=   7222083     node index=  1160000     nlstfail=       0 %done=  63.42  
+ ntets=   7251362     node index=  1165000     nlstfail=       0 %done=  63.67  
+ ntets=   7280882     node index=  1170000     nlstfail=       0 %done=  63.93  
+ ntets=   7310192     node index=  1175000     nlstfail=       0 %done=  64.19  
+ ntets=   7339718     node index=  1180000     nlstfail=       0 %done=  64.45  
+ ntets=   7369042     node index=  1185000     nlstfail=       0 %done=  64.71  
+ ntets=   7397848     node index=  1190000     nlstfail=       0 %done=  64.96  
+ ntets=   7426725     node index=  1195000     nlstfail=       0 %done=  65.21  
+ ntets=   7455874     node index=  1200000     nlstfail=       0 %done=  65.47  
+ ntets=   7485105     node index=  1205000     nlstfail=       0 %done=  65.73  
+ ntets=   7514600     node index=  1210000     nlstfail=       0 %done=  65.99  
+ ntets=   7544104     node index=  1215000     nlstfail=       0 %done=  66.24  
+ ntets=   7572950     node index=  1220000     nlstfail=       0 %done=  66.50  
+ ntets=   7601830     node index=  1225000     nlstfail=       0 %done=  66.75  
+ ntets=   7631382     node index=  1230000     nlstfail=       0 %done=  67.01  
+ ntets=   7660820     node index=  1235000     nlstfail=       0 %done=  67.27  
+ ntets=   7690500     node index=  1240000     nlstfail=       0 %done=  67.53  
+ ntets=   7719551     node index=  1245000     nlstfail=       0 %done=  67.79  
+ ntets=   7749195     node index=  1250000     nlstfail=       0 %done=  68.05  
+ ntets=   7778362     node index=  1255000     nlstfail=       0 %done=  68.30  
+ ntets=   7807128     node index=  1260000     nlstfail=       0 %done=  68.55  
+ ntets=   7836497     node index=  1265000     nlstfail=       0 %done=  68.81  
+ ntets=   7865774     node index=  1270000     nlstfail=       0 %done=  69.07  
+ ntets=   7895425     node index=  1275000     nlstfail=       0 %done=  69.33  
+ ntets=   7924740     node index=  1280000     nlstfail=       0 %done=  69.59  
+ ntets=   7954055     node index=  1285000     nlstfail=       0 %done=  69.84  
+ ntets=   7983603     node index=  1290000     nlstfail=       0 %done=  70.10  
+ ntets=   8012700     node index=  1295000     nlstfail=       0 %done=  70.36  
+ ntets=   8040502     node index=  1300000     nlstfail=       0 %done=  70.60  
+ ntets=   8068676     node index=  1305000     nlstfail=       0 %done=  70.85  
+ ntets=   8096898     node index=  1310000     nlstfail=       0 %done=  71.10  
+ ntets=   8124682     node index=  1315000     nlstfail=       0 %done=  71.34  
+ ntets=   8152481     node index=  1320000     nlstfail=       0 %done=  71.59  
+ ntets=   8180353     node index=  1325000     nlstfail=       0 %done=  71.83  
+ ntets=   8207914     node index=  1330000     nlstfail=       0 %done=  72.07  
+ ntets=   8235948     node index=  1335000     nlstfail=       0 %done=  72.32  
+ ntets=   8263698     node index=  1340000     nlstfail=       0 %done=  72.56  
+ ntets=   8292138     node index=  1345000     nlstfail=       0 %done=  72.81  
+ ntets=   8319927     node index=  1350000     nlstfail=       0 %done=  73.06  
+ ntets=   8348019     node index=  1355000     nlstfail=       0 %done=  73.30  
+ ntets=   8375710     node index=  1360000     nlstfail=       0 %done=  73.55  
+ ntets=   8403430     node index=  1365000     nlstfail=       0 %done=  73.79  
+ ntets=   8431273     node index=  1370000     nlstfail=       0 %done=  74.03  
+ ntets=   8459080     node index=  1375000     nlstfail=       0 %done=  74.28  
+ ntets=   8487181     node index=  1380000     nlstfail=       0 %done=  74.53  
+ ntets=   8515420     node index=  1385000     nlstfail=       0 %done=  74.77  
+ ntets=   8543289     node index=  1390000     nlstfail=       0 %done=  75.02  
+ ntets=   8571159     node index=  1395000     nlstfail=       0 %done=  75.26  
+ ntets=   8598382     node index=  1400000     nlstfail=       0 %done=  75.50  
+ ntets=   8626308     node index=  1405000     nlstfail=       0 %done=  75.75  
+ ntets=   8654250     node index=  1410000     nlstfail=       0 %done=  75.99  
+ ntets=   8682414     node index=  1415000     nlstfail=       0 %done=  76.24  
+ ntets=   8710248     node index=  1420000     nlstfail=       0 %done=  76.48  
+ ntets=   8738176     node index=  1425000     nlstfail=       0 %done=  76.73  
+ ntets=   8765750     node index=  1430000     nlstfail=       0 %done=  76.97  
+ ntets=   8793454     node index=  1435000     nlstfail=       0 %done=  77.22  
+ ntets=   8821311     node index=  1440000     nlstfail=       0 %done=  77.46  
+ ntets=   8849066     node index=  1445000     nlstfail=       0 %done=  77.70  
+ ntets=   8877258     node index=  1450000     nlstfail=       0 %done=  77.95  
+ ntets=   8905244     node index=  1455000     nlstfail=       0 %done=  78.20  
+ ntets=   8933133     node index=  1460000     nlstfail=       0 %done=  78.44  
+ ntets=   8960800     node index=  1465000     nlstfail=       0 %done=  78.68  
+ ntets=   8988383     node index=  1470000     nlstfail=       0 %done=  78.93  
+ ntets=   9016046     node index=  1475000     nlstfail=       0 %done=  79.17  
+ ntets=   9044169     node index=  1480000     nlstfail=       0 %done=  79.42  
+ ntets=   9071938     node index=  1485000     nlstfail=       0 %done=  79.66  
+ ntets=   9100119     node index=  1490000     nlstfail=       0 %done=  79.91  
+ ntets=   9127997     node index=  1495000     nlstfail=       0 %done=  80.15  
+ ntets=   9155329     node index=  1500000     nlstfail=       0 %done=  80.39  
+ ntets=   9182752     node index=  1505000     nlstfail=       0 %done=  80.63  
+ ntets=   9210561     node index=  1510000     nlstfail=       0 %done=  80.88  
+ ntets=   9238153     node index=  1515000     nlstfail=       0 %done=  81.12  
+ ntets=   9266006     node index=  1520000     nlstfail=       0 %done=  81.36  
+ ntets=   9293585     node index=  1525000     nlstfail=       0 %done=  81.61  
+ ntets=   9321057     node index=  1530000     nlstfail=       0 %done=  81.85  
+ ntets=   9348502     node index=  1535000     nlstfail=       0 %done=  82.09  
+ ntets=   9376071     node index=  1540000     nlstfail=       0 %done=  82.33  
+ ntets=   9403665     node index=  1545000     nlstfail=       0 %done=  82.57  
+ ntets=   9431242     node index=  1550000     nlstfail=       0 %done=  82.82  
+ ntets=   9458951     node index=  1555000     nlstfail=       0 %done=  83.06  
+ ntets=   9486842     node index=  1560000     nlstfail=       0 %done=  83.30  
+ ntets=   9514419     node index=  1565000     nlstfail=       0 %done=  83.55  
+ ntets=   9541840     node index=  1570000     nlstfail=       0 %done=  83.79  
+ ntets=   9569434     node index=  1575000     nlstfail=       0 %done=  84.03  
+ ntets=   9596837     node index=  1580000     nlstfail=       0 %done=  84.27  
+ ntets=   9624595     node index=  1585000     nlstfail=       0 %done=  84.51  
+ ntets=   9652191     node index=  1590000     nlstfail=       0 %done=  84.76  
+ ntets=   9680014     node index=  1595000     nlstfail=       0 %done=  85.00  
+ ntets=   9706190     node index=  1600000     nlstfail=       0 %done=  85.23  
+ ntets=   9730662     node index=  1605000     nlstfail=       0 %done=  85.44  
+ ntets=   9755034     node index=  1610000     nlstfail=       0 %done=  85.66  
+ ntets=   9779828     node index=  1615000     nlstfail=       0 %done=  85.88  
+ ntets=   9804485     node index=  1620000     nlstfail=       0 %done=  86.09  
+ ntets=   9829109     node index=  1625000     nlstfail=       0 %done=  86.31  
+ ntets=   9853835     node index=  1630000     nlstfail=       0 %done=  86.53  
+ ntets=   9878321     node index=  1635000     nlstfail=       0 %done=  86.74  
+ ntets=   9902613     node index=  1640000     nlstfail=       0 %done=  86.95  
+ ntets=   9927170     node index=  1645000     nlstfail=       0 %done=  87.17  
+ ntets=   9951699     node index=  1650000     nlstfail=       0 %done=  87.39  
+ ntets=   9976395     node index=  1655000     nlstfail=       0 %done=  87.60  
+ ntets=  10000987     node index=  1660000     nlstfail=       0 %done=  87.82  
+ ntets=  10025721     node index=  1665000     nlstfail=       0 %done=  88.04  
+ ntets=  10050278     node index=  1670000     nlstfail=       0 %done=  88.25  
+ ntets=  10074731     node index=  1675000     nlstfail=       0 %done=  88.47  
+ ntets=  10099122     node index=  1680000     nlstfail=       0 %done=  88.68  
+ ntets=  10123577     node index=  1685000     nlstfail=       0 %done=  88.89  
+ ntets=  10148314     node index=  1690000     nlstfail=       0 %done=  89.11  
+ ntets=  10172926     node index=  1695000     nlstfail=       0 %done=  89.33  
+ ntets=  10196512     node index=  1700000     nlstfail=       0 %done=  89.54  
+ ntets=  10218983     node index=  1705000     nlstfail=       0 %done=  89.73  
+ ntets=  10241358     node index=  1710000     nlstfail=       0 %done=  89.93  
+ ntets=  10263926     node index=  1715000     nlstfail=       0 %done=  90.13  
+ ntets=  10286375     node index=  1720000     nlstfail=       0 %done=  90.32  
+ ntets=  10308882     node index=  1725000     nlstfail=       0 %done=  90.52  
+ ntets=  10331383     node index=  1730000     nlstfail=       0 %done=  90.72  
+ ntets=  10353931     node index=  1735000     nlstfail=       0 %done=  90.92  
+ ntets=  10376331     node index=  1740000     nlstfail=       0 %done=  91.11  
+ ntets=  10398768     node index=  1745000     nlstfail=       0 %done=  91.31  
+ ntets=  10421221     node index=  1750000     nlstfail=       0 %done=  91.51  
+ ntets=  10443682     node index=  1755000     nlstfail=       0 %done=  91.71  
+ ntets=  10466230     node index=  1760000     nlstfail=       0 %done=  91.90  
+ ntets=  10488746     node index=  1765000     nlstfail=       0 %done=  92.10  
+ ntets=  10511275     node index=  1770000     nlstfail=       0 %done=  92.30  
+ ntets=  10533736     node index=  1775000     nlstfail=       0 %done=  92.50  
+ ntets=  10556143     node index=  1780000     nlstfail=       0 %done=  92.69  
+ ntets=  10578625     node index=  1785000     nlstfail=       0 %done=  92.89  
+ ntets=  10601133     node index=  1790000     nlstfail=       0 %done=  93.09  
+ ntets=  10623655     node index=  1795000     nlstfail=       0 %done=  93.29  
+ ntets=  10645636     node index=  1800000     nlstfail=       0 %done=  93.48  
+ ntets=  10667061     node index=  1805000     nlstfail=       0 %done=  93.67  
+ ntets=  10688380     node index=  1810000     nlstfail=       0 %done=  93.85  
+ ntets=  10709818     node index=  1815000     nlstfail=       0 %done=  94.04  
+ ntets=  10731278     node index=  1820000     nlstfail=       0 %done=  94.23  
+ ntets=  10752737     node index=  1825000     nlstfail=       0 %done=  94.42  
+ ntets=  10774180     node index=  1830000     nlstfail=       0 %done=  94.61  
+ ntets=  10795649     node index=  1835000     nlstfail=       0 %done=  94.80  
+ ntets=  10817197     node index=  1840000     nlstfail=       0 %done=  94.99  
+ ntets=  10838510     node index=  1845000     nlstfail=       0 %done=  95.17  
+ ntets=  10859933     node index=  1850000     nlstfail=       0 %done=  95.36  
+ ntets=  10881384     node index=  1855000     nlstfail=       0 %done=  95.55  
+ ntets=  10902795     node index=  1860000     nlstfail=       0 %done=  95.74  
+ ntets=  10924277     node index=  1865000     nlstfail=       0 %done=  95.93  
+ ntets=  10945748     node index=  1870000     nlstfail=       0 %done=  96.11  
+ ntets=  10967235     node index=  1875000     nlstfail=       0 %done=  96.30  
+ ntets=  10988718     node index=  1880000     nlstfail=       0 %done=  96.49  
+ ntets=  11010033     node index=  1885000     nlstfail=       0 %done=  96.68  
+ ntets=  11031452     node index=  1890000     nlstfail=       0 %done=  96.87  
+ ntets=  11052922     node index=  1895000     nlstfail=       0 %done=  97.06  
+ 
+ The mesh is now complete!                                                      
+ 
+LaGriT FINISH: connect                                                          
+ 
+cmo/setatt/MOTET_np1/itetclr/1 0 0/1                                            
+  11003826 values reset for attribute itetclr                                   
+ 
+resetpts/itp                                                                    
+geniee                                                                          
+finish                                                                          
+#                                                                               
+finish                                                                          
+#                                                                               
+# Modify the hex data structure from a full octree data structure               
+# to one in which only the highest level of refined hex is maintained           
+# and all parent cells are stripped out of the data structure                   
+#                                                                               
+grid2grid/tree_to_fe/mohex2/MOHEX                                               
+cmo/copy/mohex2/mohex                                                           
+finish                                                                          
+eltset/-parentset-/itetkid/gt/0                                                 
+ 
+ THE ELTSET -parentset-                      HAS      55000 ELEMENTS            
+finish                                                                          
+rmpoint/element/eltset,get,-parentset-                                          
+ Dudded     580190 points plus parents, and       55000 elements removed.       
+finish                                                                          
+rmpoint/compress                                                                
+    580190 points removed and          0 elements removed.                      
+RMPOINT: new point count is       532436                                        
+RMPOINT: new element count is     447500                                        
+finish                                                                          
+resetpts/itp                                                                    
+geniee                                                                          
+finish                                                                          
+finish                                                                          
+eltset/-parentset-/delete                                                       
+ 
+ ELTSET -parentset-                      DELETED                                
+ 
+finish                                                                          
+quality                                                                         
+ 
+epsilonl, epsilonaspect:   3.3306691E-08  3.6948299E-23                         
+--------------------------------------------                                    
+elements with aspect ratio < .01:                    0                          
+elements with aspect ratio b/w .01 and .02:          0                          
+elements with aspect ratio b/w .02 and .05:          0                          
+elements with aspect ratio b/w .05 and .1 :          0                          
+elements with aspect ratio b/w .1  and .2 :          0                          
+elements with aspect ratio b/w .2  and .5 :          0                          
+elements with aspect ratio b/w .5  and 1. :     447500                          
+min aspect ratio =  0.1000E+01  max aspect ratio =  0.1000E+01                  
+ 
+epsilonvol:   1.1102230E+02                                                     
+---------------------------------------                                         
+element volumes b/w  0.1000E+07 and  0.6034E+07:         0                      
+element volumes b/w  0.6034E+07 and  0.3641E+08:         0                      
+element volumes b/w  0.3641E+08 and  0.2197E+09:    320000                      
+element volumes b/w  0.2197E+09 and  0.1326E+10:     80000                      
+element volumes b/w  0.1326E+10 and  0.8000E+10:     47500                      
+min volume =   1.0000000E+06  max volume =   8.0000000E+09                      
+-----------------------------------------------------------                     
+    447500 total elements evaluated.                                            
+ 
+finish                                                                          
+#dump / avs / octree_hex_mesh.inp / MOHEX                                       
+#                                                                               
+cmo/delete/MOHEX                                                                
+     Released Mesh Object: mohex                                                
+cmo/select/mohex2                                                               
+#                                                                               
+# Remove all but the most refined hex cells                                     
+#                                                                               
+loop/do/NTIMEs/0 N_OCTREE_REFINE_M1 1/loop_end infile remove_cells.mlgi         
+LOOP: loop nesting level =     1                                                
+define/NTIMEs/0                                                                 
+finish                                                                          
+infile remove_cells.mlgi                                                        
+#                                                                               
+# Remove cells from hex mesh based on the level of refinement                   
+# itetlev is the refinement level. Original mesh itetlev=0                      
+#                                                                               
+eltset/edelete/itetlev/eq/NTIMEs                                                
+ 
+ THE ELTSET edelete                          HAS      47500 ELEMENTS            
+rmpoint/element/eltset get edelete                                              
+ Dudded      46818 points plus parents, and       47500 elements removed.       
+eltset/edelete/release                                                          
+ 
+Attribute release    not found in mesh object mohex2                            
+ 
+rmpoint/compress                                                                
+     46818 points removed and          0 elements removed.                      
+RMPOINT: new point count is       485618                                        
+RMPOINT: new element count is     400000                                        
+#                                                                               
+finish                                                                          
+finish                                                                          
+define/NTIMEs/1                                                                 
+finish                                                                          
+infile remove_cells.mlgi                                                        
+#                                                                               
+# Remove cells from hex mesh based on the level of refinement                   
+# itetlev is the refinement level. Original mesh itetlev=0                      
+#                                                                               
+eltset/edelete/itetlev/eq/NTIMEs                                                
+ 
+ THE ELTSET edelete                          HAS      80000 ELEMENTS            
+rmpoint/element/eltset get edelete                                              
+ Dudded      81608 points plus parents, and       80000 elements removed.       
+eltset/edelete/release                                                          
+ 
+Attribute release    not found in mesh object mohex2                            
+ 
+rmpoint/compress                                                                
+     81608 points removed and          0 elements removed.                      
+RMPOINT: new point count is       404010                                        
+RMPOINT: new element count is     320000                                        
+#                                                                               
+finish                                                                          
+finish                                                                          
+define/NTIMEs/remove                                                            
+finish                                                                          
+#                                                                               
+cmo/select/mohex2                                                               
+cmo/DELATT/mohex2/if_int                                                        
+intersect_elements/mohex2/MODFN/if_int                                          
+cmo/select/mohex2                                                               
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/mohex2/if_int/VINT/scalar/nelements/linear/permanent//0/             
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1           118902          40598        5 %                      
+              4           472574         160000    Total Done                   
+ 
+cmo/select/mohex2                                                               
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/mohex2/sbox                                                          
+finish                                                                          
+cmo/DELATT/mohex2/v12                                                           
+finish                                                                          
+cmo/DELATT/mohex2/linkt                                                         
+finish                                                                          
+cmo/DELATT/mohex2/v2                                                            
+finish                                                                          
+finish                                                                          
+cmo/select/mohex2                                                               
+eltset/edelete/if_int/eq/0                                                      
+ 
+ THE ELTSET edelete                          HAS     160000 ELEMENTS            
+rmpoint/element/eltset get edelete                                              
+ Dudded     161604 points plus parents, and      160000 elements removed.       
+eltset/edelete/release                                                          
+ 
+Attribute release    not found in mesh object mohex2                            
+ 
+rmpoint/compress                                                                
+    161604 points removed and          0 elements removed.                      
+RMPOINT: new point count is       242406                                        
+RMPOINT: new element count is     160000                                        
+#                                                                               
+dump/avs/mohex2.inp/mohex2                                                      
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+dump/avs/MOTET_np1.inp/MOTET_np1                                                
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+dump/avs/MOTET.inp/MOTET                                                        
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+#                                                                               
+cmo/select/MOTET                                                                
+#                                                                               
+#                                                                               
+cmo/modatt/MOTET/itp/ioflag/l                                                   
+cmo/modatt/MOTET/isn/ioflag/l                                                   
+cmo/modatt/MOTET/icr/ioflag/l                                                   
+# #                                                                             
+define/ZONE/1                                                                   
+define/FOUT/boundary_top                                                        
+pset/top/attribute/zic/1 0 0/gt/ZMAX                                            
+ 
+ THE PSET  top  HAS       2601 POINTS                                           
+pset/top/zone/FOUT/ascii/ZONE                                                   
+PSET: THERE ARE  1 PSETS DEFINED                                                
+  top                                                                           
+PSET: Appended .zone to the file name                                           
+PSET: OUTPUT top    1 PSETS TO FILE                                             
+define/ZONE/2                                                                   
+define/FOUT/boundary_bottom                                                     
+pset/bottom/attribute/zic/1 0 0/lt/ZMIN                                         
+ 
+ THE PSET  bottom  HAS       2601 POINTS                                        
+pset/bottom/zone/FOUT/ascii/ZONE                                                
+PSET: THERE ARE  2 PSETS DEFINED                                                
+  top               bottom                                                      
+PSET: Appended .zone to the file name                                           
+PSET: OUTPUT bottom    1 PSETS TO FILE                                          
+define/ZONE/3                                                                   
+define/FOUT/boundary_left_w                                                     
+pset/left_w/attribute/xic/1 0 0/lt/XMIN                                         
+ 
+ THE PSET  left_w  HAS       3736 POINTS                                        
+pset/left_w/zone/FOUT/ascii/ZONE                                                
+PSET: THERE ARE  3 PSETS DEFINED                                                
+  top               bottom            left_w                                    
+PSET: Appended .zone to the file name                                           
+PSET: OUTPUT left_w    1 PSETS TO FILE                                          
+define/ZONE/4                                                                   
+define/FOUT/boundary_front_n                                                    
+pset/front_n/attribute/yic/1 0 0/gt/YMAX                                        
+ 
+ THE PSET  front_n  HAS       3736 POINTS                                       
+pset/front_n/zone/FOUT/ascii/ZONE                                               
+PSET: THERE ARE  4 PSETS DEFINED                                                
+  top               bottom            left_w            front_n                 
+PSET: Appended .zone to the file name                                           
+PSET: OUTPUT front_n    1 PSETS TO FILE                                         
+define/ZONE/5                                                                   
+define/FOUT/boundary_right_e                                                    
+pset/right_e/attribute/xic/1 0 0/gt/XMAX                                        
+ 
+ THE PSET  right_e  HAS       3736 POINTS                                       
+pset/right_e/zone/FOUT/ascii/ZONE                                               
+PSET: THERE ARE  5 PSETS DEFINED                                                
+  top               bottom            left_w            front_n                 
+  right_e                                                                       
+PSET: Appended .zone to the file name                                           
+PSET: OUTPUT right_e    1 PSETS TO FILE                                         
+define/ZONE/6                                                                   
+define/FOUT/boundary_back_s                                                     
+pset/back_s/attribute/yic/1 0 0/lt/YMIN                                         
+ 
+ THE PSET  back_s  HAS       3736 POINTS                                        
+pset/back_s/zone/FOUT/ascii/ZONE                                                
+PSET: THERE ARE  6 PSETS DEFINED                                                
+  top               bottom            left_w            front_n                 
+  right_e           back_s                                                      
+PSET: Appended .zone to the file name                                           
+PSET: OUTPUT back_s    1 PSETS TO FILE                                          
+trans/1 0 0/0. 0. 0./0,0,0                                                      
+cmo/addatt/motet/transauto/VDOUBLE/scalar/vector/user/permanent/x/0.0           
+finish                                                                          
+Trans already complete, nothing done.                                           
+dump/pflotran/full_mesh/MOTET/nofilter_zero                                     
+ 
+*** Construct and Compress Sparse Matrix:3D ***                                 
+   *** Compress Area Coefficient Values ***                                     
+ 
+AMatbld3d_stor: Matrix compress_eps:  0.1000000E-07                             
+AMatbld3d_stor: Local epsilon:  0.1000000E-14                                   
+AMatbld3d_stor: *****Zero Negative Coefficients ******                          
+AMatbld3d_stor: Number of 'zero' (< compress_eps) coefs         0               
+AMatbld3d_stor: npoints =   532436  ncoefs =    4360506                         
+AMatbld3d_stor: Number of unique coefs =        18                              
+AMatbld3d_stor: Maximum num. connections to a node =         23                 
+PFLOTRAN total CELL nodes =       532436                                        
+AMatbld3d_stor: Volume min =   3.1250000E+07                                    
+AMatbld3d_stor: Volume max =   8.0000000E+09                                    
+AMatbld3d_stor: Total Volume:   5.0000000E+14                                   
+AMatbld3d_stor: abs(Aij/xij) min =   0.0000000E+00                              
+AMatbld3d_stor: abs(Aij/xij) max =   2.0000000E+03                              
+AMatbld3d_stor: (Aij/xij) max =   0.0000000E+00                                 
+AMatbld3d_stor: (Aij/xij) min =  -2.0000000E+03                                 
+PFLOTRAN will not filter zero coefs.                                            
+PFLOTRAN coefficient from matbld Aij/Xij  max  =   0.0000000E+00                
+PFLOTRAN total matbld matrix coefficients   =   4360506                         
+PFLOTRAN matrix  i>j (written)              =   1914035                         
+PFLOTRAN matrix  i<=j (not written)        =    2446471                         
+PFLOTRAN zero coefs < epsilon    (written)  =         0                         
+ 
+PFLOTRAN total CONNECTIONS written         =    1914035                         
+PFLOTRAN coefficient  Aij min              =   6.2500000E+04                    
+PFLOTRAN coefficient  Aij max              =   4.0000000E+06                    
+AMatbld3d_stor Matrix coefficient values stored as scalar area/distance         
+ 
+*** SPARSE COEFFICIENT MATRIX for PFLOTRAN SUCCESSFUL ***                       
+ 
+3D Matrix Coefficient file written with name full_mesh.uge                      
+ 
+dump/avs2/octree_dfn.inp/MOTET                                                  
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+dump/coord/octree_dfn/MOTET                                                     
+Writing FEHM coord/geom file: octree_dfn.fehm                                   
+dump/stor/octree_dfn/MOTET                                                      
+ 
+*** Construct and Compress Sparse Matrix:3D ***                                 
+   *** Compress Area Coefficient Values ***                                     
+ 
+AMatbld3d_stor: Matrix compress_eps:  0.1000000E-07                             
+AMatbld3d_stor: Local epsilon:  0.1000000E-14                                   
+AMatbld3d_stor: *****Zero Negative Coefficients ******                          
+AMatbld3d_stor: Number of 'zero' (< compress_eps) coefs         0               
+AMatbld3d_stor: npoints =   532436  ncoefs =    4360506                         
+AMatbld3d_stor: Number of unique coefs =        18                              
+AMatbld3d_stor: Maximum num. connections to a node =         23                 
+AMatbld3d_stor: Volume min =   3.1250000E+07                                    
+AMatbld3d_stor: Volume max =   8.0000000E+09                                    
+AMatbld3d_stor: Total Volume:   5.0000000E+14                                   
+AMatbld3d_stor: abs(Aij/xij) min =   0.0000000E+00                              
+AMatbld3d_stor: abs(Aij/xij) max =   2.0000000E+03                              
+AMatbld3d_stor: (Aij/xij) max =   0.0000000E+00                                 
+AMatbld3d_stor: (Aij/xij) min =  -2.0000000E+03                                 
+AMatbld3d_stor Matrix coefficient values stored as scalar area/distance         
+AMatbld3d_stor Matrix compression used for graph and coefficient values         
+ascii STOR file written with name octree_dfn.stor                               
+ 
+*** SPARSE COEFFICIENT MATRIX _astor SUCCESSFUL ***                             
+ 
+3D Matrix Coefficient file written with name octree_dfn.stor                    
+ 
+dump/zone_imt/octree_dfn/MOTET                                                  
+*********dump_material_lists********                                            
+Minimum material ID value =      1                                              
+Maximum material ID value =      1                                              
+Total possible materials  =      1                                              
+Material           1 has    532436 nodes. #nodes/nnodes is    1.00000000000     
+dump/zone_outside/octree_dfn/MOTET                                              
+*********dump_outside_list********                                              
+Voronoi Areas used for outside faces.                                           
+ 
+assign_quadrant_id epsilon for zero:   1.0000000E-15                            
+cmo/addatt/motet/top/vint/scalar/nnodes/linear/permanent/afgx/-5.0/             
+finish                                                                          
+Face top           1 has      2601 nodes.                                       
+top        Sum Voronoi      Area_x          Area_y          Area_z              
+                       0.1875000E+09   0.1875000E+09   0.1000000E+11            
+cmo/addatt/motet/bottom/vint/scalar/nnodes/linear/permanent/afgx/-5.0/          
+finish                                                                          
+Face bottom        2 has      2601 nodes.                                       
+bottom     Sum Voronoi      Area_x          Area_y          Area_z              
+                       0.2000000E+09   0.2000000E+09   0.1000000E+11            
+cmo/addatt/motet/left_w/vint/scalar/nnodes/linear/permanent/afgx/-5.0/          
+finish                                                                          
+Face left_w        3 has      3736 nodes.                                       
+left_w     Sum Voronoi      Area_x          Area_y          Area_z              
+                       0.5000000E+10   0.8037500E+08   0.2000000E+09            
+cmo/addatt/motet/right_e/vint/scalar/nnodes/linear/permanent/afgx/-5.0/         
+finish                                                                          
+Face right_e       5 has      3736 nodes.                                       
+right_e    Sum Voronoi      Area_x          Area_y          Area_z              
+                       0.5000000E+10   0.8037500E+08   0.2000000E+09            
+cmo/addatt/motet/back_n/vint/scalar/nnodes/linear/permanent/afgx/-5.0/          
+finish                                                                          
+Face back_n        6 has      3736 nodes.                                       
+back_n     Sum Voronoi      Area_x          Area_y          Area_z              
+                       0.8037500E+08   0.5000000E+10   0.2000000E+09            
+cmo/addatt/motet/front_s/vint/scalar/nnodes/linear/permanent/afgx/-5.0/         
+finish                                                                          
+Face front_s       4 has      3736 nodes.                                       
+front_s    Sum Voronoi      Area_x          Area_y          Area_z              
+                       0.8037500E+08   0.5000000E+10   0.2000000E+09            
+cmo/DELATT//top                                                                 
+finish                                                                          
+cmo/DELATT//bottom                                                              
+finish                                                                          
+cmo/DELATT//left_w                                                              
+finish                                                                          
+cmo/DELATT//right_e                                                             
+finish                                                                          
+cmo/DELATT//back_n                                                              
+finish                                                                          
+cmo/DELATT//front_s                                                             
+finish                                                                          
+finish                                                                          
+LaGriT successfully completed                                                   

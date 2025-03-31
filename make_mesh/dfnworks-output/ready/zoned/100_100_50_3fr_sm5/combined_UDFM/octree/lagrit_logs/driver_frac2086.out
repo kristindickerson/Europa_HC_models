@@ -1,0 +1,753 @@
+ 
+ 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+*               *                                             *                 
+*               *    Program:  LaGriT V3.3.4   Linux          *                 
+*               *    Compiler Name: GNU                       *                 
+*               *    Compiler Version: 13.3.0                 *                 
+*               *    Date Compile: 2025/02/05                 *                 
+*               *    Run Time: 2025/Mar  6  04:08:23          *                 
+*               *    Manual:   https://lagrit.lanl.gov        *                 
+*               *                                             *                 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+ 
+                               -----oOo-----                                    
+             LaGriT V3 LA-CC-15-069  https://github.com/lanl/LaGriT             
+  Copyright 2016. Triad National Security, LLC.  All rights reserved. This      
+  program was produced under U.S. Government contract 89233218CNA000001         
+  for Los Alamos National Laboratory (LANL), which is operated by Triad         
+  National Security, LLC for the U.S. Department of Energy/National Nuclear     
+  Security Administration.  All rights in the program are reserved by Triad     
+  National Security, LLC, and the U.S. Department of Energy/National Nuclear    
+  Security Administration. The Government is granted for itself and others      
+  acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license   
+  in this material to reproduce, prepare derivative works, distribute copies    
+  to the public, perform publicly and display publicly, and to permit others to 
+  do so. This software is open source and available under the BSD-3 License.    
+                               -----oOo-----                                    
+ 
+ 
+Output log file: lagrit_logs/driver_frac2086.out                                
+Command log file: lagrit_logs/driver_frac2086.log                               
+ 
+read/avs/mohex2.inp/mohex2                                                      
+cmo/addatt/mohex2/itetpar/VINT/scalar/nelements/linear/permanent/gxaf/0.0       
+finish                                                                          
+cmo/addatt/mohex2/itetkid/VINT/scalar/nelements/linear/permanent/gxaf/0.0       
+finish                                                                          
+cmo/addatt/mohex2/itetlev/VINT/scalar/nelements/linear/permanent/gxaf/0.0       
+finish                                                                          
+cmo/addatt/mohex2/if_int/VINT/scalar/nelements/linear/permanent/gxaf/0.0        
+finish                                                                          
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mohex2                                         
+ 
+  1 Mesh Object name: mohex2                                                    
+    number of nodes =        284873        number of elements =       173989    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/DELATT/mohex2/if_int                                                        
+read/avs/MOTET_np1.inp/MOTET_np1                                                
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: MOTET_np1                                      
+ 
+  1 Mesh Object name: mohex2                                                    
+    number of nodes =        284873        number of elements =       173989    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: MOTET_np1                                                 
+    number of nodes =       2243703        number of elements =     12911569    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        80000000        status =                   active    
+ 
+ 
+finish                                                                          
+read/avs/MOTET.inp/MOTET                                                        
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: MOTET                                          
+ 
+  1 Mesh Object name: mohex2                                                    
+    number of nodes =        284873        number of elements =       173989    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: MOTET_np1                                                 
+    number of nodes =       2243703        number of elements =     12911569    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        80000000        status =                 inactive    
+ 
+  3 Mesh Object name: MOTET                                                     
+    number of nodes =        631820        number of elements =      3604045    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        22000000        status =                   active    
+ 
+ 
+finish                                                                          
+read/avs/reduced_mesh.inp/MODFN                                                 
+cmo/addatt/MODFN/family_id/VINT/scalar/nelements/linear/permanent/gxaf/0.0      
+finish                                                                          
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: MODFN                                          
+ 
+  1 Mesh Object name: mohex2                                                    
+    number of nodes =        284873        number of elements =       173989    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: MOTET_np1                                                 
+    number of nodes =       2243703        number of elements =     12911569    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        80000000        status =                 inactive    
+ 
+  3 Mesh Object name: MOTET                                                     
+    number of nodes =        631820        number of elements =      3604045    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        22000000        status =                 inactive    
+ 
+  4 Mesh Object name: MODFN                                                     
+    number of nodes =         17104        number of elements =        12802    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+cmo/create/FRACTURE2086                                                         
+cmo/copy/FRACTURE2086/MODFN                                                     
+     Released Mesh Object: FRACTURE2086                                         
+cmo/select/FRACTURE2086                                                         
+pset/pdel/attribute imt/1 0 0/ne/2086                                           
+ 
+ THE PSET  pdel  HAS      17096 POINTS                                          
+rmpoint pset,get,pdel                                                           
+ Dudded      17096 points plus parents, plus       12796 elements removed.      
+rmpoint compress                                                                
+     17096 points removed and          0 elements removed.                      
+RMPOINT: new point count is            8                                        
+RMPOINT: new element count is          6                                        
+resetpts itp                                                                    
+geniee                                                                          
+finish                                                                          
+pset/pdel/delete                                                                
+ 
+ PSET pdel     DELETED                                                          
+ 
+eltset/edel/itetclr/ne/2086                                                     
+ 
+ THE ELTSET edel                             HAS          0 ELEMENTS            
+rmpoint element eltset,get,edel                                                 
+ Dudded          0 points plus parents, and           0 elements removed.       
+rmpoint compress                                                                
+         0 points removed and          0 elements removed.                      
+RMPOINT: new point count is            8                                        
+RMPOINT: new element count is          6                                        
+resetpts itp                                                                    
+geniee                                                                          
+finish                                                                          
+eltset/edel/delete                                                              
+ 
+ ELTSET edel                             DELETED                                
+ 
+intersect_elements/mohex2/FRACTURE2086/if_int                                   
+cmo/select/mohex2                                                               
+finish                                                                          
+kdtree/build                                                                    
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo/addatt/mohex2/if_int/VINT/scalar/nelements/linear/permanent//0/             
+finish                                                                          
+ 
+         Element    Elems Searched  Elements Found  Percent Done                
+              1                8              3        5 %                      
+              6               39              6    Total Done                   
+ 
+cmo/select/mohex2                                                               
+finish                                                                          
+kdtree/release                                                                  
+cmo/DELATT/mohex2/sbox                                                          
+finish                                                                          
+cmo/DELATT/mohex2/v12                                                           
+finish                                                                          
+cmo/DELATT/mohex2/linkt                                                         
+finish                                                                          
+cmo/DELATT/mohex2/v2                                                            
+finish                                                                          
+finish                                                                          
+eltset/erefine/if_int/ne/0                                                      
+ 
+ THE ELTSET erefine                          HAS          6 ELEMENTS            
+pset/pinter/eltset erefine                                                      
+ 
+ THE PSET  pinter  HAS         24 POINTS                                        
+cmo/create/temp2086                                                             
+cmo/copy/temp2086/mohex2                                                        
+     Released Mesh Object: temp2086                                             
+cmo/select/temp2086                                                             
+pset/pdel/if_int/1 0 0/eq/0                                                     
+ 
+ THE PSET  pdel  HAS          0 POINTS                                          
+rmpoint,pset,get,pdel                                                           
+ Dudded          0 points plus parents, there are no elements in mesh.          
+rmpoint compress                                                                
+         0 points removed and          0 elements removed.                      
+RMPOINT: new point count is       284873                                        
+RMPOINT: new element count is     173989                                        
+resetpts itp                                                                    
+geniee                                                                          
+finish                                                                          
+pset/pdel/delete                                                                
+ 
+ PSET pdel     DELETED                                                          
+ 
+eltset/edel/if_int/eq/0                                                         
+ 
+ THE ELTSET edel                             HAS     173983 ELEMENTS            
+rmpoint element eltset,get,edel                                                 
+ Dudded     284849 points plus parents, and      173983 elements removed.       
+rmpoint compress                                                                
+    284849 points removed and          0 elements removed.                      
+RMPOINT: new point count is           24                                        
+RMPOINT: new element count is          6                                        
+resetpts itp                                                                    
+geniee                                                                          
+finish                                                                          
+eltset/edel/delete                                                              
+ 
+ ELTSET edel                             DELETED                                
+ 
+cmo/setatt/temp2086/itetclr/1 0 0/2086                                          
+         6 values reset for attribute itetclr                                   
+ 
+cmo/setatt/temp2086/imt/1 0 0/2086                                              
+        24 values reset for attribute imt1                                      
+ 
+cmo/create/TETCOPY                                                              
+cmo/copy/TETCOPY/MOTET                                                          
+     Released Mesh Object: TETCOPY                                              
+cmo/select/TETCOPY                                                              
+interpolate/map/TETCOPY/itetclr/1 0 0/temp2086/itetclr                          
+elements in indexed set  =    3604045                                           
+ 
+INTRP METHOD:        map   FUNCTION:       user                                 
+      TIEBREAKER:     maxtie   FLAG:      plus1  0.208700000000E+04             
+ 
+cmo select temp2086                                                             
+finish                                                                          
+cmo kdtree build                                                                
+cmo/addatt//v2/INT/scalar/scalar/constant/temporary//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//temporary/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/temporary//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/temporary/x/0.0                   
+finish                                                                          
+finish                                                                          
+cmo setatt temp2086 idebug/0                                                    
+         1 values reset for attribute idebug                                    
+ 
+finish                                                                          
+ 
+Build kdtree done - assign the enclosing element for each.                      
+ 
+ 
+     Sink point   Elems Searched  Elements Found  Percent Done                  
+ 
+          72082                0              0        2 %                      
+         144163                0              0        4 %                      
+         216244                0              0        6 %                      
+         288325                3              3        8 %                      
+         360406                3              3       10 %                      
+         432487                3              3       12 %                      
+         504568                4              4       14 %                      
+         576649                4              4       16 %                      
+         648730                4              4       18 %                      
+         720811                7              7       20 %                      
+         792892                7              7       22 %                      
+         864973                7              7       24 %                      
+         937054                7              7       26 %                      
+        1009135                9              9       28 %                      
+        1081216                9              9       30 %                      
+        1153297               14             14       32 %                      
+        1225378               15             15       34 %                      
+        1297459               15             15       36 %                      
+        1369540               15             15       38 %                      
+        1441621               17             17       40 %                      
+        1513702               17             17       42 %                      
+        1585783               17             17       44 %                      
+        1657864               17             17       46 %                      
+        1729945               17             17       48 %                      
+        1802026               17             17       50 %                      
+        1874107               19             19       52 %                      
+        1946188               22             22       54 %                      
+        2018269               22             22       56 %                      
+        2090350               22             22       58 %                      
+        2162431               25             25       60 %                      
+        2234512               25             25       62 %                      
+        2306593               25             25       64 %                      
+        2378674               26             26       66 %                      
+        2450755               26             26       68 %                      
+        2522836               30             30       70 %                      
+        2594917               30             30       72 %                      
+        2666998               30             30       74 %                      
+        2739079               30             30       76 %                      
+        2811160               30             30       78 %                      
+        2883241               30             30       80 %                      
+        2955322               30             30       82 %                      
+        3027403               30             30       84 %                      
+        3099484               30             30       86 %                      
+        3171565               30             30       88 %                      
+        3243646               30             30       90 %                      
+        3315727               34             34       92 %                      
+        3387808               34             34       94 %                      
+        3459889               34             34       96 %                      
+        3531970               36             36       98 %                      
+        3604045               36             36       100%                      
+ 
+Total Source Elements:                       6                                  
+Total Sink   Centroids:                3604045                                  
+ 
+WARNING: Sink points not inside source grid:                  3604009           
+Outside sink points flagged with value:                       2087.00           
+ 
+interpolate/map done.                                                           
+ 
+cmo select TETCOPY                                                              
+finish                                                                          
+cmo kdtree release                                                              
+cmo/DELATT/temp2086/sbox                                                        
+finish                                                                          
+cmo/DELATT/temp2086/v12                                                         
+finish                                                                          
+cmo/DELATT/temp2086/linkt                                                       
+finish                                                                          
+cmo/DELATT/temp2086/v2                                                          
+finish                                                                          
+finish                                                                          
+compute/distance_field/TETCOPY/temp2086/dfield                                  
+cmo/addatt/TETCOPY/temp_tmp_var/VDOUBLE/scalar/nnodes/linear/temporary//-1.0    
+finish                                                                          
+cmo/addatt/TETCOPY/xobj_tmp_var/VDOUBLE/scalar/nnodes/linear/temporary//-1.0    
+finish                                                                          
+cmo/addatt/TETCOPY/yobj_tmp_var/VDOUBLE/scalar/nnodes/linear/temporary//-1.0    
+finish                                                                          
+cmo/addatt/TETCOPY/zobj_tmp_var/VDOUBLE/scalar/nnodes/linear/temporary//-1.0    
+finish                                                                          
+cmo/addatt/TETCOPY/dfield/VDOUBLE/scalar/nnodes/linear/permanent//-1.0          
+finish                                                                          
+interpolate/voronoi/TETCOPY/xobj_tmp_var/1 0 0/temp2086/xic/keepatt             
+nodes in indexed point set  =     631820                                        
+cmo/addatt/TETCOPY/pt_gtg/VINT/scalar/nnodes//permanent/agfx/0                  
+finish                                                                          
+ 
+INTRP METHOD:    voronoi   FUNCTION:     linear                                 
+      TIEBREAKER:     maxtie   FLAG:      plus1  0.435010000000E+05             
+ 
+pt_gtg attribute will be added and kept.                                        
+ 
+Build kdtree0 done - assign nearest node for each.                              
+ 
+ 
+     Sink point   Points Searched   Points Found  Percent Done                  
+ 
+          12637            12657          12637        2 %                      
+          25273            25313          25273        4 %                      
+          37909            37969          37909        6 %                      
+          50545            50625          50545        8 %                      
+          63181            63281          63181       10 %                      
+          75817            75937          75817       12 %                      
+          88453            88594          88453       14 %                      
+         101089           101266         101089       16 %                      
+         113725           113924         113725       18 %                      
+         126361           126580         126361       20 %                      
+         138997           139236         138997       22 %                      
+         151633           151892         151633       24 %                      
+         164269           164548         164269       26 %                      
+         176905           177212         176905       28 %                      
+         189541           189880         189541       30 %                      
+         202177           202541         202177       32 %                      
+         214813           215203         214813       34 %                      
+         227449           227868         227449       36 %                      
+         240085           240524         240085       38 %                      
+         252721           253180         252721       40 %                      
+         265357           265836         265357       42 %                      
+         277993           278487         277993       44 %                      
+         290629           291143         290629       46 %                      
+         303265           303799         303265       48 %                      
+         315901           316450         315901       50 %                      
+         328537           329106         328537       52 %                      
+         341173           341765         341173       54 %                      
+         353809           354421         353809       56 %                      
+         366445           367072         366445       58 %                      
+         379081           379728         379081       60 %                      
+         391717           392384         391717       62 %                      
+         404353           405041         404353       64 %                      
+         416989           417706         416989       66 %                      
+         429625           430362         429625       68 %                      
+         442261           443026         442261       70 %                      
+         454897           455696         454897       72 %                      
+         467533           468360         467533       74 %                      
+         480169           481018         480169       76 %                      
+         492805           493677         492805       78 %                      
+         505441           506333         505441       80 %                      
+         518077           518989         518077       82 %                      
+         530713           531645         530713       84 %                      
+         543349           544303         543349       86 %                      
+         555985           556962         555985       88 %                      
+         568621           569623         568621       90 %                      
+         581257           582283         581257       92 %                      
+         593893           594947         593893       94 %                      
+         606529           607607         606529       96 %                      
+         619165           620272         619165       98 %                      
+         631801           632934         631801      100 %                      
+         631820           632953         631820       100%                      
+ 
+Total Source Nodes:                      24                                     
+Total Sink   Nodes:                  631820                                     
+ 
+ 
+interpolate/voronoi done.                                                       
+ 
+cmo select TETCOPY                                                              
+finish                                                                          
+cmo kdtree release                                                              
+finish                                                                          
+finish                                                                          
+interpolate/voronoi/TETCOPY/yobj_tmp_var/1 0 0/temp2086/yic/keepatt             
+nodes in indexed point set  =     631820                                        
+ 
+INTRP METHOD:    voronoi   FUNCTION:     linear                                 
+      TIEBREAKER:     maxtie   FLAG:      plus1  0.180010000000E+05             
+ 
+SKIPPING POINT SEARCH... using lookup attribute pt_gtg                          
+          12637            12637          12637        2 %                      
+          25273            25273          25273        4 %                      
+          37909            37909          37909        6 %                      
+          50545            50545          50545        8 %                      
+          63181            63181          63181       10 %                      
+          75817            75817          75817       12 %                      
+          88453            88453          88453       14 %                      
+         101089           101089         101089       16 %                      
+         113725           113725         113725       18 %                      
+         126361           126361         126361       20 %                      
+         138997           138997         138997       22 %                      
+         151633           151633         151633       24 %                      
+         164269           164269         164269       26 %                      
+         176905           176905         176905       28 %                      
+         189541           189541         189541       30 %                      
+         202177           202177         202177       32 %                      
+         214813           214813         214813       34 %                      
+         227449           227449         227449       36 %                      
+         240085           240085         240085       38 %                      
+         252721           252721         252721       40 %                      
+         265357           265357         265357       42 %                      
+         277993           277993         277993       44 %                      
+         290629           290629         290629       46 %                      
+         303265           303265         303265       48 %                      
+         315901           315901         315901       50 %                      
+         328537           328537         328537       52 %                      
+         341173           341173         341173       54 %                      
+         353809           353809         353809       56 %                      
+         366445           366445         366445       58 %                      
+         379081           379081         379081       60 %                      
+         391717           391717         391717       62 %                      
+         404353           404353         404353       64 %                      
+         416989           416989         416989       66 %                      
+         429625           429625         429625       68 %                      
+         442261           442261         442261       70 %                      
+         454897           454897         454897       72 %                      
+         467533           467533         467533       74 %                      
+         480169           480169         480169       76 %                      
+         492805           492805         492805       78 %                      
+         505441           505441         505441       80 %                      
+         518077           518077         518077       82 %                      
+         530713           530713         530713       84 %                      
+         543349           543349         543349       86 %                      
+         555985           555985         555985       88 %                      
+         568621           568621         568621       90 %                      
+         581257           581257         581257       92 %                      
+         593893           593893         593893       94 %                      
+         606529           606529         606529       96 %                      
+         619165           619165         619165       98 %                      
+         631801           631801         631801      100 %                      
+         631820           631820         631820       100%                      
+ 
+Total Source Nodes:                      24                                     
+Total Sink   Nodes:                  631820                                     
+ 
+ 
+interpolate/voronoi done.                                                       
+ 
+cmo select TETCOPY                                                              
+finish                                                                          
+cmo kdtree release                                                              
+finish                                                                          
+finish                                                                          
+interpolate/voronoi/TETCOPY/zobj_tmp_var/1 0 0/temp2086/zic                     
+nodes in indexed point set  =     631820                                        
+ 
+INTRP METHOD:    voronoi   FUNCTION:     linear                                 
+      TIEBREAKER:     maxtie   FLAG:      plus1  0.155010000000E+05             
+ 
+SKIPPING POINT SEARCH... using lookup attribute pt_gtg                          
+          12637            12637          12637        2 %                      
+          25273            25273          25273        4 %                      
+          37909            37909          37909        6 %                      
+          50545            50545          50545        8 %                      
+          63181            63181          63181       10 %                      
+          75817            75817          75817       12 %                      
+          88453            88453          88453       14 %                      
+         101089           101089         101089       16 %                      
+         113725           113725         113725       18 %                      
+         126361           126361         126361       20 %                      
+         138997           138997         138997       22 %                      
+         151633           151633         151633       24 %                      
+         164269           164269         164269       26 %                      
+         176905           176905         176905       28 %                      
+         189541           189541         189541       30 %                      
+         202177           202177         202177       32 %                      
+         214813           214813         214813       34 %                      
+         227449           227449         227449       36 %                      
+         240085           240085         240085       38 %                      
+         252721           252721         252721       40 %                      
+         265357           265357         265357       42 %                      
+         277993           277993         277993       44 %                      
+         290629           290629         290629       46 %                      
+         303265           303265         303265       48 %                      
+         315901           315901         315901       50 %                      
+         328537           328537         328537       52 %                      
+         341173           341173         341173       54 %                      
+         353809           353809         353809       56 %                      
+         366445           366445         366445       58 %                      
+         379081           379081         379081       60 %                      
+         391717           391717         391717       62 %                      
+         404353           404353         404353       64 %                      
+         416989           416989         416989       66 %                      
+         429625           429625         429625       68 %                      
+         442261           442261         442261       70 %                      
+         454897           454897         454897       72 %                      
+         467533           467533         467533       74 %                      
+         480169           480169         480169       76 %                      
+         492805           492805         492805       78 %                      
+         505441           505441         505441       80 %                      
+         518077           518077         518077       82 %                      
+         530713           530713         530713       84 %                      
+         543349           543349         543349       86 %                      
+         555985           555985         555985       88 %                      
+         568621           568621         568621       90 %                      
+         581257           581257         581257       92 %                      
+         593893           593893         593893       94 %                      
+         606529           606529         606529       96 %                      
+         619165           619165         619165       98 %                      
+         631801           631801         631801      100 %                      
+         631820           631820         631820       100%                      
+ 
+Total Source Nodes:                      24                                     
+Total Sink   Nodes:                  631820                                     
+ 
+ 
+interpolate/voronoi done.                                                       
+ 
+cmo DELATT TETCOPY/pt_gtg                                                       
+finish                                                                          
+cmo select TETCOPY                                                              
+finish                                                                          
+cmo kdtree release                                                              
+finish                                                                          
+finish                                                                          
+math/sub/TETCOPY/temp_tmp_var/1,0,0/TETCOPY/xic/TETCOPY/xobj_tmp_var            
+finish                                                                          
+math/power/TETCOPY/dfield/1,0,0/TETCOPY/temp_tmp_var/2.0                        
+finish                                                                          
+math/sub/TETCOPY/temp_tmp_var/1,0,0/TETCOPY/yic/TETCOPY/yobj_tmp_var            
+finish                                                                          
+math/power/TETCOPY/temp_tmp_var/1,0,0/TETCOPY/temp_tmp_var/2.0                  
+finish                                                                          
+math/add/TETCOPY/dfield/1 0 0/TETCOPY/dfield/TETCOPY/temp_tmp_var               
+finish                                                                          
+math/sub/TETCOPY/temp_tmp_var/1,0,0/TETCOPY/zic/TETCOPY/zobj_tmp_var            
+finish                                                                          
+math/power/TETCOPY/temp_tmp_var/1,0,0/TETCOPY/temp_tmp_var/2.0                  
+finish                                                                          
+math/add/TETCOPY/dfield/1 0 0/TETCOPY/dfield/TETCOPY/temp_tmp_var               
+finish                                                                          
+math/power/TETCOPY/dfield/1,0,0/TETCOPY/dfield/0.5                              
+finish                                                                          
+cmo/delatt/TETCOPY/temp_tmp_var                                                 
+finish                                                                          
+cmo/delatt/TETCOPY/xobj_tmp_var                                                 
+finish                                                                          
+cmo/delatt/TETCOPY/yobj_tmp_var                                                 
+finish                                                                          
+cmo/delatt/TETCOPY/zobj_tmp_var                                                 
+finish                                                                          
+COMPUTE distance_field: Done.                                                   
+cmo/select/TETCOPY                                                              
+pset/pfrac/attribute/dfield/1 0 0/le/1.e-8                                      
+ 
+ THE PSET  pfrac  HAS         24 POINTS                                         
+cmo/setatt/TETCOPY/imt/1 0 0/2152                                               
+    631820 values reset for attribute imt1                                      
+ 
+cmo/setatt/TETCOPY/imt/pset get pfrac/2086                                      
+        24 values reset for attribute imt1                                      
+ 
+cmo/set_id/MOTET_np1/element/id_cell                                            
+cmo/addatt/MOTET_np1 id_cell/VINT/scalar/nelements/linear/permanent//0          
+finish                                                                          
+cmo/set_id/MOTET_np1/node/id_vertex                                             
+cmo/addatt/MOTET_np1 id_vertex/VINT/scalar/nnodes/linear/permanent//0           
+finish                                                                          
+extract/plane/ptnorm/-9885.771659 -41839.32127 -998.9204683/-0.299259099805056 0
+.56299678743734 -0.770375628196467/1 0 0/moext/MOTET_np1                        
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: moext                                          
+ 
+  1 Mesh Object name: mohex2                                                    
+    number of nodes =        284873        number of elements =       173989    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: MOTET_np1                                                 
+    number of nodes =       2243703        number of elements =     12911569    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        80000000        status =                 inactive    
+ 
+  3 Mesh Object name: MOTET                                                     
+    number of nodes =        631820        number of elements =      3604045    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        22000000        status =                 inactive    
+ 
+  4 Mesh Object name: MODFN                                                     
+    number of nodes =         17104        number of elements =        12802    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  5 Mesh Object name: FRACTURE2086                                              
+    number of nodes =             8        number of elements =            6    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  6 Mesh Object name: temp2086                                                  
+    number of nodes =            24        number of elements =            6    
+    dimensions geometry =         3        element type =                hex    
+    dimensions topology =         3        8 nodes      6 faces     12 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  7 Mesh Object name: TETCOPY                                                   
+    number of nodes =        631820        number of elements =      3604045    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        22000000        status =                 inactive    
+ 
+  8 Mesh Object name: moext                                                     
+    number of nodes =         65281        number of elements =       101003    
+    dimensions geometry =         3        element type =                hyb    
+    dimensions topology =         2       10 nodes     10 faces     12 edges    
+    boundary flag =       309000000        status =                   active    
+ 
+ 
+createpts/median                                                                
+cmo/addatt//xmed/VDOUBLE/scalar/nelements///gal/0.                              
+finish                                                                          
+cmo/addatt//ymed/VDOUBLE/scalar/nelements///gal/0.                              
+finish                                                                          
+cmo/addatt//zmed/VDOUBLE/scalar/nelements///gal/0.                              
+finish                                                                          
+cmo/DELATT/moext/id_cell                                                        
+cmo/DELATT/moext/id_parent                                                      
+DELATT no action, attribute does not exist: id_parent                           
+dump/avs2/ex_xyz2086.table/moext 0 0 0 1                                        
+WARNING: dump/avs  iopt_points=    0                                            
+WARNING: dump/avs  iopt_elements=    0                                          
+WARNING: dump/avs  iopt_values_node=    0                                       
+WARNING: dump/avs  iopt_values_elem=    1                                       
+WARNING: dump/avs  will produce non-standard AVS output that                    
+WARNING: read/avs may not be able to read.                                      
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+cmo/addatt/moext/volume/area_tri                                                
+ADDATT/volume: creating new attribute: area_tri                                 
+cmo/DELATT/moext/xmed                                                           
+cmo/DELATT/moext/ymed                                                           
+cmo/DELATT/moext/zmed                                                           
+dump/avs2/ex_area2086.table/moext 0 0 0 1                                       
+WARNING: dump/avs  iopt_points=    0                                            
+WARNING: dump/avs  iopt_elements=    0                                          
+WARNING: dump/avs  iopt_values_node=    0                                       
+WARNING: dump/avs  iopt_values_elem=    1                                       
+WARNING: dump/avs  will produce non-standard AVS output that                    
+WARNING: read/avs may not be able to read.                                      
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+cmo/delete/moext                                                                
+     Released Mesh Object: moext                                                
+cmo/select/TETCOPY                                                              
+cmo/DELATT/TETCOPY/icr1                                                         
+cmo/DELATT/TETCOPY/itp1                                                         
+cmo/DELATT/TETCOPY/isn1                                                         
+dump/avs2/frac2086.inp/TETCOPY                                                  
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+cmo/delete/temp2086                                                             
+     Released Mesh Object: temp2086                                             
+cmo/delete/TETCOPY                                                              
+     Released Mesh Object: TETCOPY                                              
+cmo/select/mohex2                                                               
+cmo/setatt/mohex2/itetclr/eltset get erefine/2086                               
+         6 values reset for attribute itetclr                                   
+ 
+cmo/setatt/mohex2/imt/pset get pinter/2086                                      
+        24 values reset for attribute imt1                                      
+ 
+eltset/erefine/delete                                                           
+ 
+ ELTSET erefine                          DELETED                                
+ 
+pset/pinter/delete                                                              
+ 
+ PSET pinter   DELETED                                                          
+ 
+cmo/DELATT/mohex2/if_int                                                        
+cmo/delete/FRACTURE2086                                                         
+     Released Mesh Object: FRACTURE2086                                         
+finish                                                                          
+LaGriT successfully completed                                                   
