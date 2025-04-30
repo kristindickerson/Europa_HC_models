@@ -1,0 +1,76 @@
+FEHM V3.4.0lbUbuntu16 24-03-17   04/30/2025    14:14:12
+
+Fatal error - for array number        4
+macro - pres
+Group number -        1
+Line number -        2
+Bad input, check this line
+396 for Los Alamos
+National  Laboratory  (LANL),  which is operated by  Los Alamos National
+Security, LLC  for the U. S. Department of Energy.  The U. S. Government
+has rights to use, reproduce, and distribute this software.  Neither the
+U. S. Government nor Los Alamos National Security, LLC or persons acting
+on their behalf,  make any warranty,  express or implied, or assumes any
+liability for the accuracy, completeness, or usefulness of the software,
+any information pertaining to the software,  or  represents that its use
+would not infringe privately owned rights.
+
+The  software  being licensed  may  be Export Controlled.  It may not be
+distributed  or  used by individuals  or entities prohibited from having
+access to the software package, pursuant to United States export control
+laws and regulations. An export control review and determination must be
+completed before LANS will provide access to the identified Software.
+
+
+ All reference output nodes will be written to tty           
+
+ File purpose - Variable - Unit number - File name
+
+    control       - iocntl -  1 - fehmn.files                                                                                         
+    input         - inpt   - 11 - un_p15.dat                                                                                          
+    geometry      - incoor - 12 - un_p15.fehm                                                                                         
+    zone          - inzone - 13 - un_p15_material.zone                                                                                
+    output        - iout   - 14 - un_p15.out                                                                                          
+    initial state - iread  -  0 - not using                                                                                           
+    final state   - isave  - 16 - un_p15.fin                                                                                          
+    time history  - ishis  - 17 - un_p15.hist                                                                                         
+    time his.(tr) - istrc  -  0 - not using                                                                                           
+    contour plot  - iscon  -  0 - not using                                                                                           
+    con plot (dp) - iscon1 -  0 - not using                                                                                           
+    fe coef stor  - isstor - 21 - un_p15.stor                                                                                         
+    input check   - ischk  - 22 - un_p15.chk                                                                                          
+ Value provided to subroutine user: not using
+
+ n0 =       532436
+
+ "Earth gravity; 100 km x 100 km x 100 km box; uniform properites for 3 layers; n
+
+
+ **** input title : coor **** incoor =  12 ****
+ **** input title : elem **** incoor =  12 ****
+ **** input title : stop **** incoor =  12 ****
+ **** input title : zone **** inzone =  13 ****
+ **** input title : stop **** inzone =  13 ****
+ **** input title : cont **** inpt =  11 ****
+ -----------------------------------------------
+ You have chosen avs  output format
+ The following io parameters have been set 
+  iomaterial                 1
+  ioliquid                   1
+  iovelocity                 1
+  iotemperature              1
+  iopressure                 1
+  ioflx                      1
+  iosource                   1
+  format        formatted
+  header        avs 
+ -----------------------------------------------
+ **** input title : sol  **** inpt =  11 ****
+ **** input title : node **** inpt =  11 ****
+ **** input title : pres **** inpt =  11 ****
+
+Fatal error - for array number        4
+macro - pres
+Group number -        1
+Line number -        2
+Bad input, check this line
