@@ -10,9 +10,9 @@ files_config:
   flow: un_p15.flow
   history: un_p15.hist
   input: un_p15.dat
-  material_zone: un_p15.zone
+  material_zone: un_p15_material.zone
   output: un_p15.out
-  outside_zone: un_p15.zone
+  outside_zone: un_p15_outside.zone
   permeability: un_p15.perm
   pore_pressure: un_p15.ppor
   rock_properties: un_p15.rock
