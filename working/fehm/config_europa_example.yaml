@@ -31,7 +31,7 @@ rock_properties_config:
       kind: overburden
       params:
         a: 0.09
-        grav: 1.3
+        grav: 9.81
         min_overburden: 25
         rhow: 1000
     zones: [1]
