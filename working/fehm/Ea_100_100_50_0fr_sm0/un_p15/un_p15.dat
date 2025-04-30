@@ -9,14 +9,14 @@ time
     # time config goes here
 rock
 file
-cond.rock
+un_p15.rock
 cond
 file
-cond.cond
+un_p15.cond
 perm
 file
-cond.perm
+un_p15.perm
 ppor
 file
-cond.ppor
+un_p15.ppor
 stop
