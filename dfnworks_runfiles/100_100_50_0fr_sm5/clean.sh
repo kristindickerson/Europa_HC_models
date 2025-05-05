@@ -7,7 +7,5 @@ rm -r faults
 rm -r middle_layer
 rm -r combined_UDFM
 
-rm config.yaml
-
 
 
