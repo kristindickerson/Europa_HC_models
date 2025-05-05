@@ -1,0 +1,13 @@
+root: ea_p15un_warm
+input: ea_p15un_warm.dat
+outpu: ea_p15un_warm.out
+grida: ea_p15un_warm.fehm
+storo: ea_p15un_warm.stor
+rsto: ea_p15un_warm.fin
+error: ea_p15un_warm.err
+check: ea_p15un_warm.chk
+zone: ea_p15un_warm_material.zone
+look: ea_p15un_warm.wpi
+hist: ea_p15un_warm.hist
+
+all
