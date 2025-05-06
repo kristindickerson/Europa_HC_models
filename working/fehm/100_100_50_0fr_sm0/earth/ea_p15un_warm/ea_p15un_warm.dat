@@ -11,17 +11,17 @@ source
 endavs
 sol
 1    -1
-node
+node ---> CHANGE
 7
 36 24 21 26 21 9 1
 eos
 5  0  0
 21.  50.  997.   0.0   -0.45  0.23   0.0  4.2e-03  5.5e-04  0. 0.
 0.1  20.  1.29   0.     0.    2.5   0.     0.1     2.e-4   0. 0.
-pres
+pres 
 1, 0, 0, 50.53, 2.0, 1
 0
-flow
+flow ---> CHANGE, the first two are node numbers
 11434, 11434, 1, 26.0, -2.00000, 0.25
 0
 perm
@@ -36,7 +36,7 @@ cond
 ppor
 1, 0, 0, 6.0e-10
 0
-hflx
+hflx ----> CHANGE the first two are zones
 -2 0 0 2.0 1.e6
 -3 0 0 2.0 1.e6
 0
