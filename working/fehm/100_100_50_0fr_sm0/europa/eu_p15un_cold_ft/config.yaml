@@ -19,30 +19,13 @@ files_config:
   run_root: eu_p15un_cold_ft
   storage: eu_p15un_cold_ft.stor
   water_properties: eu_p15un_cold_ft.wpi
-heat_flux_config:
-  boundary_configs:
-  - boundary_model:
-      kind: constant_MW_per_m2
-      params:
-        constant: 0.00000001
-    outside_zones: [bottom]
-flow_config:
-  boundary_configs:
-  - boundary_model:
-      kind: 'open_flow'
-      params:
-        input_fluid_temp_degC: 2
-        aiped_to_volume_ratio: 1.0e-08
-    outside_zones: ['top']
+
 rock_properties_config:
   compressibility_configs:
   - property_model:
-      kind: overburden
+      kind: constant
       params:
-        a: 0.09
-        grav: 9.81
-        min_overburden: 25
-        rhow: 1000
+        constant: 6.0E-10
     zones: [1, 2, 3]
   conductivity_configs:
   - property_model:
