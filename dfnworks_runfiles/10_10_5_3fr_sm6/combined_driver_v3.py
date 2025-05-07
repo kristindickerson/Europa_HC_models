@@ -144,12 +144,12 @@ FAULT_DFN = DFNWORKS(pickle_file = f"{src_dir}/faults/faults.pkl")
 MIDDLE_DFN = DFNWORKS(pickle_file = f"{src_dir}/middle_layer/middle_layer.pkl")
 
 num_faults = FAULT_DFN.num_frac 
-
+##
+## Shift indices of fractures in middle network so they are unique from fault indices 
+##
 lagrit_script = """
-
 # read in mesh 1 
 read / middle_layer.inp / mo_middle
-
 """
 for i in range(MIDDLE_DFN.num_frac, 0, -1):
      lagrit_script += f"""
@@ -199,10 +199,10 @@ with open('combine_dfn.lgi', 'w') as fp:
 
 subprocess.call('lagrit < combine_dfn.lgi', shell = True)
 
+
 DFN.make_working_directory(delete=True)
 DFN.check_input()
 
-## combine DFN
 ## combine DFN
 DFN.num_frac = FAULT_DFN.num_frac + MIDDLE_DFN.num_frac 
 DFN.centers = np.concatenate((FAULT_DFN.centers, MIDDLE_DFN.centers))
@@ -210,6 +210,7 @@ DFN.aperture = np.concatenate((FAULT_DFN.aperture, MIDDLE_DFN.aperture))
 DFN.perm = np.concatenate((FAULT_DFN.perm, MIDDLE_DFN.perm))
 DFN.transmissivity = np.concatenate((FAULT_DFN.transmissivity, MIDDLE_DFN.transmissivity))
 
+## Reindex for unique fracture indices 
 DFN.polygons = FAULT_DFN.polygons.copy()
 updated_dict = {}
 for key, value in MIDDLE_DFN.polygons.items():
@@ -226,6 +227,18 @@ for key, value in MIDDLE_DFN.polygons.items():
 
 MIDDLE_DFN.polygons = updated_dict
 DFN.polygons = FAULT_DFN.polygons| MIDDLE_DFN.polygons
+
+## apply vertical translation to polygons and centers
+vertical_translate = midlayer_center_z
+## translate fractures
+for i in range(DFN.num_frac):
+    #print(DFN.centers[i])
+    DFN.centers[i][2] += vertical_translate
+    #print(DFN.centers[i])
+    #print()
+    for ivert in range(len(DFN.polygons[f'fracture-{i + 1}'])):
+        DFN.polygons[f'fracture-{i + 1}'][ivert][2] += vertical_translate
+
 DFN.normal_vectors = np.concatenate((FAULT_DFN.normal_vectors, MIDDLE_DFN.normal_vectors))
 
 # DFN.aperture = np.ones_like(DFN.aperture)*1e-3
@@ -278,6 +291,9 @@ with open("color_mesh.lgi", "w") as fp:
     fp.write(lagrit_script)
 
 subprocess.call('lagrit < color_mesh.lgi', shell = True)
+
+exit() 
+
 
 lagrit_script = """
 *

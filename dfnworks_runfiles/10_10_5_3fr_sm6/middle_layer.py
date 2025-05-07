@@ -94,10 +94,10 @@ DFN.params['domainSize']['value'] = [midlayer_size_x, midlayer_size_y, midlayer_
 DFN.params['h']['value'] = h
 DFN.params['disableFram']['value'] = True
 DFN.params['keepIsolatedFractures']['value'] = True
-#DFN.params['domainCenter']['value'] = [midlayer_center_x, midlayer_center_y, midlayer_center_z]
+DFN.params['domainCenter']['value'] = [midlayer_center_x, midlayer_center_y, midlayer_center_z]
 DFN.params['seed']['value']=seed_value # create the same dfn each time
 
-## Layer boundaries - set to matrix perm 
+# Layer boundaries - set to matrix perm 
 DFN.add_user_fract(shape=shap_int,
                    radii=rad_int,
                    translation=trans_int_bot,

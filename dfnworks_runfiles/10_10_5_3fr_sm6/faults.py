@@ -105,7 +105,7 @@ DFN.params['domainSize']['value'] = [domain_size_x, domain_size_y, domain_size_z
 DFN.params['h']['value'] = h
 DFN.params['disableFram']['value'] = True
 DFN.params['keepIsolatedFractures']['value'] = True
-#DFN.params['domainCenter']['value'] = [midlayer_center_x, midlayer_center_y, midlayer_center_z]
+DFN.params['domainCenter']['value'] = [midlayer_center_x, midlayer_center_y, midlayer_center_z]
 
 #Individual fractures
 DFN.add_user_fract(shape=shap_1,
