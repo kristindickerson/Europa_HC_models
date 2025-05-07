@@ -228,7 +228,7 @@ MIDDLE_DFN.polygons = updated_dict
 DFN.polygons = FAULT_DFN.polygons| MIDDLE_DFN.polygons
 DFN.normal_vectors = np.concatenate((FAULT_DFN.normal_vectors, MIDDLE_DFN.normal_vectors))
 
-DFN.aperture = np.ones_like(DFN.aperture)*1e-3
+# DFN.aperture = np.ones_like(DFN.aperture)*1e-3
 
 # DFN.num_frac = FAULT_DFN.num_frac 
 # DFN.centers = FAULT_DFN.centers
