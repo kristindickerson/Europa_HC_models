@@ -11,6 +11,8 @@ import numpy as np
 import subprocess
 import pandas as pd 
 import yaml
+import subprocess
+
 
 # LOAD VARIABLES FROM YAML
 # ---------------------------------------
@@ -115,7 +117,7 @@ DFN.add_fracture_family(shape=shap_frac_fam,
                         hy_params=hy_params_frac_fam)
 
 
-DFN.h = 1000 
+DFN.h = 1000
 DFN.x_min = -(domain_size_x/2)
 DFN.y_min = -(domain_size_y/2)
 DFN.z_min = -(domain_size_z/2)
@@ -127,10 +129,42 @@ DFN.domain = {"x": domain_size_x, "y": domain_size_y, "z": domain_size_z}
 
 src_dir = os.getcwd()
 
+try:
+    os.symlink('middle_layer/middle_layer.inp', 'middle_layer.inp')
+except Exception as e:
+    print(e)
+     
+try:
+    os.symlink('faults/faults.inp', 'faults.inp')
+except Exception as e:
+    print(e)
 
-os.symlink('middle_layer/middle_layer.inp', 'middle_layer.inp')
-os.symlink('faults/faults.inp', 'faults.inp')
 
+FAULT_DFN = DFNWORKS(pickle_file = f"{src_dir}/faults/faults.pkl")
+MIDDLE_DFN = DFNWORKS(pickle_file = f"{src_dir}/middle_layer/middle_layer.pkl")
+
+num_faults = FAULT_DFN.num_frac 
+
+lagrit_script = """
+
+# read in mesh 1 
+read / middle_layer.inp / mo_middle
+
+"""
+for i in range(MIDDLE_DFN.num_frac, 0, -1):
+     lagrit_script += f"""
+pset / pfrac / attribute imt / 1 0 0 / eq / {i}
+cmo / setatt / mo_middle / imt / pset, get, pfrac / {i + num_faults}
+ pset / pfrac / delete
+"""
+lagrit_script += """
+dump / middle_layer_shift.inp / mo_middle 
+"""
+
+with open('shift_index.lgi', 'w') as fp:
+    fp.write(lagrit_script)
+
+subprocess.call('lagrit < shift_index.lgi', shell = True)
 
 lagrit_script = """"
 ## prior to running you need to copy the reduced_mesh from the top & bottom DFN here (or symbolic link)
@@ -138,14 +172,20 @@ lagrit_script = """"
 # to run 
 # lagrit < combine_mesh.lgi 
 
-# read in mesh 1 
-read / middle_layer.inp / mo_middle
+# read in mesh 1 with index shift  
+read / middle_layer_shift.inp / mo_middle
 
 # read in mesh 2 
-read / faults.inp / mo_faults /
+read / faults.inp / mo_faults 
 
 # combine mesh 1 and mesh 2 to make final mesh
-addmesh / merge / mo_dfn / mo_middle / mo_faults
+addmesh / merge / mo_dfn / mo_faults / mo_middle 
+
+rmpoint / compress 
+sort / mo_dfn / index / ascending / ikey / imt xic yic zic 
+reorder / mo_dfn / ikey 
+cmo / DELATT / mo_dfn / ikey
+resetpts / itp 
 
 # write to file 
 dump / combined_dfn.inp / mo_dfn 
@@ -157,16 +197,10 @@ finish
 with open('combine_dfn.lgi', 'w') as fp:
     fp.write(lagrit_script)
 
-import subprocess
 subprocess.call('lagrit < combine_dfn.lgi', shell = True)
-
-#exit() 
 
 DFN.make_working_directory(delete=True)
 DFN.check_input()
-
-FAULT_DFN = DFNWORKS(pickle_file = f"{src_dir}/faults/faults.pkl")
-MIDDLE_DFN = DFNWORKS(pickle_file = f"{src_dir}/middle_layer/middle_layer.pkl")
 
 ## combine DFN
 ## combine DFN
@@ -176,14 +210,42 @@ DFN.aperture = np.concatenate((FAULT_DFN.aperture, MIDDLE_DFN.aperture))
 DFN.perm = np.concatenate((FAULT_DFN.perm, MIDDLE_DFN.perm))
 DFN.transmissivity = np.concatenate((FAULT_DFN.transmissivity, MIDDLE_DFN.transmissivity))
 
-DFN.polygons = FAULT_DFN.polygons.copy() 
-DFN.polygons = DFN.polygons| MIDDLE_DFN.polygons
+DFN.polygons = FAULT_DFN.polygons.copy()
+updated_dict = {}
+for key, value in MIDDLE_DFN.polygons.items():
+    if key.startswith('fracture-'):
+        try:
+            i = int(key.split('-')[1])
+            new_key = f'fracture-{i + num_faults}'
+            print(i,new_key)
+            updated_dict[new_key] = value
+        except ValueError:
+            print(f"Invalid key format: {key}")
+    else:
+        updated_dict[key] = value
+
+MIDDLE_DFN.polygons = updated_dict
+DFN.polygons = FAULT_DFN.polygons| MIDDLE_DFN.polygons
 DFN.normal_vectors = np.concatenate((FAULT_DFN.normal_vectors, MIDDLE_DFN.normal_vectors))
+
+DFN.aperture = np.ones_like(DFN.aperture)*1e-3
+
+# DFN.num_frac = FAULT_DFN.num_frac 
+# DFN.centers = FAULT_DFN.centers
+# DFN.aperture =  FAULT_DFN.aperture
+# DFN.perm = FAULT_DFN.perm
+# DFN.transmissivity = FAULT_DFN.transmissivity
+
+# DFN.polygons = FAULT_DFN.polygons.copy()
+# DFN.normal_vectors =FAULT_DFN.normal_vectors
 
 os.symlink(f"{src_dir}/reduced_mesh.inp", "reduced_mesh.inp")
 
 DFN.map_to_continuum(l = l, orl = orl)
-DFN.upscale(mat_perm=mat_perm_middle, mat_por=mat_por_middle)
+DFN.upscale(mat_perm=mat_perm_middle, mat_por=mat_por_middle, tag_mesh = True)
+
+exit()
+
 
 # load z values 
 with open('octree_dfn.inp') as finp:
