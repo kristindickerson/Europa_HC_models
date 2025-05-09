@@ -1,0 +1,26 @@
+"
+## prior to running you need to copy the reduced_mesh from the top & bottom DFN here (or symbolic link)
+## also copy the *pkl files
+# to run 
+# lagrit < combine_mesh.lgi 
+
+# read in mesh 1 with index shift  
+read / middle_layer_shift.inp / mo_middle
+
+# read in mesh 2 
+read / faults.inp / mo_faults 
+
+# combine mesh 1 and mesh 2 to make final mesh
+addmesh / merge / mo_dfn / mo_faults / mo_middle 
+
+rmpoint / compress 
+sort / mo_dfn / index / ascending / ikey / imt xic yic zic 
+reorder / mo_dfn / ikey 
+cmo / DELATT / mo_dfn / ikey
+resetpts / itp 
+
+# write to file 
+dump / combined_dfn.inp / mo_dfn 
+dump / reduced_mesh.inp / mo_dfn 
+
+finish 

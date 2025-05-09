@@ -1,0 +1,53 @@
+"Europa gravity; 100 km x 100 km x 100 km box; uniform properites for all layers; no fracs; 2 degC constant temp on seafloor and base; pres variabile is 35 (calculated base on cell volume)"
+cont
+avs 10000  365e7
+material
+liquid
+velocity
+temperature
+pressure
+flux
+source
+endavs
+sol
+1    -1
+node
+7
+266236 266234 266231 266226 266221 266210 266201
+eos
+5  0  0
+21.  50.  997.   0.0   -0.45  0.23   0.0  4.2e-03  5.5e-04  0. 0.
+0.1  20.  1.29   0.     0.    2.5   0.     0.1     2.e-4   0. 0.
+pres 
+1, 0, 0, 169.0, 2.0, 1
+0
+flow
+266236, 266236, 1, 135.2, -2.00000, 35
+0
+perm
+1, 0, 0, 1.0e-15, 1.0e-15, 1.0e-15
+0
+rock
+file
+p15un_cold_ft_35.rock
+cond
+file
+p15un_cold_ft_35.cond
+ppor
+file
+p15un_cold_ft_35.ppor
+hflx
+-4 0 0 2.0 1.e6
+-5 0 0 2.0 1.e6
+0
+time
+1.e-4 365e8  10000  10  0   1   0
+0.0    0.0    0.0    0.0
+ctrl
+-50 1.e-04  25 100 gmre
+1   0   0   2
+0   0   0   0
+1.0  3  1.0 
+7   1.2   1.e-6  365e5
+0   1
+stop
