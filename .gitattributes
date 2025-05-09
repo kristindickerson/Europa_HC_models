@@ -4,3 +4,4 @@
 *.uge filter=lfs diff=lfs merge=lfs -text
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
 *.fehm filter=lfs diff=lfs merge=lfs -text
+*.fin filter=lfs diff=lfs merge=lfs -text
