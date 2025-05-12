@@ -1,9 +1,0 @@
-rm *.avs 
-rm *.avs_log
-rm *.chk
-rm *.err
-rm *.mat_head 
-rm *.out
-rm *.sca_head
-rm *.vec_head 
-rm nop.temp

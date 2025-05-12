@@ -1,0 +1,78 @@
+files_config:
+  area: p15un_cold_ft_35.area
+  check: p15un_cold_ft_35.chk
+  conductivity: p15un_cold_ft_35.cond
+  error: p15un_cold_ft_35.err
+  files: fehmn.files
+  final_conditions: p15un_cold_ft_35.fin
+  grid: p15un_cold_ft_35.fehm
+  heat_flux: p15un_cold_ft_35.hflx
+  flow: p15un_cold_ft_35.flow
+  history: p15un_cold_ft_35.hist
+  input: p15un_cold_ft_35.dat
+  material_zone: p15un_cold_ft_35_material.zone
+  output: p15un_cold_ft_35.out
+  outside_zone: p15un_cold_ft_35_outside.zone
+  permeability: p15un_cold_ft_35.perm
+  pore_pressure: p15un_cold_ft_35.ppor
+  rock_properties: p15un_cold_ft_35.rock
+  run_root: p15un_cold_ft_35
+  storage: p15un_cold_ft_35.stor
+  water_properties: p15un_cold_ft_35.wpi
+
+heat_flux_config:
+  boundary_configs:
+  - boundary_model:
+      kind: constant_MW_per_m2
+      params:
+        constant: 0
+    outside_zones: ['bottom']
+    material_zones: []  # these can also be omitted if empty
+flow_config:
+  boundary_configs:
+  - boundary_model:
+      kind: 'open_flow'
+      params:
+        input_fluid_temp_degC: 2
+        aiped_to_volume_ratio: 1.0e-08
+    outside_zones: ['top']
+    material_zones: []  # these can also be omitted if empty (done with outside_zones below)
+rock_properties_config:
+  compressibility_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: 6.0E-10
+    zones: [1, 2, 3]
+  conductivity_configs:
+  - property_model:
+      kind: porosity_weighted
+      params:
+        rock_conductivity: 2.5
+        water_conductivity: 0.62
+    zones: [1, 2, 3]
+  grain_density_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: 3400
+    zones: [1, 2, 3]
+  permeability_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: 1.0E-15
+    zones: [1, 2, 3]
+  porosity_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: 0.1
+    zones: [1, 2, 3]
+  specific_heat_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: 800
+    zones: [1, 2, 3]
+  zone_assignment_order: [1, 2, 3]

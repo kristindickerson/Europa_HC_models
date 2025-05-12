@@ -1,0 +1,14 @@
+root: p17un_cold_ft_0fr_sm0
+input: p17un_cold_ft_0fr_sm0.dat
+outpu: p17un_cold_ft_0fr_sm0.out
+grida: p17un_cold_ft_0fr_sm0.fehm
+storo: p17un_cold_ft_0fr_sm0.stor
+rsto: p17un_cold_ft_0fr_sm0.fin
+error: p17un_cold_ft_0fr_sm0.err
+check: p17un_cold_ft_0fr_sm0.chk
+zone: p17un_cold_ft_0fr_sm0_material.zone
+look: p17un_cold_ft_0fr_sm0.wpi
+hist: p17un_cold_ft_0fr_sm0.hist
+rsti: p17un_cold_ft_0fr_sm0.ini
+
+all
