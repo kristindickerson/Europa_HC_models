@@ -1,0 +1,90 @@
+OPTIONAL__command_defaults: {}
+OPTIONAL__flow_config:
+  REQUIRED__boundary_configs:
+  - OPTIONAL__material_zones:
+    - TYPE__int|str
+    OPTIONAL__outside_zones:
+    - TYPE__int|str
+    REQUIRED__boundary_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+OPTIONAL__heat_flux_config:
+  REQUIRED__boundary_configs:
+  - OPTIONAL__material_zones:
+    - TYPE__int|str
+    OPTIONAL__outside_zones:
+    - TYPE__int|str
+    REQUIRED__boundary_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+OPTIONAL__hydrostat_config:
+  OPTIONAL__sampling_model:
+    REQUIRED__kind: TYPE__str
+    REQUIRED__params: {}
+  REQUIRED__interpolation_model:
+    REQUIRED__kind: TYPE__str
+    REQUIRED__params: {}
+  REQUIRED__pressure_model:
+    REQUIRED__kind: TYPE__str
+    REQUIRED__params: {}
+REQUIRED__files_config:
+  OPTIONAL__flow: TYPE__Path
+  OPTIONAL__heat_flux: TYPE__Path
+  OPTIONAL__initial_conditions: TYPE__Path
+  REQUIRED__area: s5_3fr_sm0_p15un_all_cold.area
+  REQUIRED__check: s5_3fr_sm0_p15un_all_cold.chk
+  REQUIRED__conductivity: s5_3fr_sm0_p15un_all_cold.cond
+  REQUIRED__error: s5_3fr_sm0_p15un_all_cold.err
+  REQUIRED__files: fehmn.files
+  REQUIRED__final_conditions: s5_3fr_sm0_p15un_all_cold.fin
+  REQUIRED__grid: s5_3fr_sm0_p15un_all_cold.fehm
+  REQUIRED__history: s5_3fr_sm0_p15un_all_cold.hist
+  REQUIRED__input: s5_3fr_sm0_p15un_all_cold.dat
+  REQUIRED__material_zone: s5_3fr_sm0_p15un_all_cold_material.zone
+  REQUIRED__output: s5_3fr_sm0_p15un_all_cold.out
+  REQUIRED__outside_zone: s5_3fr_sm0_p15un_all_cold_outside.zone
+  REQUIRED__permeability: s5_3fr_sm0_p15un_all_cold.perm
+  REQUIRED__pore_pressure: s5_3fr_sm0_p15un_all_cold.ppor
+  REQUIRED__rock_properties: s5_3fr_sm0_p15un_all_cold.rock
+  REQUIRED__run_root: s5_3fr_sm0_p15un_all_cold
+  REQUIRED__storage: s5_3fr_sm0_p15un_all_cold.stor
+  REQUIRED__water_properties: s5_3fr_sm0_p15un_all_cold.wpi
+REQUIRED__rock_properties_config:
+  REQUIRED__compressibility_configs:
+  - REQUIRED__property_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+    REQUIRED__zones:
+    - TYPE__int|str
+  REQUIRED__conductivity_configs:
+  - REQUIRED__property_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+    REQUIRED__zones:
+    - TYPE__int|str
+  REQUIRED__grain_density_configs:
+  - REQUIRED__property_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+    REQUIRED__zones:
+    - TYPE__int|str
+  REQUIRED__permeability_configs:
+  - REQUIRED__property_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+    REQUIRED__zones:
+    - TYPE__int|str
+  REQUIRED__porosity_configs:
+  - REQUIRED__property_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+    REQUIRED__zones:
+    - TYPE__int|str
+  REQUIRED__specific_heat_configs:
+  - REQUIRED__property_model:
+      REQUIRED__kind: TYPE__str
+      REQUIRED__params: {}
+    REQUIRED__zones:
+    - TYPE__int|str
+  REQUIRED__zone_assignment_order:
+  - TYPE__int|str
