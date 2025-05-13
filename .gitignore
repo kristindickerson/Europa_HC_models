@@ -9,3 +9,4 @@ make_mesh/.DS_Store
 .venv_Eu/
 Europa_HC_models.code-workspace
 .envrc
+working/testing_grid_effect/**/MOTET_np1.inp

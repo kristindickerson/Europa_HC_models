@@ -1,0 +1,52 @@
+"Europa gravity; 100x100x50 km box; uniform perm = 10e-15; no fracs; open flow; 10mW/m2 at base; fixed 2°C at sf"
+cont
+avs 10000  365e7
+material
+liquid
+velocity
+temperature
+pressure
+flux
+source
+endavs
+sol
+1    -1
+node
+7
+266236 266234 266231 266226 266221 266210 266201
+eos
+5  0  0
+21.  50.  997.   0.0   -0.45  0.23   0.0  4.2e-03  5.5e-04  0. 0.
+0.1  20.  1.29   0.     0.    2.5   0.     0.1     2.e-4   0. 0.
+flow
+file
+s5_0fr_sm0_p15un_10mW.flow
+perm
+file
+s5_0fr_sm0_p15un_10mW.perm
+rock
+file
+s5_0fr_sm0_p15un_10mW.rock
+cond
+file
+s5_0fr_sm0_p15un_10mW.cond
+ppor
+file
+s5_0fr_sm0_p15un_10mW.ppor
+hflx
+-4 0 0 2.0 1.e6
+0
+hflx
+file
+s5_0fr_sm0_p15un_10mW.hflx
+time
+1.e-4 365e8  10000  10  0   1   0
+0.0    0.0    0.0    0.0
+ctrl
+-50 1.e-04  25 100 gmre
+1   0   0   2
+0   0   0   0
+1.0  3  1.0 
+7   1.2   1.e-6 200000
+0   1
+stop

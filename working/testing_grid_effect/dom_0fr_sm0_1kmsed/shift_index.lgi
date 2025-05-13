@@ -1,0 +1,13 @@
+
+# read in mesh 1 
+read / middle_layer.inp / mo_middle
+
+pset / pfrac / attribute imt / 1 0 0 / eq / 2
+cmo / setatt / mo_middle / imt / pset, get, pfrac / 5
+ pset / pfrac / delete
+
+pset / pfrac / attribute imt / 1 0 0 / eq / 1
+cmo / setatt / mo_middle / imt / pset, get, pfrac / 4
+ pset / pfrac / delete
+
+dump / middle_layer_shift.inp / mo_middle 
