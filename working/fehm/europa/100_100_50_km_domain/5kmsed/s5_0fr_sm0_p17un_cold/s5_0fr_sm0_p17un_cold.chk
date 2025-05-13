@@ -1,4 +1,4 @@
-FEHM V3.4.0lbUbuntu16 24-03-17   05/13/2025    09:10:06
+FEHM V3.4.0lbUbuntu16 24-03-17   05/13/2025    12:37:18
 
  "Europa gravity; 100 km x 100 km x 50 km box; uniform perm = 10-17 m2; no fracs;
 
@@ -54379,10 +54379,10 @@ FEHM V3.4.0lbUbuntu16 24-03-17   05/13/2025    09:10:06
      0.49999992E-01         21   -0.500E+05   -0.500E+05    0.100E+05
 
  max permeability, node number, x coordinate, y coordinate, z coordinate
-     0.10000000E-16          1   -0.500E+05   -0.500E+05   -0.250E+05
+     0.10000000E-14          1   -0.500E+05   -0.500E+05   -0.250E+05
 
  min permeability, node number, x coordinate, y coordinate, z coordinate
-     0.10000000E-16          1   -0.500E+05   -0.500E+05   -0.250E+05
+     0.10000000E-14          1   -0.500E+05   -0.500E+05   -0.250E+05
 
  max rock density, node number, x coordinate, y coordinate, z coordinate
       3400.0000              1   -0.500E+05   -0.500E+05   -0.250E+05
@@ -54397,10 +54397,10 @@ FEHM V3.4.0lbUbuntu16 24-03-17   05/13/2025    09:10:06
      0.80000000E-03          1   -0.500E+05   -0.500E+05   -0.250E+05
 
  max t conductivity, node number, x coordinate, y coordinate, z coordinate
-     0.19310200E-05          1   -0.500E+05   -0.500E+05   -0.250E+05
+     0.32098500E-05          1   -0.500E+05   -0.500E+05   -0.250E+05
 
  min t conductivity, node number, x coordinate, y coordinate, z coordinate
-     0.11071900E-05         36   -0.500E+05   -0.500E+05    0.250E+05
+     0.95156900E-06         36   -0.500E+05   -0.500E+05    0.250E+05
 
  max x coordinate, node number, x coordinate, y coordinate, z coordinate
       50000.000         528701    0.500E+05   -0.500E+05   -0.250E+05

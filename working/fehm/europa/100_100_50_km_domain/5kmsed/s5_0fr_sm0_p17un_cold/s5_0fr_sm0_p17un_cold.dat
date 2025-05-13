@@ -22,8 +22,8 @@ flow
 266236, 266236, 1, 135.2, -2.00000, 35
 0
 perm
-1, 0, 0, 1.0e-17, 1.0e-17, 1.0e-17
-0
+file
+s5_0fr_sm0_p17un_cold.perm
 rock
 file
 s5_0fr_sm0_p17un_cold.rock
