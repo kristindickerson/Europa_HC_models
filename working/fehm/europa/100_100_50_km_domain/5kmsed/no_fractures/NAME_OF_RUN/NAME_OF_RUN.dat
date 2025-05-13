@@ -1,0 +1,22 @@
+"Template conductive run - ALL COMMENTS MUST BE REPLACED with real config!"
+init
+    # init config goes here (pres macro may be used instead)
+sol
+    -1    -1
+ctrl
+    # ctrl config goes here
+time
+    # time config goes here
+rock
+file
+NAME_OF_RUN.rock
+cond
+file
+NAME_OF_RUN.cond
+perm
+file
+NAME_OF_RUN.perm
+ppor
+file
+NAME_OF_RUN.ppor
+stop

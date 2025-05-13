@@ -1,0 +1,13 @@
+root: NAME_OF_RUN
+input: NAME_OF_RUN.dat
+outpu: NAME_OF_RUN.out
+grida: NAME_OF_RUN.fehm
+storo: NAME_OF_RUN.stor
+rsto: NAME_OF_RUN.fin
+error: NAME_OF_RUN.err
+check: NAME_OF_RUN.chk
+zone: NAME_OF_RUN_material.zone
+look: NAME_OF_RUN.wpi
+hist: NAME_OF_RUN.hist
+
+all
