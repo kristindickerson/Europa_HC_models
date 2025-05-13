@@ -1,4 +1,4 @@
-FEHM V3.4.0lbUbuntu16 24-03-17   05/09/2025    15:41:15
+FEHM V3.4.0lbUbuntu16 24-03-17   05/12/2025    16:02:37
 
  "Europa gravity; 100 km x 100 km x 100 km box; uniform properites; perm = 10e-17
 
@@ -54339,3 +54339,94 @@ FEHM V3.4.0lbUbuntu16 24-03-17   05/09/2025    15:41:15
  Macro: ctrl  Group:           2
  Values were explicitly set for each node
 
+
+ number of nodes in problem =     532436
+
+ heat and mass transfer solution
+ lobatto (node point) quadrature used
+ value of upwind weight =   1.0000    
+ porosity model is enabled
+ finite volume calculations used
+ n4 may be reduced to 1
+ n6 may be reduced to 1
+ n7 may be reduced to 1
+
+ EOS data obtained from internal equations
+
+
+ max total pressure, node number, x coordinate, y coordinate, z coordinate
+      204.80273         266201     0.00         0.00       -0.250E+05
+
+ min total pressure, node number, x coordinate, y coordinate, z coordinate
+      120.00000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max temperature, node number, x coordinate, y coordinate, z coordinate
+      2.0000007         266213     0.00         0.00       -0.100E+04
+
+ min temperature, node number, x coordinate, y coordinate, z coordinate
+      2.0000000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max saturation, node number, x coordinate, y coordinate, z coordinate
+      1.0000000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ min saturation, node number, x coordinate, y coordinate, z coordinate
+      1.0000000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max porosity, node number, x coordinate, y coordinate, z coordinate
+     0.10000000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ min porosity, node number, x coordinate, y coordinate, z coordinate
+     0.10000000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max permeability, node number, x coordinate, y coordinate, z coordinate
+     0.10000000E-16          1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ min permeability, node number, x coordinate, y coordinate, z coordinate
+     0.10000000E-16          1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max rock density, node number, x coordinate, y coordinate, z coordinate
+      3400.0000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ min rock density, node number, x coordinate, y coordinate, z coordinate
+      3400.0000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max heat capacity, node number, x coordinate, y coordinate, z coordinate
+     0.80000000E-03          1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ min heat capacity, node number, x coordinate, y coordinate, z coordinate
+     0.80000000E-03          1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max t conductivity, node number, x coordinate, y coordinate, z coordinate
+     0.21746300E-05          1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ min t conductivity, node number, x coordinate, y coordinate, z coordinate
+     0.21746300E-05          1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max x coordinate, node number, x coordinate, y coordinate, z coordinate
+      50000.000         528701    0.500E+05   -0.500E+05   -0.250E+05
+
+ min x coordinate, node number, x coordinate, y coordinate, z coordinate
+     -50000.000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max y coordinate, node number, x coordinate, y coordinate, z coordinate
+      50000.000           3701   -0.500E+05    0.500E+05   -0.250E+05
+
+ min y coordinate, node number, x coordinate, y coordinate, z coordinate
+     -50000.000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max z coordinate, node number, x coordinate, y coordinate, z coordinate
+      25000.000             36   -0.500E+05   -0.500E+05    0.250E+05
+
+ min z coordinate, node number, x coordinate, y coordinate, z coordinate
+     -25000.000              1   -0.500E+05   -0.500E+05   -0.250E+05
+
+ max cell volume, node number, x coordinate, y coordinate, z coordinate
+     0.80000000E+10      21227   -0.460E+05   -0.480E+05   -0.170E+05
+
+ min cell volume, node number, x coordinate, y coordinate, z coordinate
+      31250000.           3730   -0.500E+05    0.500E+05    0.195E+05
+
+ initial mass =  0.535E+17
+        steam =   0.00    
+       energy =  0.275E+16
+ total volume =  0.500E+15

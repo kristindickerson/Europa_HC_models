@@ -1,0 +1,15 @@
+# FEHM V3.4.0lbUbuntu16 24-03-17   05/12/2025 
+#   LOG AVS OUTPUT
+# "Europa gravity; 100 km x 100 km x 50 km box; uniform properites for all layers;
+# Root filename               Output Time (days)
+ s5_p15un_wh_0fr_sm0.00001       0.00000000    
+ s5_p15un_wh_0fr_sm0.00002      0.368557866E+10
+ s5_p15un_wh_0fr_sm0.00003      0.733557866E+10
+ s5_p15un_wh_0fr_sm0.00004      0.109855787E+11
+ s5_p15un_wh_0fr_sm0.00005      0.146355787E+11
+ s5_p15un_wh_0fr_sm0.00006      0.182855787E+11
+ s5_p15un_wh_0fr_sm0.00007      0.219355787E+11
+ s5_p15un_wh_0fr_sm0.00008      0.255855787E+11
+ s5_p15un_wh_0fr_sm0.00009      0.292355787E+11
+ s5_p15un_wh_0fr_sm0.00010      0.328855787E+11
+ s5_p15un_wh_0fr_sm0.00011      0.365000000E+11
