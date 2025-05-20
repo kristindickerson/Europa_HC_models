@@ -3,3 +3,13 @@
 # "Eur grav; 100x100x50km; 3 large fracs, 0 small; cold; un perm = 10e-15"        
 # Root filename               Output Time (days)
  s5_3fr_sm0_p15un_all_cold.00001       0.00000000    
+ s5_3fr_sm0_p15un_all_cold.00002      0.366120972E+10
+ s5_3fr_sm0_p15un_all_cold.00003      0.731120972E+10
+ s5_3fr_sm0_p15un_all_cold.00004      0.109612097E+11
+ s5_3fr_sm0_p15un_all_cold.00005      0.146112097E+11
+ s5_3fr_sm0_p15un_all_cold.00006      0.182612097E+11
+ s5_3fr_sm0_p15un_all_cold.00007      0.219112097E+11
+ s5_3fr_sm0_p15un_all_cold.00008      0.255612097E+11
+ s5_3fr_sm0_p15un_all_cold.00009      0.292112097E+11
+ s5_3fr_sm0_p15un_all_cold.00010      0.328612097E+11
+ s5_3fr_sm0_p15un_all_cold.00011      0.365000000E+11

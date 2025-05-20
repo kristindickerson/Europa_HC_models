@@ -1,0 +1,14 @@
+root: s5_3fr_sm0_p17un_cold
+input: s5_3fr_sm0_p17un_cold.dat
+outpu: s5_3fr_sm0_p17un_cold.out
+grida: s5_3fr_sm0_p17un_cold.fehm
+storo: s5_3fr_sm0_p17un_cold.stor
+rsto: s5_3fr_sm0_p17un_cold.fin
+error: s5_3fr_sm0_p17un_cold.err
+check: s5_3fr_sm0_p17un_cold.chk
+zone: s5_3fr_sm0_p17un_cold_material.zone
+look: s5_3fr_sm0_p17un_cold.wpi
+hist: s5_3fr_sm0_p17un_cold.hist
+rsti: s5_3fr_sm0_p17un_cold.ini
+
+all
