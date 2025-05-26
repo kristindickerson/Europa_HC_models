@@ -1,0 +1,14 @@
+root: s5_3fr_sm0_p17un_10mW
+input: s5_3fr_sm0_p17un_10mW.dat
+outpu: s5_3fr_sm0_p17un_10mW.out
+grida: s5_3fr_sm0_p17un_10mW.fehm
+storo: s5_3fr_sm0_p17un_10mW.stor
+rsto: s5_3fr_sm0_p17un_10mW.fin
+error: s5_3fr_sm0_p17un_10mW.err
+check: s5_3fr_sm0_p17un_10mW.chk
+zone: s5_3fr_sm0_p17un_10mW_material.zone
+look: s5_3fr_sm0_p17un_10mW.wpi
+hist: s5_3fr_sm0_p17un_10mW.hist
+rsti: s5_3fr_sm0_p17un_10mW.ini
+
+all

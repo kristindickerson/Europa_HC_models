@@ -1,0 +1,170 @@
+files_config:
+  area: s5_0fr_sm0_p17un_10mW_r2.area
+  check: s5_0fr_sm0_p17un_10mW_r2.chk
+  conductivity: s5_0fr_sm0_p17un_10mW_r2.cond
+  error: s5_0fr_sm0_p17un_10mW_r2.err
+  files: fehmn.files
+  final_conditions: s5_0fr_sm0_p17un_10mW_r2.fin
+  flow: s5_0fr_sm0_p17un_10mW_r2.flow
+  grid: s5_0fr_sm0_p17un_10mW_r2.fehm
+  heat_flux: s5_0fr_sm0_p17un_10mW_r2.hflx
+  history: s5_0fr_sm0_p17un_10mW_r2.hist
+  initial_conditions: s5_0fr_sm0_p17un_10mW_r2.ini
+  input: s5_0fr_sm0_p17un_10mW_r2.dat
+  material_zone: s5_0fr_sm0_p17un_10mW_r2_material.zone
+  output: s5_0fr_sm0_p17un_10mW_r2.out
+  outside_zone: s5_0fr_sm0_p17un_10mW_r2_outside.zone
+  permeability: s5_0fr_sm0_p17un_10mW_r2.perm
+  pore_pressure: s5_0fr_sm0_p17un_10mW_r2.ppor
+  rock_properties: s5_0fr_sm0_p17un_10mW_r2.rock
+  run_root: s5_0fr_sm0_p17un_10mW_r2
+  storage: s5_0fr_sm0_p17un_10mW_r2.stor
+  water_properties: s5_0fr_sm0_p17un_10mW_r2.wpi
+flow_config:
+  boundary_configs:
+  - boundary_model:
+      kind: open_flow
+      params:
+        aiped_to_volume_ratio: !!python/object/apply:decimal.Decimal
+        - '1.000000000E-8'
+        input_fluid_temp_degC: 2
+    material_zones: []
+    outside_zones:
+    - top
+heat_flux_config:
+  boundary_configs:
+  - boundary_model:
+      kind: constant_MW_per_m2
+      params:
+        constant: !!python/object/apply:decimal.Decimal
+        - '1.000000000E-8'
+    material_zones: []
+    outside_zones:
+    - bottom
+rock_properties_config:
+  compressibility_configs:
+  - property_model:
+      kind: overburden
+      params:
+        a: !!python/object/apply:decimal.Decimal
+        - '0.09000000000'
+        grav: !!python/object/apply:decimal.Decimal
+        - '1.300000000'
+        min_overburden: 25
+        rhow: 1000
+    zones:
+    - 1
+  - property_model:
+      kind: constant
+      params:
+        constant: !!python/object/apply:decimal.Decimal
+        - '6.000000000E-10'
+    zones:
+    - 2
+    - 3
+  conductivity_configs:
+  - property_model:
+      kind: porosity_weighted
+      params:
+        rock_conductivity: !!python/object/apply:decimal.Decimal
+        - '1.500000000'
+        water_conductivity: !!python/object/apply:decimal.Decimal
+        - '0.6200000000'
+    zones:
+    - 1
+  - property_model:
+      kind: porosity_weighted
+      params:
+        rock_conductivity: !!python/object/apply:decimal.Decimal
+        - '2.500000000'
+        water_conductivity: !!python/object/apply:decimal.Decimal
+        - '0.6200000000'
+    zones:
+    - 2
+  - property_model:
+      kind: porosity_weighted
+      params:
+        rock_conductivity: !!python/object/apply:decimal.Decimal
+        - '3.500000000'
+        water_conductivity: !!python/object/apply:decimal.Decimal
+        - '0.6200000000'
+    zones:
+    - 3
+  grain_density_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: 2650
+    zones:
+    - 1
+  - property_model:
+      kind: constant
+      params:
+        constant: 2700
+    zones:
+    - 2
+  - property_model:
+      kind: constant
+      params:
+        constant: 3400
+    zones:
+    - 3
+  permeability_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: !!python/object/apply:decimal.Decimal
+        - '1.000000000E-17'
+    zones:
+    - 1
+  - property_model:
+      kind: constant
+      params:
+        constant: !!python/object/apply:decimal.Decimal
+        - '1.000000000E-17'
+    zones:
+    - 2
+  - property_model:
+      kind: constant
+      params:
+        constant: !!python/object/apply:decimal.Decimal
+        - '1.000000000E-17'
+    zones:
+    - 3
+  porosity_configs:
+  - property_model:
+      kind: depth_power_law_with_maximum
+      params:
+        porosity_a: !!python/object/apply:decimal.Decimal
+        - '0.8400000000'
+        porosity_b: !!python/object/apply:decimal.Decimal
+        - '-0.1250000000'
+    zones:
+    - 1
+  - property_model:
+      kind: constant
+      params:
+        constant: !!python/object/apply:decimal.Decimal
+        - '0.1000000000'
+    zones:
+    - 2
+  - property_model:
+      kind: constant
+      params:
+        constant: !!python/object/apply:decimal.Decimal
+        - '0.05000000000'
+    zones:
+    - 3
+  specific_heat_configs:
+  - property_model:
+      kind: constant
+      params:
+        constant: 800
+    zones:
+    - 1
+    - 2
+    - 3
+  zone_assignment_order:
+  - 1
+  - 2
+  - 3

@@ -1,0 +1,15 @@
+# FEHM V3.4.0lbUbuntu16 24-03-17   05/14/2025 
+#   LOG AVS OUTPUT
+# "1 km sed; all props uniform; p=10e-15; no fracs; cold"                         
+# Root filename               Output Time (days)
+ s1_0fr_sm0_p15un_all_cold.00001       0.00000000    
+ s1_0fr_sm0_p15un_all_cold.00002      0.365562009E+10
+ s1_0fr_sm0_p15un_all_cold.00003      0.730562009E+10
+ s1_0fr_sm0_p15un_all_cold.00004      0.109556201E+11
+ s1_0fr_sm0_p15un_all_cold.00005      0.146056201E+11
+ s1_0fr_sm0_p15un_all_cold.00006      0.182556201E+11
+ s1_0fr_sm0_p15un_all_cold.00007      0.219056201E+11
+ s1_0fr_sm0_p15un_all_cold.00008      0.255556201E+11
+ s1_0fr_sm0_p15un_all_cold.00009      0.292056201E+11
+ s1_0fr_sm0_p15un_all_cold.00010      0.328556201E+11
+ s1_0fr_sm0_p15un_all_cold.00011      0.365000000E+11

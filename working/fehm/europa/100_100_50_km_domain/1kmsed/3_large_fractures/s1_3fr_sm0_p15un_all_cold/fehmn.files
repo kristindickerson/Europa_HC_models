@@ -1,0 +1,13 @@
+root: s1_3fr_sm0_p15un_all_cold
+input: s1_3fr_sm0_p15un_all_cold.dat
+outpu: s1_3fr_sm0_p15un_all_cold.out
+grida: s1_3fr_sm0_p15un_all_cold.fehm
+storo: s1_3fr_sm0_p15un_all_cold.stor
+rsto: s1_3fr_sm0_p15un_all_cold.fin
+error: s1_3fr_sm0_p15un_all_cold.err
+check: s1_3fr_sm0_p15un_all_cold.chk
+zone: s1_3fr_sm0_p15un_all_cold_material.zone
+look: s1_3fr_sm0_p15un_all_cold.wpi
+hist: s1_3fr_sm0_p15un_all_cold.hist
+
+all

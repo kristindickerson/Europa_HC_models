@@ -1,0 +1,6 @@
+# FEHM V3.4.0lbUbuntu16 24-03-17   05/25/2025 
+#   LOG AVS OUTPUT
+# "restart; un perm = 10e-15; no fracs; 10mW/m2 at base; open flow"               
+# Root filename               Output Time (days)
+ s5_0fr_sm0_p15un_10mW_r3.00001       0.00000000    
+ s5_0fr_sm0_p15un_10mW_r3.00002      0.365000000E+11
