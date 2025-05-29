@@ -1,0 +1,410 @@
+ 
+ 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+*               *                                             *                 
+*               *    Program:  LaGriT V2.200   Linux m32      *                 
+*               *    date_compile: 2010/11/22                 *                 
+ 
+WARNING: code expiration date has passed.                                       
+WARNING: code expiration date has passed.                                       
+ 
+ 
+*               *    Run Time: 2025/05/29  14:32:45           *                 
+*               *    Manual:   http://lagrit.lanl.gov         *                 
+*               *                                             *                 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+ 
+                               -----oOo-----                                    
+LaGriT Copyright: This program was prepared by Los Alamos National Security, LLC
+at Los Alamos National Laboratory (LANL) under contract No. DE-AC52-06NA25396   
+with the U.S. Department of Energy (DOE). All rights in the program are reserved
+by the DOE and Los Alamos National Security, LLC. Permission is granted to the  
+public to copy and use this software without charge, provided that this Notice  
+and any statement of authorship are reproduced on all copies. Neither the       
+U.S. Government nor LANS makes any warranty, express or implied, or assumes     
+any liability or responsibility for the use of this software.                   
+                               -----oOo-----                                    
+ 
+ 
+Output log file: outx3dgen                                                      
+Command log file: logx3dgen                                                     
+ 
+*----------make_zones_test.lgi----------------------                            
+*                                                                               
+* Lagrit input file for idealized three-dimensional                             
+* fracture-network grid with 3 large, vetical fractures                         
+* that go through the sediment and aquifer layers                               
+*                                                                               
+* Created by K. Dickerson (krdicker@ucsc.edu)                                   
+* 04/17/2025                                                                    
+*-------------------------------------------                                    
+*                                                                               
+* -----                                                                         
+* INPUT                                                                         
+* -----                                                                         
+read/avs/octree_mesh.inp/full_mesh                                              
+ 
+The AVS file, octree_mesh.inp, does not exist.                                  
+WARNING: MO has zero nodes                                                      
+WARNING: NO ACTION                                                              
+* -----------                                                                   
+* DEFINITIONS                                                                   
+* -----------                                                                   
+define/XL/100000.0                                                              
+define/YL/100000.0                                                              
+define/ZL/50000.0                                                               
+define/XL_back/-50000.0                                                         
+define/YL_back/-50000.0                                                         
+define/XL_front/50000.0                                                         
+define/YL_front/50000.0                                                         
+define/NX/101                                                                   
+define/NY/101                                                                   
+define/NZ/1                                                                     
+# seafloor                                                                      
+define/ZSURF0/25000.0                                                           
+# aquifer base                                                                  
+define/ZSURF1/15000.0                                                           
+# basement base                                                                 
+define/ZSURF2/-25000.0                                                          
+*                                                                               
+* --------                                                                      
+* SURFACES                                                                      
+* --------                                                                      
+*                                                                               
+# Create a surface mesh for each layer                                          
+#                                                                               
+cmo/create/mo_surf0///triplane                                                  
+createpts/xyz/NX NY NZ/XL_back YL_back ZSURF0/XL_front YL_front ZSURF0/         
+  RZ GENERATED POINTS                    1 TO                10201              
+cmo/setatt/-def-/imt/1 0 0/1                                                    
+Warning: nelements = 0                                                          
+     10201 values reset for attribute imt1                                      
+ 
+connect                                                                         
+ Coordinates of enclosing triangle are:                                         
+          -0.22277D+06-0.20792D+06 0.25000D+05                                  
+           0.22277D+06-0.22277D+06 0.25000D+05                                  
+          -0.47767D-10 0.44554D+06 0.25000D+05                                  
+ 
+ Successfully eliminated all multimaterial connections.                         
+ 
+ The mesh is now complete!                                                      
+ 
+dump/avs/seafloor_surf.inp/mo_surf0                                             
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+cmo/create/mo_surf1///triplane                                                  
+createpts/xyz/NX NY NZ/XL_back YL_back ZSURF1/XL_front YL_front ZSURF1/         
+  RZ GENERATED POINTS                    1 TO                10201              
+cmo/setatt/-def-/imt/1 0 0/1                                                    
+Warning: nelements = 0                                                          
+     10201 values reset for attribute imt1                                      
+ 
+connect                                                                         
+ Coordinates of enclosing triangle are:                                         
+          -0.22277D+06-0.20792D+06 0.15000D+05                                  
+           0.22277D+06-0.22277D+06 0.15000D+05                                  
+          -0.47767D-10 0.44554D+06 0.15000D+05                                  
+ 
+ Successfully eliminated all multimaterial connections.                         
+ 
+ The mesh is now complete!                                                      
+ 
+cmo/select/mo_surf1                                                             
+# Add some random noise to the vertical coordinate on this surface              
+perturb/1 0 0/0.0 0.0 100.0                                                     
+perturb mo_surf1                                                                
+nodes in indexed point set  =      10201                                        
+ 
+dump/avs/sbi_surf.inp/mo_surf1                                                  
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+cmo/create/mo_surf2///triplane                                                  
+createpts/xyz/NX NY NZ/XL_back YL_back ZSURF2/XL_front YL_front ZSURF2/         
+  RZ GENERATED POINTS                    1 TO                10201              
+cmo/setatt/-def-/imt/1 0 0/1                                                    
+Warning: nelements = 0                                                          
+     10201 values reset for attribute imt1                                      
+ 
+connect                                                                         
+ Coordinates of enclosing triangle are:                                         
+          -0.22277D+06-0.20792D+06-0.25000D+05                                  
+           0.22277D+06-0.22277D+06-0.25000D+05                                  
+          -0.47767D-10 0.44554D+06-0.25000D+05                                  
+ 
+ Successfully eliminated all multimaterial connections.                         
+ 
+ The mesh is now complete!                                                      
+ 
+cmo/select/mo_surf2                                                             
+# Add some random noise to the vertical coordinate on this surface              
+perturb/1 0 0/0.0 0.0 100.0                                                     
+perturb mo_surf2                                                                
+nodes in indexed point set  =      10201                                        
+ 
+dump/avs/botaq_surf.inp/mo_surf2                                                
+cmo/modatt/-def-/-def-/ioflag/x                                                 
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mo_surf2                                       
+ 
+  1 Mesh Object name: full_mesh                                                 
+    number of nodes =             0        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mo_surf0                                                  
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         2        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: mo_surf1                                                  
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         2        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  4 Mesh Object name: mo_surf2                                                  
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         2        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+#                                                                               
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: mo_surf2                                       
+ 
+  1 Mesh Object name: full_mesh                                                 
+    number of nodes =             0        number of elements =            0    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  2 Mesh Object name: mo_surf0                                                  
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         2        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  3 Mesh Object name: mo_surf1                                                  
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         2        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                 inactive    
+ 
+  4 Mesh Object name: mo_surf2                                                  
+    number of nodes =         10201        number of elements =        20000    
+    dimensions geometry =         2        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+surface/s0/reflect/sheet/mo_surf0                                               
+cmo/addatt//v2/INT/scalar/scalar/constant/permanent//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//permanent/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/permanent//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/permanent/x/0.0                   
+finish                                                                          
+log/tty/off                                                                     
+finish                                                                          
+cmo/DELATT/s0 isetwd                                                            
+finish                                                                          
+cmo/DELATT/s0 ialias                                                            
+finish                                                                          
+cmo/DELATT/s0 imt1                                                              
+finish                                                                          
+cmo/DELATT/s0 itp1                                                              
+finish                                                                          
+cmo/DELATT/s0 icr1                                                              
+finish                                                                          
+cmo/DELATT/s0 isn1                                                              
+finish                                                                          
+cmo/DELATT/s0 xtetwd                                                            
+finish                                                                          
+cmo/DELATT/s0 itetclr                                                           
+finish                                                                          
+log/tty/on                                                                      
+finish                                                                          
+cmo/addatt//ncon50/INT/scalar/scalar/constant/permanent/l/0                     
+finish                                                                          
+cmo/addatt//nconbnd/INT/scalar/scalar/constant/permanent/l/0                    
+finish                                                                          
+cmo/addatt//icontab/VINT/scalar/ncon50/constant/permanent/l/0.0                 
+finish                                                                          
+surface/s1/reflect/sheet/mo_surf1                                               
+cmo/addatt//v2/INT/scalar/scalar/constant/permanent//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//permanent/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/permanent//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/permanent/x/0.0                   
+finish                                                                          
+log/tty/off                                                                     
+finish                                                                          
+cmo/DELATT/s1 isetwd                                                            
+finish                                                                          
+cmo/DELATT/s1 ialias                                                            
+finish                                                                          
+cmo/DELATT/s1 imt1                                                              
+finish                                                                          
+cmo/DELATT/s1 itp1                                                              
+finish                                                                          
+cmo/DELATT/s1 icr1                                                              
+finish                                                                          
+cmo/DELATT/s1 isn1                                                              
+finish                                                                          
+cmo/DELATT/s1 xtetwd                                                            
+finish                                                                          
+cmo/DELATT/s1 itetclr                                                           
+finish                                                                          
+log/tty/on                                                                      
+finish                                                                          
+surface/s2/reflect/sheet/mo_surf2                                               
+cmo/addatt//v2/INT/scalar/scalar/constant/permanent//2.0                        
+finish                                                                          
+cmo/addatt//linkt/VINT/v2/nelements//permanent/x/0.0                            
+finish                                                                          
+cmo/addatt//v12/INT/scalar/scalar/constant/permanent//12.0                      
+finish                                                                          
+cmo/addatt//sbox/VDOUBLE/v12/nelements/linear/permanent/x/0.0                   
+finish                                                                          
+log/tty/off                                                                     
+finish                                                                          
+cmo/DELATT/s2 isetwd                                                            
+finish                                                                          
+cmo/DELATT/s2 ialias                                                            
+finish                                                                          
+cmo/DELATT/s2 imt1                                                              
+finish                                                                          
+cmo/DELATT/s2 itp1                                                              
+finish                                                                          
+cmo/DELATT/s2 icr1                                                              
+finish                                                                          
+cmo/DELATT/s2 isn1                                                              
+finish                                                                          
+cmo/DELATT/s2 xtetwd                                                            
+finish                                                                          
+cmo/DELATT/s2 itetclr                                                           
+finish                                                                          
+log/tty/on                                                                      
+finish                                                                          
+* -------                                                                       
+* REGIONS                                                                       
+* -------                                                                       
+*                                                                               
+cmo/select/full_mesh                                                            
+region/r2_aq/le s0 and gt s1                                                    
+region/r3_base/le s2                                                            
+region/r2_aq/gt s0 and le s1                                                    
+duplicate region - ignored: r2_aq                                               
+region/r3_base/gt s1 and le s2                                                  
+duplicate region - ignored: r3_base                                             
+* -----------------------------                                                 
+* POINT SETS FOR MATERIAL ZONES                                                 
+* -----------------------------                                                 
+# Regions                                                                       
+pset/p1/region r2_aq/1 0 0                                                      
+WARNING: MO has zero nodes                                                      
+WARNING: NO ACTION                                                              
+RETURN                                                                          
+pset/p2/region r3_base/1 0 0                                                    
+WARNING: MO has zero nodes                                                      
+WARNING: NO ACTION                                                              
+RETURN                                                                          
+# Fractures                                                                     
+pset/p_fracs/attribute/frac_index/1,0,0/2/eq                                    
+WARNING: MO has zero nodes                                                      
+WARNING: NO ACTION                                                              
+RETURN                                                                          
+* ----------                                                                    
+* DUMP FEHM                                                                     
+*-----------                                                                    
+cmo/setatt/full_mesh/imt/pset get p1/1                                          
+npoints = 0 in subroutine cmo_setatt                                            
+Warning: nelements = 0                                                          
+ 0 length attribute: imt1                                                       
+ 
+cmo/setatt/full_mesh/imt/pset get p2/2                                          
+npoints = 0 in subroutine cmo_setatt                                            
+Warning: nelements = 0                                                          
+ 0 length attribute: imt1                                                       
+ 
+cmo/setatt/full_mesh/imt/pset get p_fracs/3                                     
+npoints = 0 in subroutine cmo_setatt                                            
+Warning: nelements = 0                                                          
+ 0 length attribute: imt1                                                       
+ 
+dump/avs/zoned_mesh.inp/full_mesh                                               
+WARNING: dumpavs                                                                
+WARNING: nnodes=0 nelements = 0                                                 
+WARNING: No output                                                              
+dump/fehm/mesh/full_mesh                                                        
+*** Write FEHMN GEOM AND ZONE FILES ***                                         
+*********dump_material_lists********                                            
+Minimum material ID value = ******                                              
+Maximum material ID value = ******                                              
+Total possible materials  = ******                                              
+*********dump_interface_list********                                            
+*********dump_multi_material_list********                                       
+log/tty/off                                                                     
+finish                                                                          
+*********dump_outside_list********                                              
+Voronoi Areas used for outside faces.                                           
+ 
+assign_quadrant_id epsilon for zero:   1.0000000E-15                            
+                    Error from:   mask_icr                          cmo_get_info
+ 
+WARNING: itp1 not set for this mesh - use resetpts/itp                          
+ 
+cmo/addatt/full_mesh/top/vint/scalar/nnodes/linear/permanent/afgx/-5.0/         
+finish                                                                          
+cmo/addatt/full_mesh/bottom/vint/scalar/nnodes/linear/permanent/afgx/-5.0/      
+finish                                                                          
+cmo/addatt/full_mesh/left_w/vint/scalar/nnodes/linear/permanent/afgx/-5.0/      
+finish                                                                          
+cmo/addatt/full_mesh/right_e/vint/scalar/nnodes/linear/permanent/afgx/-5.0/     
+finish                                                                          
+cmo/addatt/full_mesh/back_n/vint/scalar/nnodes/linear/permanent/afgx/-5.0/      
+finish                                                                          
+cmo/addatt/full_mesh/front_s/vint/scalar/nnodes/linear/permanent/afgx/-5.0/     
+finish                                                                          
+cmo/DELATT//top                                                                 
+finish                                                                          
+cmo/DELATT//bottom                                                              
+finish                                                                          
+cmo/DELATT//left_w                                                              
+finish                                                                          
+cmo/DELATT//right_e                                                             
+finish                                                                          
+cmo/DELATT//back_n                                                              
+finish                                                                          
+cmo/DELATT//front_s                                                             
+finish                                                                          
+log/tty/on                                                                      
+finish                                                                          
+*********dump_parent_list********                                               
+ 
+*** Construct and Compress Sparse Matrix:3D ***                                 
+   *** Compress Area Coefficient Values ***                                     
+ 
+AMatbld3d_stor: cmo has no points: full_mesh                                    
+ 
+ 
+AMatbld3d_stor: ERROR could not finish:    -1                                   
+Attempted sparse matrix with graph and coefficient values                       
+with coefficients written as scalar area/distance                               
+ 
+  *** _astor SPARSE COEFFICIENT MATRIX ERROR ***                                
+*** INCOMPLETE or NO STOR FILE WRITTEN!! ***                                    
+ 
+finish                                                                          
+LaGriT successfully completed                                                   
